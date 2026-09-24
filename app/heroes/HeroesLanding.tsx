@@ -19,6 +19,7 @@ import {
   Wind,
   Zap,
 } from "lucide-react";
+import { programs, site } from "@/lib/site";
 import styles from "./heroes.module.css";
 
 const stages = [
@@ -29,10 +30,10 @@ const stages = [
       "Bravo doesn’t tell children to stop feeling scared. He shows them how to feel scared, take a brave breath, ask for help, and try anyway. As children help Bravo through his challenges, they begin to recognize the courage already inside themselves.",
   },
   {
-    eyebrow: "WEARABLE EXPRESSION TECHNOLOGY",
-    title: "Safe. Screenless. Captivating.",
+    eyebrow: "PATENT PENDING TECH",
+    title: "Screenless. Yet Captivating Wearable Expression System.",
     body:
-      "Bravo’s expressive voice and familiar personality stay consistent from one visit to the next. Produced ahead of time with AI and delivered through a screenless performance platform, he can speak, sing, laugh, and lead the adventure while a real performer brings the movement, eye contact, and play.",
+      "Jawly is an education technology platform, not a costumed performer. Bravo speaks through a patent-pending wearable expression system — a rich character voice, produced ahead of time with AI rather than improvised by an actor in the moment. Delivered through screenless wearable hardware, that same voice and personality show up the same way in every visit, while a real performer brings the movement, eye contact, and play.",
   },
   {
     eyebrow: "HEAR IT FOR YOURSELF",
@@ -81,7 +82,7 @@ const videos = [
     title: "Dancing to the Theme Song",
     shortTitle: "Dance to the Theme Song",
     invitation: "Watch Bravo turn the theme song into a room-wide movement moment.",
-    thumbnail: "https://i.vimeocdn.com/video/2202073037-4c18494f83cb23ab9ce73d69f14ee55f56c701422bb5ff9c8c08fe15fb41717f-d_640x360?region=us",
+    thumbnail: "/heroes/video-dance.jpg",
   },
   {
     id: "1227770633",
@@ -89,7 +90,7 @@ const videos = [
     title: "Flying Down Low Like a Sneaky Hero",
     shortTitle: "Sneaky Hero Flight",
     invitation: "See how one playful movement cue turns the whole class into sneaky heroes.",
-    thumbnail: "https://i.vimeocdn.com/video/2202071049-906bee38409db1f80b0fe901f77bc28cc4a5b35a9f5805a471b1598e9733adfa-d_640x360?region=us",
+    thumbnail: "/heroes/video-sneaky.jpg",
   },
   {
     id: "1227770634",
@@ -97,7 +98,7 @@ const videos = [
     title: "Hero Training — Power Squeezes",
     shortTitle: "Power Squeezes",
     invitation: "Join a quick hero-training exercise that gives big energy a focused place to go.",
-    thumbnail: "https://i.vimeocdn.com/video/2202070949-e0b48cce50a376fb00abef57b6ad5d00a658b4eb93f974fb83ddafda3ace6cd1-d_640x360?region=us",
+    thumbnail: "/heroes/video-power.jpg",
   },
   {
     id: "1227772182",
@@ -105,7 +106,7 @@ const videos = [
     title: "Bravo & Little Legends Cross the Wobbly Bridge",
     shortTitle: "The Wobbly Bridge",
     invitation: "Watch Bravo and the Little Legends practice courage one wobbly step at a time.",
-    thumbnail: "https://i.vimeocdn.com/video/2202072929-97ccae42f984403d10b15e1fb8bd6a505dfab2f6071fe746974f81d9af8ee49c-d_640x360?region=us",
+    thumbnail: "/heroes/video-wobbly.jpg",
   },
   {
     id: "1227770632",
@@ -113,14 +114,14 @@ const videos = [
     title: "Find Your Bravo — The Theme Song",
     shortTitle: "The Theme Song",
     invitation: "Hear the song that gives every visit its shared rhythm, language, and heroic lift.",
-    thumbnail: "https://i.vimeocdn.com/video/2202071158-e1c39b6bda7cd2a0d559a03d2481c5ca6bf762ebcbef4d66241f4362a37c4217-d_640x360?region=us",
+    thumbnail: "/heroes/video-theme.jpg",
   },
 ];
 
 const teacherTestimonials = [
-  { quote: "It beat the sports and movement classes we already run — no contest.", attribution: "[Teacher name] · Week 2 of Heroes - Kiddie Academy" },
-  { quote: "Several children now bring him up on their own, between visits — he's become someone they think about.", attribution: "Kari's classroom, Week 3 of Heroes - Kinder care" },
-  { quote: "Almost mesmerized, not scared like expected.", attribution: "[Teacher name] · [School name]" },
+  { quote: "It beat the sports and movement classes we already run — no contest.", attribution: "Lead Teacher - KinderCare" },
+  { quote: "Several children now bring him up on their own, between visits — he's become someone they think about.", attribution: "Teacher - Kids R Kids" },
+  { quote: "Almost mesmerized, not scared like expected.", attribution: "Center Director - FinderCare" },
 ];
 
 function clamp(value: number, min = 0, max = 1) {
@@ -188,21 +189,11 @@ export default function HeroesLanding() {
     const subject = encodeURIComponent("Free Heroes demo invite");
     const body = encodeURIComponent(`Hi Jawly,\n\nPlease send the scheduling link for a free, 30-minute Heroes classroom demo to ${inviteEmail.trim()}.\n\nCenter name:\nYour name:\n`);
     setInviteDraftOpened(true);
-    window.location.href = `mailto:kyle@jawly.kids?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${site.salesEmail}?subject=${subject}&body=${body}`;
   };
 
   return (
     <main className={styles.page}>
-      <header className={styles.header}>
-        <a className={styles.wordmark} href="#top" aria-label="Jawly home">Jawly</a>
-        <nav aria-label="Primary navigation">
-          <a href="#experience">The experience</a>
-          <a href="#journey">The journey</a>
-          <a href="#proof">Proof</a>
-          <a className={styles.navCta} href="#calendar">Get a free demo</a>
-        </nav>
-      </header>
-
       <section id="top" className={styles.hero}>
         <img className={styles.heroBackdrop} src="/heroes/figma-hero-background.png" alt="" aria-hidden="true" />
         <div className={styles.heroCopy}>
@@ -350,6 +341,7 @@ export default function HeroesLanding() {
               </button>
             ))}
           </div>
+          <p className={styles.videoDisclosure}>{"Every clip above is genuine, unscripted footage from a real Jawly classroom — we’ve used AI to alter the children’s faces to protect their privacy."}</p>
         </div>
       </section>
 
@@ -448,7 +440,7 @@ export default function HeroesLanding() {
             </article>
             <article className={styles.callCard}>
               <h4>Call us now</h4>
-              <a href="tel:+18887752959">1-888-77-JAWLY</a>
+              <a href={site.phoneHref}>{site.phoneDisplay}</a>
               <p>We pick up fast and connect you live for anything more.</p>
             </article>
           </div>
@@ -459,22 +451,24 @@ export default function HeroesLanding() {
         <button type="button" className={styles.scheduleDialogClose} onClick={() => schedulingDialogRef.current?.close()} aria-label="Close scheduling">×</button>
         <h2 id="schedule-dialog-title">Schedule a meeting</h2>
         <p>Online scheduling is coming soon. For now, call us and we’ll find a time together.</p>
-        <a href="tel:+18887752959">Call 1-888-77-JAWLY</a>
+        <a href={site.phoneHref}>Call {site.phoneDisplay}</a>
       </dialog>
 
       <section className={styles.moreSection}>
         <div className={styles.sectionHeading}><p className={styles.eyebrow}>CONTINUE THE STORY</p><h2>Bravo is one hero in a growing world.</h2></div>
         <div className={styles.moreGrid}>
-          <a href="#" className={styles.programCard}><span className={styles.cosmos}>✦</span><div><small>COSMOS</small><h3>Orla Orbit · The Knowledge Journey</h3><p>Meet Orla Orbit <ArrowRight size={16} /></p></div></a>
-          <a href="#" className={styles.programCard}><span className={styles.tides}>≈</span><div><small>TIDES</small><h3>Mira · The Discovery Journey</h3><p>Meet Mira <ArrowRight size={16} /></p></div></a>
+          {programs.filter((program) => program.status !== "live").map((program) => (
+            <article key={program.slug} className={`${styles.programCard} ${styles.programCardSoon}`}>
+              <span className={styles[program.tone]}>{program.mark}</span>
+              <div>
+                <small>{program.label.toUpperCase()}</small>
+                <h3>{program.character} · {program.journey}</h3>
+                <p>Coming soon</p>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
-
-      <footer className={styles.footer}>
-        <strong>Jawly</strong>
-        <div><a href="#top">Home</a><a href="#experience">Programs</a><a href="#proof">Why Jawly</a><a href="#calendar">Talk to Us</a></div>
-        <p>Sales &amp; Service<br /><a href="tel:+18887752959">1-888-77-JAWLY</a></p>
-      </footer>
     </main>
   );
 }
