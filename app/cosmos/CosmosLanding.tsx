@@ -232,6 +232,11 @@ export default function CosmosLanding() {
           <h2>{cosmosCopy.galleryTitle}</h2>
           <p>{cosmosCopy.galleryLead}</p>
         </div>
+        <div className={styles.videoGalleryPlaceholder}>
+          <h3>Video gallery coming soon</h3>
+          <p>We&apos;re updating this section with new footage — check back shortly.</p>
+        </div>
+        {/* Gallery hidden while new footage is prepared. Restore this block, and re-apply the JAW-181 width fix on .videoDisclosure, when the videos return.
         <div className={styles.videoGallery}>
           <div className={styles.featuredVideo}>
             <div className={styles.videoFrame}>
@@ -267,6 +272,7 @@ export default function CosmosLanding() {
           </div>
           <p className={styles.videoDisclosure}>{"Every clip above is genuine, unscripted footage from a real Jawly classroom — we’ve used AI to alter the children’s faces to protect their privacy."}</p>
         </div>
+        */}
       </section>
 
       <section id="proof" className={styles.proofSection}>
