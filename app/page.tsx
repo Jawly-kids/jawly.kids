@@ -89,7 +89,7 @@ export default function Home() {
           </div>
         </article>
 
-        <article className={`${styles.adventureRow} ${styles.tidesRow} ${styles.rightCopyRow}`}>
+        <Link href="/tides" className={`${styles.adventureRow} ${styles.tidesRow} ${styles.rightCopyRow}`}>
           <div className={styles.adventureImage}><img src="/homepage/Tides_for_Jawly_HomePage.png" alt="Mira and young explorers discovering a colorful ocean world" /></div>
           <div className={styles.adventureCopy}>
             <p className={styles.worldLabel}>Tides · Coming Soon</p>
@@ -99,7 +99,7 @@ export default function Home() {
             <p>An ocean adventure is on the horizon. Children will move, imagine, and explore a vibrant underwater world alongside Mira.</p>
             <span className={styles.comingSoon}>Coming Soon</span>
           </div>
-        </article>
+        </Link>
       </section>
 
       <section className={styles.liveSection} id="live" aria-labelledby="live-title">

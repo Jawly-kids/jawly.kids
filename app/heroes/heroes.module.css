@@ -234,7 +234,7 @@
 .moreSection { background: white; }
 .moreSection .sectionHeading h2 { font-size: clamp(2.5rem, 4vw, 3.7rem); }
 .moreGrid { width: min(1180px, 100%); margin: auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-.programCard { min-height: 240px; display: grid; grid-template-columns: 190px 1fr; background: #fafafa; border: 1px solid #ececec; border-radius: 14px; overflow: hidden; }
+.programCard { min-height: 240px; display: grid; grid-template-columns: 190px 1fr; background: #fafafa; border: 1px solid #ececec; border-radius: 14px; overflow: hidden; color: inherit; text-decoration: none; }
 .programCard > span { display: grid; place-items: center; color: white; font: 700 4rem/1 var(--font-display); }
 .heroes { background: var(--red); }
 .cosmos { background: var(--deep); }

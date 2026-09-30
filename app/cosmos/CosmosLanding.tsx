@@ -415,10 +415,8 @@ export default function CosmosLanding() {
                 </div>
               </>
             );
-            return program.status === "live" ? (
-              <Link key={slug} href={program.href} className={styles.programCard}>{card}</Link>
-            ) : (
-              <article key={slug} className={`${styles.programCard} ${styles.programCardSoon}`}>{card}</article>
+            return (
+              <Link key={slug} href={program.href} className={`${styles.programCard} ${program.status === "live" ? "" : styles.programCardSoon}`}>{card}</Link>
             );
           })}
         </div>

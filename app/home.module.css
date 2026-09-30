@@ -87,7 +87,7 @@
 .adventuresIntro .eyebrowDark { grid-column: 1 / -1; }
 .adventuresIntro h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); }
 .adventuresIntro > p:last-child { margin: 0 0 8px; color: var(--muted); font-size: 1.12rem; line-height: 1.6; }
-.adventureRow { position: relative; isolation: isolate; width: min(1320px, 100%); min-height: clamp(600px, 51vw, 720px); margin: 0 auto 54px; display: flex; align-items: center; overflow: hidden; color: white; }
+.adventureRow { position: relative; isolation: isolate; width: min(1320px, 100%); min-height: clamp(600px, 51vw, 720px); margin: 0 auto 54px; display: flex; align-items: center; overflow: hidden; color: white; text-decoration: none; }
 .adventureRow::after { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgba(10,18,29,.9) 0%, rgba(10,18,29,.7) 32%, rgba(10,18,29,.2) 58%, transparent 78%); }
 .rightCopyRow { justify-content: flex-end; }
 .rightCopyRow::after { background: linear-gradient(270deg, rgba(10,18,29,.9) 0%, rgba(10,18,29,.7) 32%, rgba(10,18,29,.2) 58%, transparent 78%); }
@@ -111,6 +111,7 @@
 .cosmosRow .adventureImage img { object-position: center; }
 .cosmosRow .worldLabel { color: #43c7d9; }
 .tidesRow { background: #075c78; }
+.tidesRow:focus-visible { outline: 3px solid rgba(255,255,255,.8); outline-offset: -6px; }
 .tidesRow .adventureImage img { object-position: center; }
 .tidesRow .worldLabel { color: #d7fbf5; }
 .comingSoon { align-self: flex-start; margin-top: 34px; padding: 10px 14px; border: 1px solid rgba(255,255,255,.55); border-radius: 999px; font: 700 .75rem/1 var(--font-display); letter-spacing: .14em; text-transform: uppercase; }
