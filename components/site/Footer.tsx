@@ -14,6 +14,8 @@ export default function Footer() {
           </Link>
         ))}
         <a href={livePrograms[0] ? `${livePrograms[0].href}#calendar` : "/"}>Talk to us</a>
+        <Link href="/privacy">Privacy</Link>
+        <Link href="/term">Terms</Link>
       </div>
       <p>
         Sales &amp; Service
