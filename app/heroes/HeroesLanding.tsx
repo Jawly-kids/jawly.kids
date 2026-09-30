@@ -19,6 +19,7 @@ import {
   Wind,
   Zap,
 } from "lucide-react";
+import CheckArea from "@/components/availability/CheckArea";
 import { programs, site } from "@/lib/site";
 import styles from "./heroes.module.css";
 
@@ -220,6 +221,7 @@ export default function HeroesLanding() {
             <span className={styles.basicsIcon} aria-hidden="true"><Target size={22} strokeWidth={2.5} /></span>
             <h2>Serving Chicagoland daycares + preschools</h2>
             <p>Find out if we can bring Heroes to your center.</p>
+            <CheckArea className={styles.basicsCta} demoHref="#calendar" page="heroes" />
           </article>
         </div>
       </section>
