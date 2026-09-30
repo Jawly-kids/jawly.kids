@@ -99,7 +99,6 @@ export default function WhyJawlyPage() {
               <h2>{reason.title}</h2>
               <p className={styles.body}>{reason.body}</p>
 
-              {"note" in reason ? <p className={styles.note}>{reason.note}</p> : null}
               {"quote" in reason ? <blockquote>{reason.quote}<cite>{"quoteSource" in reason ? reason.quoteSource : "Jawly classroom observation"}</cite></blockquote> : null}
               {"verbs" in reason ? <ul className={styles.verbs}>{reason.verbs.map((verb) => <li key={verb}>{verb}</li>)}</ul> : null}
               {"equation" in reason ? <div className={styles.equation} aria-label="Crafted experience plus human performance">{reason.equation.map((item) => <span key={item}>{item}</span>)}</div> : null}
