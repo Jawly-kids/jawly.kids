@@ -132,6 +132,7 @@
 
 .footer > div {
   display: flex;
+  flex-wrap: wrap;
   gap: 25px;
   font-size: 0.9rem;
 }
@@ -190,11 +191,20 @@
 
 @media (max-width: 700px) {
   .tier1 {
-    padding-inline: 20px;
+    height: auto;
+    min-height: 64px;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 4px;
+    padding: 8px 20px;
   }
 
-  .tier1 nav > a:not(.navCta) {
-    display: none;
+  .tier1 nav {
+    flex: 1 1 180px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px 14px;
+    min-width: 0;
   }
 
   .tier2 {

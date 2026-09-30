@@ -204,7 +204,7 @@
   .hero { min-height: 920px; align-items: flex-start; }
   .heroBackground { object-position: 58% center; }
   .heroAtmosphere { background: rgba(255,252,244,.56); }
-  .heroCopy { width: auto; margin: 0; padding: 140px 24px 0; }
+  .heroCopy { width: auto; margin: 0; padding: calc(var(--header-height) + 76px) 24px 0; }
   .hero h1 { font-size: clamp(3.3rem, 15vw, 5rem); }
   .heroActions { align-items: flex-start; flex-direction: column; gap: 12px; }
   .heroPerformers { right: -20vw; width: 118vw; }
