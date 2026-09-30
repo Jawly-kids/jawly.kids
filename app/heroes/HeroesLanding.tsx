@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import {
   ArrowRight,
   Activity,
@@ -19,6 +20,7 @@ import {
   Wind,
   Zap,
 } from "lucide-react";
+import CheckArea from "@/components/availability/CheckArea";
 import { programs, site } from "@/lib/site";
 import styles from "./heroes.module.css";
 
@@ -220,6 +222,7 @@ export default function HeroesLanding() {
             <span className={styles.basicsIcon} aria-hidden="true"><Target size={22} strokeWidth={2.5} /></span>
             <h2>Serving Chicagoland daycares + preschools</h2>
             <p>Find out if we can bring Heroes to your center.</p>
+            <CheckArea className={styles.basicsCta} demoHref="#calendar" page="heroes" />
           </article>
         </div>
       </section>
@@ -464,14 +467,14 @@ export default function HeroesLanding() {
         <div className={styles.sectionHeading}><p className={styles.eyebrow}>CONTINUE THE STORY</p><h2>Bravo is one hero in a growing world.</h2></div>
         <div className={styles.moreGrid}>
           {programs.filter((program) => program.status !== "live").map((program) => (
-            <article key={program.slug} className={`${styles.programCard} ${styles.programCardSoon}`}>
+            <Link key={program.slug} href={program.href} className={`${styles.programCard} ${styles.programCardSoon}`}>
               <span className={styles[program.tone]}>{program.mark}</span>
               <div>
                 <small>{program.label.toUpperCase()}</small>
                 <h3>{program.character} · {program.journey}</h3>
                 <p>Coming soon</p>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </section>

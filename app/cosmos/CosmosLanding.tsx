@@ -20,6 +20,7 @@ import {
   Wind,
   Zap,
 } from "lucide-react";
+import CheckArea from "@/components/availability/CheckArea";
 import { cosmosCopy } from "@/content/programs/cosmos";
 import { programs, site } from "@/lib/site";
 import styles from "../heroes/heroes.module.css";
@@ -136,6 +137,9 @@ export default function CosmosLanding() {
                 <span className={styles.basicsIcon} aria-hidden="true"><Icon size={iconSize} strokeWidth={strokeWidth} /></span>
                 <h2>{card.title}</h2>
                 <p>{card.body}</p>
+                {card.title.startsWith("Serving Chicagoland") && (
+                  <CheckArea className={styles.basicsCta} demoHref="#calendar" page="cosmos" />
+                )}
               </article>
             );
           })}
@@ -411,10 +415,8 @@ export default function CosmosLanding() {
                 </div>
               </>
             );
-            return program.status === "live" ? (
-              <Link key={slug} href={program.href} className={styles.programCard}>{card}</Link>
-            ) : (
-              <article key={slug} className={`${styles.programCard} ${styles.programCardSoon}`}>{card}</article>
+            return (
+              <Link key={slug} href={program.href} className={`${styles.programCard} ${program.status === "live" ? "" : styles.programCardSoon}`}>{card}</Link>
             );
           })}
         </div>
