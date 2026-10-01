@@ -343,11 +343,15 @@ export default function HeroesLanding() {
               ? "/homepage/Cosmos_for_Jawly_HomePage.png"
               : "/homepage/Tides_for_Jawly_HomePage.png";
             return (
-              <Link key={program.slug} href={program.href} className={styles.otherProgramCard}>
+              <Link
+                key={program.slug}
+                href={program.href}
+                className={`${styles.otherProgramCard} ${program.slug === "tides" ? styles.otherProgramRight : styles.otherProgramLeft}`}
+              >
                 <img src={image} alt="" />
                 <div>
                   <small>{program.label}{program.status === "draft" ? " · Coming Soon" : ""}</small>
-                  <h3>{program.character}</h3>
+                  <h3>{program.slug === "cosmos" ? "Stardusters - Glow and Go" : "Mighty Minnows - Tiny Fins. Kindness Wins."}</h3>
                   <p>{program.summary}</p>
                   <strong>{program.status === "draft" ? "Preview Tides" : `Explore ${program.label}`} <span aria-hidden="true">→</span></strong>
                 </div>
