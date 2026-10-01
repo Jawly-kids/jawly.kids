@@ -319,7 +319,7 @@
 .footer {
   padding: 72px max(4vw, 24px) 28px;
   color: rgb(255 253 249 / .9);
-  background: var(--asphalt);
+  background: var(--ink);
 }
 
 .footerInner {
