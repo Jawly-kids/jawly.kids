@@ -35,13 +35,29 @@
   --deep: var(--program-foundation);
   /* Not in Color System v2. Footer still uses this value. */
   --asphalt: #4a4e54;
-  --font-sans: var(--font-source-sans), "Source Sans 3", sans-serif;
-  --font-display: var(--font-space-grotesk), "Space Grotesk", sans-serif;
-  --header-height: 72px;
+  --font-sans: var(--font-inter), "Inter", sans-serif;
+  --font-display: var(--font-nunito), "Nunito", sans-serif;
+  --content-width: 1180px;
+  --content-width-wide: 1240px;
+  --radius-button: 12px;
+  --radius-card: 16px;
+  --shadow-floating: 0 4px 12px rgb(42 37 33 / .1), 0 2px 4px rgb(42 37 33 / .06);
+  --shadow-overlay: 0 16px 40px rgb(42 37 33 / .14), 0 4px 8px rgb(42 37 33 / .08);
+  --eyebrow-font: 600 .6875rem/1 var(--font-sans);
+  --eyebrow-tracking: .16em;
+  --eyebrow-gap: 22px;
+  --section-heading-font: 800 clamp(2.5rem, 4vw, 3.5rem)/1 var(--font-display);
+  --section-heading-tracking: -.035em;
+  --tier1-height: 72px;
+  --tier2-height: 0px;
+  --header-height: calc(var(--tier1-height) + var(--tier2-height));
+}
+
+html:has(nav[aria-label="On this page"]) {
+  --tier2-height: 40px;
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-height) + 8px);
 }
 
@@ -52,30 +68,19 @@ body {
   font-family: var(--font-sans);
 }
 
-@media (max-width: 700px) {
-  :root {
-    --header-height: 64px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-}
-
-/* The homepage gateway fills the viewport and hides the shared site chrome. */
-body:has(main[data-homepage]) {
-  overflow: hidden;
-}
-
-body:has(main[data-homepage]) > header,
-body:has(main[data-homepage]) > footer {
-  display: none;
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
 
 @media (max-width: 760px) {
-  body:has(main[data-homepage]) {
-    overflow-y: auto;
+  :root,
+  html:has(nav[aria-label="On this page"]) {
+    --tier1-height: 64px;
+    --tier2-height: 0px;
   }
 }
+
+body:has(main[data-homepage]) { background: var(--paper); }

@@ -1,9 +1,9 @@
 export const site = {
   name: "Jawly",
   description: "Live character adventures for early childhood classrooms.",
-  salesEmail: "kyle@jawly.kids",
   phoneDisplay: "1-888-77-JAWLY",
   phoneHref: "tel:+18887752959",
+  scheduleHref: "https://calendar.app.google/BRyt623ZvDnUqATH8",
 } as const;
 
 export type ProgramStatus = "live" | "draft";
@@ -14,6 +14,8 @@ export type SiteProgram = {
   label: string;
   character: string;
   journey: string;
+  summary: string;
+  thumbnail: string;
   mark: string;
   tone: "cosmos" | "tides" | "heroes";
   status: ProgramStatus;
@@ -26,6 +28,8 @@ export const programs: SiteProgram[] = [
     label: "Heroes",
     character: "Bravo",
     journey: "The Courage Journey",
+    summary: "Courage, teamwork, and movement.",
+    thumbnail: "/homepage/heroes_Nav.jpg",
     mark: "★",
     tone: "heroes",
     status: "live",
@@ -36,6 +40,8 @@ export const programs: SiteProgram[] = [
     label: "Cosmos",
     character: "Orla Orbit",
     journey: "The Knowledge Journey",
+    summary: "Wonder, discovery, and real science.",
+    thumbnail: "/homepage/cosmos_Nav.jpg",
     mark: "✦",
     tone: "cosmos",
     status: "live",
@@ -46,6 +52,8 @@ export const programs: SiteProgram[] = [
     label: "Tides",
     character: "Mira",
     journey: "The Discovery Journey",
+    summary: "Kindness, movement, and ocean discovery.",
+    thumbnail: "/homepage/tides_Nav.jpg",
     mark: "≈",
     tone: "tides",
     status: "draft",
@@ -54,21 +62,41 @@ export const programs: SiteProgram[] = [
 
 export const livePrograms = programs.filter((program) => program.status === "live");
 
-export const programSections: Record<string, { href: string; label: string }[]> = {
-  "/heroes": [
-    { href: "#experience", label: "The experience" },
-    { href: "#journey", label: "The journey" },
-    { href: "#proof", label: "Proof" },
+export type SiteLink = { href: string; label: string };
+
+/** Tier 1. Identical on every educator-track route. Programs stays a plain link until JAW-184. */
+export const globalNav: SiteLink[] = [
+  { href: "/", label: "Home" },
+  { href: "/heroes", label: "Programs" },
+  { href: "/why-jawly", label: "Why Jawly" },
+  { href: "/trust-safety", label: "Trust & Safety" },
+];
+
+/** Tier 2 in-page anchors, keyed by path. Any route can opt in. */
+export const pageSections: Record<string, SiteLink[]> = {
+  "/why-jawly": [
+    { href: "#physical-world", label: "The reasons" },
+    { href: "#rhythm", label: "The rhythm" },
+    { href: "#evidence", label: "The thinking" },
   ],
-  "/cosmos": [
-    { href: "#experience", label: "The experience" },
-    { href: "#journey", label: "The journey" },
-    { href: "#proof", label: "Proof" },
+  "/trust-safety": [
+    { href: "#privacy", label: "Privacy" },
+    { href: "#documentation", label: "Filming" },
+    { href: "#personal", label: "Personalization" },
+    { href: "#people", label: "People" },
+    { href: "#standards", label: "Standards" },
   ],
 };
 
-export function demoHref(pathname: string) {
-  if (programSections[pathname]) return "#calendar";
-  const destination = livePrograms[0]?.href ?? "/";
-  return `${destination}#calendar`;
+/** Full-bleed first screen. The header stays transparent until the page scrolls. */
+export function headerOverlaysHero(pathname: string) {
+  return pathname === "/" || pathname === "/heroes" || pathname === "/cosmos" || pathname === "/why-jawly";
+}
+
+/**
+ * Dark hero art under a transparent bar. Light type is a contrast stand-in
+ * until the nav wireframe (frames 01–04) can be checked.
+ */
+export function headerOverlayUsesLightType(pathname: string) {
+  return pathname === "/cosmos";
 }
