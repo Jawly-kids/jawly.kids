@@ -41,12 +41,13 @@
 .stats p { max-width: 270px; margin: 18px 0 0; color: rgb(255 255 255 / .75); line-height: 1.45; }
 .testimonials { position: relative; padding: 94px 72px 88px; }
 .testimonials::before { content: "“"; position: absolute; left: -10px; top: 18px; color: rgb(255 255 255 / .09); font: 900 clamp(12rem, 20vw, 18rem)/1 var(--font-display); pointer-events: none; }
-.testimonialViewport { overflow: hidden; }
+.testimonials::after { content: "”"; position: absolute; right: 8px; bottom: 12px; color: rgb(0 0 0 / .09); font: 900 clamp(7rem, 11vw, 10rem)/.7 var(--font-display); pointer-events: none; }
+.testimonialViewport { position: relative; z-index: 1; overflow: hidden; }
 .testimonialTrack { display: flex; transition: transform 650ms cubic-bezier(.22, 1, .36, 1); }
 .testimonialTrack blockquote { flex: 0 0 100%; min-width: 0; margin: 0; }
 .testimonialTrack p { position: relative; max-width: 850px; margin: 0; font: 700 clamp(1.9rem, 3.1vw, 2.8rem)/1.18 var(--font-display); letter-spacing: -.025em; }
 .testimonialTrack cite { position: relative; display: block; margin-top: 26px; color: rgb(255 255 255 / .72); font-style: normal; line-height: 1.55; }
-.testimonialDots { margin-top: 34px; display: flex; gap: 9px; }
+.testimonialDots { position: relative; z-index: 1; margin-top: 34px; display: flex; gap: 9px; }
 .testimonialDots button { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%; background: rgb(255 255 255 / .32); cursor: pointer; }
 .testimonialDots button[aria-pressed="true"] { width: 25px; border-radius: 8px; background: var(--yellow); }
 .testimonialDots button:focus-visible { outline: 2px solid white; outline-offset: 4px; }
@@ -98,6 +99,7 @@
   .proofHeading h2, .easyCopy h2 { font-size: 2.65rem; }
   .stats { grid-template-columns: 1fr; }
   .testimonials { padding: 88px 0 78px 44px; }
+  .testimonials::after { right: 0; bottom: 8px; }
   .trustCard { grid-template-columns: 1fr; }
 }
 
