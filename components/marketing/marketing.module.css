@@ -177,7 +177,7 @@
 .leadReceived strong { font: 800 1.55rem/1.15 var(--font-display); }
 .leadReceived p { margin: 12px 0 0; color: var(--muted); line-height: 1.55; }
 .leadReceived button { margin-top: 24px; padding: 8px 0 5px; color: var(--lead-bg); background: none; border: 0; border-bottom: 1px solid currentColor; font: 700 .92rem var(--font-display); cursor: pointer; }
-.leadSecondary { margin-top: 28px; display: grid; grid-template-columns: 1.15fr repeat(3, 1fr); gap: 12px; }
+.leadSecondary { margin-top: 28px; display: grid; grid-template-columns: minmax(0, 1.6fr) repeat(2, minmax(0, 1fr)); gap: 12px; }
 .leadSecondary > div, .leadSecondary > a, .leadSecondary > button { min-height: 126px; padding: 24px; box-sizing: border-box; }
 .leadSecondary > div { display: flex; flex-direction: column; justify-content: center; }
 .leadSecondary > div p { margin: 0; color: var(--muted); font-size: .84rem; }
@@ -196,7 +196,7 @@
   .easyCopy { grid-template-columns: 1fr; }
   .trustCard { width: 100%; }
   .leadMain { grid-template-columns: 1fr; }
-  .leadSecondary { grid-template-columns: repeat(3, 1fr); }
+  .leadSecondary { grid-template-columns: repeat(2, 1fr); }
   .leadSecondary > div { grid-column: 1 / -1; min-height: auto; padding: 10px 0; }
 }
 
