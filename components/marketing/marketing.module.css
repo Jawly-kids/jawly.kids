@@ -87,8 +87,9 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
 }
-.galleryPlaceholder h3 { margin: 0; font: 800 clamp(2rem, 3vw, 3rem)/1.08 var(--font-display); letter-spacing: -.035em; }
-.galleryPlaceholder p { margin: 24px 0 0; color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.25rem); line-height: 1.5; }
+.galleryPlaceholder > svg { width: 32px; height: 32px; margin-bottom: 20px; color: rgb(92 96 104 / .62); stroke-width: 1.55; }
+.galleryPlaceholder h3 { margin: 0; color: #5c6068; font: 800 clamp(1.55rem, 2.25vw, 2.15rem)/1.1 var(--font-display); letter-spacing: -.025em; }
+.galleryPlaceholder p { margin: 18px 0 0; color: var(--muted); font-size: clamp(.95rem, 1.25vw, 1.12rem); line-height: 1.5; }
 
 .reassurance { padding: 120px max(7vw, 48px); color: var(--ink); background: var(--quiet); }
 .easyCopy { width: min(var(--content-width), 100%); margin: 0 auto; display: grid; grid-template-columns: 1.15fr .85fr; gap: 28px 9vw; }
