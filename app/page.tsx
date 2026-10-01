@@ -73,7 +73,7 @@ export default function Home() {
               <img src="/homepage/Find_Your_Bravo_By_Jawly.png" alt="Find Your Bravo: The Courage Within" />
             </h3>
             <p>A six-visit adventure where children join Bravo to face challenges, work together, move their bodies, and discover what courage can feel like in everyday life.</p>
-            <Link href="/heroes">Explore Heroes</Link>
+            <Link className={styles.textCta} href="/heroes">Explore Heroes <span aria-hidden="true">→</span></Link>
           </div>
         </article>
 
@@ -85,7 +85,7 @@ export default function Home() {
               <img src="/homepage/Stardusters_by_Jawly.png" alt="Stardusters: Glow and Go" />
             </h3>
             <p>Children join Orla on a six-visit journey through space, moving, imagining, discovering, and bringing real science ideas back down to Earth.</p>
-            <Link href="/cosmos">Explore Cosmos</Link>
+            <Link className={styles.textCta} href="/cosmos">Explore Cosmos <span aria-hidden="true">→</span></Link>
           </div>
         </article>
 
@@ -150,7 +150,7 @@ export default function Home() {
           <p className={styles.eyebrowDark}>Why Jawly</p>
           <h2 id="meaning-title">A live show, a movement class, and a calm-down ritual. All in one.</h2>
           <p>Jawly combines beloved recurring characters, a real performer, and thoughtfully designed technology to draw children into singing, dancing, imagining, cooperating, learning, and finally slowing down together.</p>
-          <Link href="/why-jawly">See Why Jawly Works <span aria-hidden="true">→</span></Link>
+          <Link className={styles.textCta} href="/why-jawly">See Why Jawly Works <span aria-hidden="true">→</span></Link>
         </div>
         <div className={styles.meaningReasons}>
           <article><span className={styles.reasonMark} aria-hidden="true"><Heart /></span><div><h3>A character to care about</h3><span>Children remember Bravo and Orla, talk about them between visits, and anticipate their return.</span></div></article>
@@ -175,7 +175,7 @@ export default function Home() {
             <p className={styles.eyebrowDark}>Trust &amp; Safety</p>
             <h3>Carefully designed for the people and places that trust us.</h3>
             <p>Jawly pairs thoughtful technology with trained people and clear boundaries around children’s information.</p>
-            <Link href="/trust-safety">Our approach to Trust &amp; Safety</Link>
+            <Link className={styles.textCta} href="/trust-safety">Our approach to Trust &amp; Safety <span aria-hidden="true">→</span></Link>
           </div>
           <div className={styles.trustPrinciples}>
             <article><TrustedPeopleIcon className={styles.trustIcon}/><div><h4>Trusted people</h4><p>Background-checked performers are trained for the responsibility of entering an early-learning classroom.</p></div></article>
@@ -206,7 +206,7 @@ export default function Home() {
           <p className={styles.eyebrowDark}>We&apos;re hiring</p>
           <h2 id="join-title">Do work that makes the whole room light up.</h2>
           <p>Join a warm, creative crew bringing movement, imagination, and meaningful play into children&apos;s classrooms.</p>
-          <a href="tel:+18887752959">Talk to the Jawly team <span aria-hidden="true">→</span></a>
+          <a className={styles.textCta} href="tel:+18887752959">Talk to the Jawly team <span aria-hidden="true">→</span></a>
         </div>
         <img src="/homepage/join-jawly.png" alt="Three members of the Jawly crew holding character performance masks" />
       </section>
