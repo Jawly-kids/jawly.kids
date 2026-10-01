@@ -1,8 +1,16 @@
 import Link from "next/link";
-import { ArrowUpRight, Phone, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, Phone } from "lucide-react";
 import CheckArea from "@/components/availability/CheckArea";
 import { programs, site } from "@/lib/site";
 import styles from "./site.module.css";
+
+function LinkedInIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+      <path d="M5.3 7.8H1.7V22h3.6V7.8ZM3.5 2A2.1 2.1 0 1 0 3.5 6.2 2.1 2.1 0 0 0 3.5 2ZM22.3 13.9c0-4.3-2.3-6.3-5.3-6.3-2.5 0-3.6 1.4-4.2 2.3V7.8H9.2V22h3.6v-7c0-1.8.3-3.6 2.6-3.6 2.2 0 2.3 2.1 2.3 3.7V22h3.6l1-8.1Z" />
+    </svg>
+  );
+}
 
 export default function Footer() {
   return (
@@ -27,9 +35,22 @@ export default function Footer() {
             {site.name}
           </Link>
           <p>{site.description}</p>
-          <div className={styles.footerTrustMark}>
-            <ShieldCheck aria-hidden="true" />
-            <span>Thoughtfully designed for real classrooms.</span>
+          <div className={styles.footerMembership}>
+            <span>Proud member of</span>
+            <img
+              src="/brand/naeyc-member.png"
+              alt="NAEYC — National Association for the Education of Young Children"
+            />
+          </div>
+          <div className={styles.footerSocials} aria-label="Jawly social media">
+            <a
+              href="https://www.linkedin.com/company/jawly-kids"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Jawly on LinkedIn"
+            >
+              <LinkedInIcon />
+            </a>
           </div>
         </div>
 
@@ -69,12 +90,6 @@ export default function Footer() {
             Email the team <ArrowUpRight aria-hidden="true" />
           </a>
         </div>
-      </div>
-
-      <div className={styles.footerTrustRow} aria-label="Jawly trust principles">
-        <span>No child accounts</span>
-        <span>Background-checked performers</span>
-        <span>Prepared before arrival</span>
       </div>
 
       <div className={styles.footerBottom}>
