@@ -237,7 +237,8 @@
   transition: background-color 180ms ease, border-color 180ms ease, transform 120ms ease;
 }
 
-.navCta:hover {
+.primaryNav > .navCta:hover {
+  color: var(--paper) !important;
   background: var(--red);
   border-color: var(--red);
 }
@@ -252,7 +253,7 @@
   border-color: var(--paper);
 }
 
-.overlayLight .navCta:hover {
+.overlayLight .primaryNav > .navCta:hover {
   color: var(--paper) !important;
   background: var(--red);
   border-color: var(--red);
