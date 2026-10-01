@@ -115,7 +115,7 @@
 .otherProgramCard small { color: var(--yellow) !important; font: 600 .6875rem/1 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
 .otherProgramRight small { color: #d7fbf5 !important; }
 .otherProgramCard h3 { margin: 12px 0 0; color: white !important; font: 800 clamp(1.8rem, 2.55vw, 2.65rem)/1.04 var(--font-display); letter-spacing: -.035em; }
-.otherProgramCard p { max-width: 440px; margin: 14px 0 0; color: rgb(255 255 255 / .86) !important; font-size: 1rem; line-height: 1.5; }
+.otherProgramCard .otherProgramSubhead { max-width: 440px; margin: 8px 0 0; color: rgb(255 255 255 / .84) !important; font: 700 clamp(1.05rem, 1.4vw, 1.3rem)/1.25 var(--font-display); letter-spacing: -.015em; }
 .otherProgramCard strong { margin-top: 28px; display: inline-flex; gap: 7px; padding-bottom: 6px; color: white !important; border-bottom: 1px solid currentColor; font: 700 1rem/1.2 var(--font-display); }
 .otherProgramCard strong span { transition: transform 180ms ease; }
 .otherProgramCard:hover strong span { transform: translateX(4px); }
