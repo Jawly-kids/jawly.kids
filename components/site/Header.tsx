@@ -75,7 +75,9 @@ export default function Header() {
                 <div id="program-navigation" className={`${styles.programDropdown} ${programsOpen ? styles.programDropdownOpen : ""}`}>
                   {programs.map((program) => (
                     <Link key={program.slug} href={program.href} aria-current={pathname === program.href ? "page" : undefined}>
-                      <img src={program.thumbnail} alt="" />
+                      <span className={styles.programImage}>
+                        <img src={program.thumbnail} alt="" />
+                      </span>
                       <span className={styles.programCardCopy}>
                         <small>{program.character}</small>
                         <strong>{program.label}</strong>

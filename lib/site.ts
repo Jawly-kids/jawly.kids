@@ -53,7 +53,7 @@ export const programs: SiteProgram[] = [
     character: "Mira",
     journey: "The Discovery Journey",
     summary: "Kindness, movement, and ocean discovery.",
-    thumbnail: "/homepage/Tides_for_Jawly_HomePage.png",
+    thumbnail: "/tides/mira-state-1.png",
     mark: "≈",
     tone: "tides",
     status: "draft",
