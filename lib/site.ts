@@ -54,30 +54,7 @@ export const programs: SiteProgram[] = [
 
 export const livePrograms = programs.filter((program) => program.status === "live");
 
-export type SiteLink = { href: string; label: string };
-
-/** Tier 1. Identical on every educator-track route. Programs stays a plain link until JAW-184. */
-export const globalNav: SiteLink[] = [
-  { href: "/", label: "Home" },
-  { href: "/heroes", label: "Programs" },
-  { href: "/why-jawly", label: "Why Jawly" },
-  { href: "/trust-safety", label: "Trust & Safety" },
-];
-
-/** Tier 2 in-page anchors, keyed by path. Any route can opt in. */
-export const pageSections: Record<string, SiteLink[]> = {
-  "/why-jawly": [
-    { href: "#physical-world", label: "The reasons" },
-    { href: "#rhythm", label: "The rhythm" },
-    { href: "#evidence", label: "The thinking" },
-  ],
-  "/trust-safety": [
-    { href: "#privacy", label: "Privacy" },
-    { href: "#documentation", label: "Filming" },
-    { href: "#personal", label: "Personalization" },
-    { href: "#people", label: "People" },
-    { href: "#standards", label: "Standards" },
-  ],
+export const programSections: Record<string, { href: string; label: string }[]> = {
   "/heroes": [
     { href: "#experience", label: "The experience" },
     { href: "#journey", label: "The journey" },
@@ -90,21 +67,8 @@ export const pageSections: Record<string, SiteLink[]> = {
   ],
 };
 
-/** Full-bleed first screen. The header stays transparent until the page scrolls. */
-export function headerOverlaysHero(pathname: string) {
-  return pathname === "/" || pathname === "/heroes" || pathname === "/cosmos" || pathname === "/why-jawly";
-}
-
-/**
- * Dark hero art under a transparent bar. Light type is a contrast stand-in
- * until the nav wireframe (frames 01–04) can be checked.
- */
-export function headerOverlayUsesLightType(pathname: string) {
-  return pathname === "/cosmos";
-}
-
 export function demoHref(pathname: string) {
-  if (pathname === "/heroes" || pathname === "/cosmos") return "#calendar";
+  if (programSections[pathname]) return "#calendar";
   const destination = livePrograms[0]?.href ?? "/";
   return `${destination}#calendar`;
 }

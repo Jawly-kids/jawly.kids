@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, Nunito } from "next/font/google";
+import { Source_Sans_3, Space_Grotesk } from "next/font/google";
 import Footer from "@/components/site/Footer";
 import Header from "@/components/site/Header";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const inter = Inter({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-source-sans",
   display: "swap",
 });
 
-const nunito = Nunito({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["600", "700", "800", "900"],
-  variable: "--font-nunito",
+  weight: ["500", "600", "700"],
+  variable: "--font-space-grotesk",
   display: "swap",
 });
 
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${nunito.variable}`}>
+    <html lang="en" className={`${sourceSans.variable} ${spaceGrotesk.variable}`}>
       <body>
         <Header />
         {children}
