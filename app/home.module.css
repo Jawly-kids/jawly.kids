@@ -3,10 +3,11 @@
   background: var(--paper);
 }
 .home *, .home *::before, .home *::after { box-sizing: border-box; }
-.hero { position: relative; height: clamp(700px, calc(100svh - 95px), 950px); display: flex; align-items: center; isolation: isolate; overflow: hidden; color: var(--ink); background: #d6ddda; }
-.heroBackground, .heroAtmosphere { position: absolute; inset: 0; width: 100%; height: 100%; }
-.heroBackground { z-index: -3; object-fit: cover; object-position: 50% 54%; filter: blur(7px) saturate(.58) contrast(.88) brightness(1.08); transform: scale(1.025); }
-.heroAtmosphere { z-index: -2; background: rgba(255,248,232,.32); }
+.heroStage { position: relative; isolation: isolate; background: #d6ddda; }
+.heroStage > .heroBackground, .heroStage > .heroAtmosphere { position: absolute; inset: 0; width: 100%; height: 100%; }
+.heroStage > .heroBackground { z-index: -2; object-fit: cover; object-position: 50% 54%; filter: blur(7px) saturate(.58) contrast(.88) brightness(1.08); transform: scale(1.025); }
+.heroStage > .heroAtmosphere { z-index: -1; background: rgba(255,248,232,.32); }
+.hero { position: relative; height: clamp(700px, calc(100svh - 95px), 950px); display: flex; align-items: center; overflow: hidden; color: var(--ink); }
 .heroCopy { position: relative; z-index: 2; width: min(600px, 43vw); margin-left: max(7.5vw, calc((100vw - 1500px) / 2 + 70px)); padding: calc(var(--header-height) + 54px) 0 86px; }
 .eyebrow, .eyebrowDark, .eyebrowLight, .worldLabel { margin: 0; padding-bottom: var(--eyebrow-gap); font: var(--eyebrow-font); letter-spacing: var(--eyebrow-tracking); text-transform: uppercase; }
 .eyebrow { color: var(--red); }

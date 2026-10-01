@@ -1,4 +1,5 @@
 .experienceSection { position: relative; z-index: 4; padding: 0 max(4vw, 24px); background: var(--paper); }
+.experienceSection:not(.experienceProgram) { background: linear-gradient(to bottom, transparent 0 95px, var(--paper) 95px 100%); }
 .experienceProgram {
   --experience-tint-depth: 126px;
   padding-top: 32px;
@@ -202,6 +203,7 @@
 
 @media (max-width: 720px) {
   .experienceSection { padding-right: 20px; padding-left: 20px; }
+  .experienceSection:not(.experienceProgram) { background: linear-gradient(to bottom, transparent 0 34px, var(--paper) 34px 100%); }
   .experienceProgram { --experience-tint-depth: 112px; padding-top: 24px; padding-bottom: 70px; }
   .experienceSection:not(.experienceProgram) .experienceStrip { margin-top: -34px; }
   .experienceStrip { grid-template-columns: 1fr; }
