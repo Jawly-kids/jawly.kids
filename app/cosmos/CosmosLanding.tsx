@@ -184,10 +184,8 @@ export default function CosmosLanding() {
       </section>
 
       <section id="gallery" className={`${styles.gallerySection} ${styles.cosmosGallery}`}>
-        <div className={styles.sectionHeading}>
+        <div className={`${styles.sectionHeading} ${styles.galleryEyebrow}`}>
           <p className={styles.eyebrow}>{cosmosCopy.galleryEyebrow}</p>
-          <h2>{cosmosCopy.galleryTitle}</h2>
-          <p>{cosmosCopy.galleryLead}</p>
         </div>
         <GalleryPlaceholder />
         {/* Gallery hidden while new footage is prepared. Restore this block, and re-apply the JAW-181 width fix on .videoDisclosure, when the videos return.

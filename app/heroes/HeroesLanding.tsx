@@ -262,10 +262,8 @@ export default function HeroesLanding() {
       </section>
 
       <section id="gallery" className={styles.gallerySection}>
-        <div className={styles.sectionHeading}>
+        <div className={`${styles.sectionHeading} ${styles.galleryEyebrow}`}>
           <p className={styles.eyebrow}>SEE HEROES LIVE</p>
-          <h2>The room becomes the stage.</h2>
-          <p>Five moments from the journey.</p>
         </div>
         <GalleryPlaceholder />
         {/* Gallery hidden while new footage is prepared. Restore this block, and re-apply the JAW-181 width fix on .videoDisclosure, when the videos return.
