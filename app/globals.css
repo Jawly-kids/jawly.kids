@@ -35,15 +35,9 @@
   --deep: var(--program-foundation);
   /* Not in Color System v2. Footer still uses this value. */
   --asphalt: #4a4e54;
-  --font-sans: var(--font-inter), "Inter", sans-serif;
-  --font-display: var(--font-nunito), "Nunito", sans-serif;
-  --tier1-height: 72px;
-  --tier2-height: 0px;
-  --header-height: calc(var(--tier1-height) + var(--tier2-height));
-}
-
-html:has(nav[aria-label="On this page"]) {
-  --tier2-height: 40px;
+  --font-sans: var(--font-source-sans), "Source Sans 3", sans-serif;
+  --font-display: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  --header-height: 72px;
 }
 
 html {
@@ -59,10 +53,8 @@ body {
 }
 
 @media (max-width: 700px) {
-  :root,
-  html:has(nav[aria-label="On this page"]) {
-    --tier1-height: 148px;
-    --tier2-height: 0px;
+  :root {
+    --header-height: 64px;
   }
 }
 
@@ -72,4 +64,18 @@ body {
   }
 }
 
-body:has(main[data-homepage]) { background: var(--paper); }
+/* The homepage gateway fills the viewport and hides the shared site chrome. */
+body:has(main[data-homepage]) {
+  overflow: hidden;
+}
+
+body:has(main[data-homepage]) > header,
+body:has(main[data-homepage]) > footer {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  body:has(main[data-homepage]) {
+    overflow-y: auto;
+  }
+}
