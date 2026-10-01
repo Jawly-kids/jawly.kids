@@ -204,7 +204,7 @@ export default function Home() {
       <section className={styles.join} aria-labelledby="join-title">
         <div className={styles.joinCopy}>
           <p className={styles.eyebrowDark}>We&apos;re hiring</p>
-          <h2 id="join-title">Do work that makes the whole room light up.</h2>
+          <h2 id="join-title">Do work that makes the room light up.</h2>
           <p>Join a warm, creative crew bringing movement, imagination, and meaningful play into children&apos;s classrooms.</p>
           <a className={styles.textCta} href="tel:+18887752959">Talk to the Jawly team <span aria-hidden="true">→</span></a>
         </div>
