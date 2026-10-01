@@ -169,9 +169,7 @@
 .coverageResult strong { display: block; font: 800 1.25rem/1.25 var(--font-display); }
 .coverageResult span { display: block; margin-top: 8px; color: rgb(255 255 255 / .74); font-size: .93rem; line-height: 1.5; }
 .leadForm { margin-top: 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 9px 12px; }
-.leadForm label:nth-of-type(2) { grid-column: 2; grid-row: 1; }
-.leadForm input:nth-of-type(1) { grid-column: 1; }
-.leadForm input:nth-of-type(2) { grid-column: 2; }
+.leadField { min-width: 0; }
 .leadForm button { grid-column: 1 / -1; margin-top: 5px; }
 .leadForm button:disabled { cursor: wait; opacity: .7; }
 .leadError { margin: 14px 0 0; color: #ffd9d2; font-size: .9rem; line-height: 1.4; }
@@ -235,8 +233,7 @@
   .leadCosmos .leadIntro h2,
   .leadTides .leadIntro h2 { font-size: clamp(2.65rem, 11.5vw, 3.65rem); }
   .leadForm { grid-template-columns: 1fr; }
-  .leadForm label:nth-of-type(2), .leadForm input:nth-of-type(1), .leadForm input:nth-of-type(2), .leadForm button { grid-column: 1; }
-  .leadForm label:nth-of-type(2) { grid-row: auto; margin-top: 6px; }
+  .leadForm button { grid-column: 1; }
   .leadSecondary { grid-template-columns: 1fr; }
   .leadSecondary > div { grid-column: auto; }
   .leadSecondary > a, .leadSecondary > button { min-height: 104px; }

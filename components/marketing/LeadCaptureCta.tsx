@@ -43,8 +43,10 @@ export default function LeadCaptureCta({ theme, page, id = "calendar" }: { theme
   const scheduleDialogRef = useRef<HTMLDialogElement>(null);
   const [zip, setZip] = useState("");
   const [coverage, setCoverage] = useState<Coverage | null>(null);
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [schoolName, setSchoolName] = useState("");
+  const [phone, setPhone] = useState("");
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [received, setReceived] = useState(false);
@@ -86,13 +88,18 @@ export default function LeadCaptureCta({ theme, page, id = "calendar" }: { theme
   const submitLead = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!coverage) return;
+    const phoneDigits = phone.replace(/\D/g, "").replace(/^1(?=\d{10}$)/, "");
+    if (phoneDigits.length !== 10) {
+      setError("Enter a 10-digit phone number.");
+      return;
+    }
     setSubmitting(true);
     setError("");
     try {
       const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, schoolName, zip, page: `${page}:${coverage}` }),
+        body: JSON.stringify({ name, schoolName, email, phone, zip, page: `${page}:${coverage}` }),
       });
       if (!response.ok) {
         const payload = (await response.json().catch(() => null)) as { error?: string } | null;
@@ -147,10 +154,22 @@ export default function LeadCaptureCta({ theme, page, id = "calendar" }: { theme
                       <span>{coverage === "covered" ? `Tell us about your center in ${zip}, and we'll help you plan the first visit.` : `Share your info. You never know, ${zip} could be where we head next.`}</span>
                     </div>
                     <form className={styles.leadForm} onSubmit={submitLead}>
-                      <label htmlFor={`${formId}-school`}>School or center name</label>
-                      <input id={`${formId}-school`} autoComplete="organization" required minLength={2} maxLength={200} value={schoolName} onChange={(event) => setSchoolName(event.target.value)} />
-                      <label htmlFor={`${formId}-email`}>Work email</label>
-                      <input id={`${formId}-email`} type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} />
+                      <div className={styles.leadField}>
+                        <label htmlFor={`${formId}-name`}>Name</label>
+                        <input id={`${formId}-name`} autoComplete="name" required minLength={2} maxLength={100} value={name} onChange={(event) => setName(event.target.value)} />
+                      </div>
+                      <div className={styles.leadField}>
+                        <label htmlFor={`${formId}-school`}>School or center</label>
+                        <input id={`${formId}-school`} autoComplete="organization" required minLength={2} maxLength={200} value={schoolName} onChange={(event) => setSchoolName(event.target.value)} />
+                      </div>
+                      <div className={styles.leadField}>
+                        <label htmlFor={`${formId}-email`}>Work email</label>
+                        <input id={`${formId}-email`} type="email" autoComplete="email" required maxLength={200} value={email} onChange={(event) => setEmail(event.target.value)} />
+                      </div>
+                      <div className={styles.leadField}>
+                        <label htmlFor={`${formId}-phone`}>Phone</label>
+                        <input id={`${formId}-phone`} type="tel" inputMode="tel" autoComplete="tel" required placeholder="(312) 555-0123" value={phone} onChange={(event) => { setPhone(event.target.value); setError(""); }} />
+                      </div>
                       <button type="submit" disabled={submitting}>{submitting ? "Sending…" : coverage === "covered" ? "Request my free first visit" : "Keep me updated"}</button>
                     </form>
                   </div>
@@ -160,8 +179,8 @@ export default function LeadCaptureCta({ theme, page, id = "calendar" }: { theme
             ) : (
               <div className={styles.leadReceived} role="status">
                 <strong>{coverage === "covered" ? "Your request is in." : "You're on our expansion list."}</strong>
-                <p>Thanks, {schoolName}. We&apos;ll follow up at {email} about Jawly in {zip}.</p>
-                <button type="button" onClick={() => { setReceived(false); setCoverage(null); setZip(""); setEmail(""); setSchoolName(""); }}>Check another ZIP</button>
+                <p>Thanks, {name}. We&apos;ll follow up at {email} about Jawly in {zip}.</p>
+                <button type="button" onClick={() => { setReceived(false); setCoverage(null); setZip(""); setName(""); setEmail(""); setSchoolName(""); setPhone(""); }}>Check another ZIP</button>
               </div>
             )}
           </div>
