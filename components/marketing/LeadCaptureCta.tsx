@@ -143,8 +143,8 @@ export default function LeadCaptureCta({ theme, page, id = "calendar" }: { theme
                 {coverage && (
                   <div className={styles.leadExpanded} aria-live="polite">
                     <div className={styles.coverageResult}>
-                      <strong>{coverage === "covered" ? "Good news. Jawly is serving your area." : "We're not in your ZIP yet, but we want to hear from you."}</strong>
-                      <span>{coverage === "covered" ? `Tell us about your center in ${zip}, and we'll help you plan the first visit.` : `Share your center details so we can include ${zip} in our expansion planning.`}</span>
+                      <strong>{coverage === "covered" ? "Good news. Jawly is serving your area." : "We're not in your area, but we're expanding fast."}</strong>
+                      <span>{coverage === "covered" ? `Tell us about your center in ${zip}, and we'll help you plan the first visit.` : `Share your info. You never know, ${zip} could be where we head next.`}</span>
                     </div>
                     <form className={styles.leadForm} onSubmit={submitLead}>
                       <label htmlFor={`${formId}-school`}>School or center name</label>
