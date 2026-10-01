@@ -428,8 +428,9 @@
 }
 .tidesHero { background: var(--surface-soft); }
 .tidesHero .heroCopy { color: white; }
+.tidesHero .heroEyebrow { color: white; }
 .tidesHero .heroBackdrop { filter: saturate(.92) brightness(.78); }
-.tidesHero .heroFigures { top: 46%; width: min(82vw, 1180px); }
+.tidesHero .heroFigures { top: 50%; width: min(78vw, 1120px); }
 
 .tidesStory { padding: 120px max(7vw, 30px); color: var(--ink); background: white; }
 .tidesStoryInner { width: min(1180px, 100%); min-height: 660px; margin: 0 auto; display: grid; grid-template-columns: minmax(320px, .85fr) minmax(0, 1.15fr); align-items: center; gap: clamp(38px, 7vw, 100px); }
@@ -451,7 +452,7 @@
 .tidesPage .scheduleButton:hover { background: #1479a6; }
 
 @media (max-width: 700px) {
-  .tidesHero .heroFigures { top: 50%; width: 145vw; }
+  .tidesHero .heroFigures { top: 53%; width: 138vw; }
   .tidesStory { padding: 78px 20px 0; }
   .tidesStoryInner { min-height: 0; grid-template-columns: 1fr; gap: 42px; }
   .tidesPortrait { min-height: 480px; }
