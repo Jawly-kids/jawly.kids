@@ -77,8 +77,6 @@ export default function Header() {
                         <img src={program.thumbnail} alt="" />
                       </span>
                       <span className={styles.programCardCopy}>
-                        <small>{program.character}</small>
-                        <strong>{program.label}</strong>
                         <span>{program.summary}</span>
                         {program.status === "draft" ? <em>Coming soon</em> : null}
                       </span>

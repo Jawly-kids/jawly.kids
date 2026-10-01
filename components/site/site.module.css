@@ -139,7 +139,7 @@
   align-items: flex-end;
   overflow: hidden;
   color: white;
-  background: #101b4d;
+  background: #401312;
   text-decoration: none;
 }
 
@@ -148,14 +148,17 @@
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: linear-gradient(0deg, rgb(7 14 24 / .88) 0%, rgb(7 14 24 / .46) 54%, transparent 88%);
+  background: linear-gradient(0deg, rgb(12 14 24 / .72) 0%, transparent 45%);
   pointer-events: none;
 }
 
 .programDropdown a:nth-child(1)::after,
 .programDropdown a:nth-child(3)::after {
-  background: linear-gradient(270deg, rgb(7 14 24 / .88) 0%, rgb(7 14 24 / .58) 48%, transparent 92%), linear-gradient(0deg, rgb(7 14 24 / .58), transparent 70%);
+  background: linear-gradient(0deg, rgb(12 14 24 / .72) 0%, transparent 45%);
 }
+
+.programDropdown a:nth-child(2) { background: #11194a; }
+.programDropdown a:nth-child(3) { background: #07354b; }
 
 .programDropdown a + a {
   border-left: 1px solid rgb(255 255 255 / .32);
@@ -174,15 +177,16 @@
   height: 100%;
   display: block;
   overflow: hidden;
-  background: #101b4d;
+  background: transparent;
 }
 
 .programImage img {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
-  object-position: center;
+  object-fit: contain;
+  object-position: center 28%;
+  padding: 22px 18px 64px;
   transition: transform 600ms ease;
 }
 
@@ -195,39 +199,22 @@
   position: relative;
   z-index: 1;
   min-width: 0;
-  width: min(82%, 330px);
-  padding: 28px;
+  width: 100%;
+  padding: 20px 24px;
   display: grid;
   align-content: end;
   gap: 7px;
 }
 
-.programDropdown a:nth-child(1),
-.programDropdown a:nth-child(3) { justify-content: flex-end; text-align: right; }
-.programDropdown a:nth-child(1) .programCardCopy,
-.programDropdown a:nth-child(3) .programCardCopy { justify-items: end; }
-
-.programCardCopy strong { color: white; font: 800 1.55rem/1 var(--font-display); letter-spacing: -.035em; }
-
-.programCardCopy small {
-  color: var(--yellow);
-  font: var(--eyebrow-font);
-  letter-spacing: var(--eyebrow-tracking);
-  text-transform: uppercase;
-}
-
-.programDropdown a:nth-child(2) .programCardCopy small {
-  color: #79e2ee;
-}
-
-.programDropdown a:nth-child(3) .programCardCopy small {
-  color: #d7fbf5;
-}
+.programDropdown a:nth-child(1) .programImage img { object-position: center 24%; padding-inline: 22px; }
+.programDropdown a:nth-child(2) .programImage img { object-position: center 28%; padding-inline: 18px; }
+.programDropdown a:nth-child(3) .programImage img { object-position: center 26%; padding-inline: 10px; }
 
 .programCardCopy > span {
-  color: rgb(255 255 255 / .76);
+  color: rgb(255 255 255 / .8);
   font-size: .78rem;
   line-height: 1.4;
+  text-align: center;
 }
 
 .programCardCopy em {
@@ -241,6 +228,7 @@
   font-style: normal;
   letter-spacing: .08em;
   text-transform: uppercase;
+  justify-self: center;
 }
 
 .header a:focus-visible,
@@ -591,10 +579,21 @@
     min-height: 132px;
   }
 
-  .programCardCopy {
-    width: min(72%, 340px);
-    padding: 18px;
+  .programImage img,
+  .programDropdown a:nth-child(1) .programImage img,
+  .programDropdown a:nth-child(2) .programImage img,
+  .programDropdown a:nth-child(3) .programImage img {
+    object-position: center 24%;
+    padding: 10px 24px 38px;
   }
+
+  .programCardCopy {
+    width: 100%;
+    padding: 9px 14px;
+  }
+
+  .programCardCopy > span { font-size: .68rem; }
+  .programCardCopy em { padding: 3px 5px; font-size: .52rem; }
 
   .navCta,
   .overlayLight .navCta {
