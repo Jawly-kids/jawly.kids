@@ -138,8 +138,6 @@ export default function HeroesLanding() {
   const storyRef = useRef<HTMLElement>(null);
   const schedulingDialogRef = useRef<HTMLDialogElement>(null);
   const [progress, setProgress] = useState(0);
-  const [inviteEmail, setInviteEmail] = useState("");
-  const [inviteDraftOpened, setInviteDraftOpened] = useState(false);
   const [voiceOpen, setVoiceOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(videos[0]);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
@@ -185,14 +183,6 @@ export default function HeroesLanding() {
     progress < 0.84 ? -1 : 3;
   const visualStage = progress < 0.25 ? 0 : progress < 0.49 ? 1 : progress < 0.78 ? 2 : 3;
   const reveals = [1, range(progress, 0.19, 0.29), range(progress, 0.43, 0.54), range(progress, 0.71, 0.85)];
-
-  const requestInvite = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const subject = encodeURIComponent("Free Heroes demo invite");
-    const body = encodeURIComponent(`Hi Jawly,\n\nPlease send the scheduling link for a free, 30-minute Heroes classroom demo to ${inviteEmail.trim()}.\n\nCenter name:\nYour name:\n`);
-    setInviteDraftOpened(true);
-    window.location.href = `mailto:${site.salesEmail}?subject=${subject}&body=${body}`;
-  };
 
   return (
     <main className={styles.page}>
@@ -427,13 +417,10 @@ export default function HeroesLanding() {
               <p>One live, 30-minute Heroes session for your class — free, no commitment. Tell us where to send the scheduling link.</p>
             </div>
             <div className={styles.inviteAction}>
-              <form className={styles.inviteForm} onSubmit={requestInvite}>
-                <label htmlFor="heroes-invite-email" className={styles.srOnly}>Email address</label>
-                <input id="heroes-invite-email" type="email" placeholder="Email address" autoComplete="email" required value={inviteEmail} onChange={(event) => { setInviteEmail(event.target.value); setInviteDraftOpened(false); }} />
-                <button type="submit">Send My Invite <ArrowRight size={17} /></button>
-              </form>
+              <div className={styles.inviteForm}>
+                <CheckArea demoHref="#calendar" page="heroes:invite" label="Check Availability" />
+              </div>
               <p className={styles.inviteNote}>No credit card, no obligation — just pick a slot that works.</p>
-              <p className={styles.inviteHandoff} role="status">{inviteDraftOpened ? "Send the prepared email to request your invite." : "This opens a prepared email to our team."}</p>
             </div>
           </article>
 

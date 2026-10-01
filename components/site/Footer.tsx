@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
 import CheckArea from "@/components/availability/CheckArea";
 import { programs, site } from "@/lib/site";
 import styles from "./site.module.css";
@@ -85,9 +85,6 @@ export default function Footer() {
               <small>Call us</small>
               <strong>{site.phoneDisplay}</strong>
             </span>
-          </a>
-          <a className={styles.supportEmail} href={`mailto:${site.salesEmail}`}>
-            Email the team <ArrowUpRight aria-hidden="true" />
           </a>
         </div>
       </div>

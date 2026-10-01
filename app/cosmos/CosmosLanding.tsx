@@ -55,7 +55,6 @@ export default function CosmosLanding() {
   const storyRef = useRef<HTMLElement>(null);
   const schedulingDialogRef = useRef<HTMLDialogElement>(null);
   const [progress, setProgress] = useState(0);
-  const [inviteEmail, setInviteEmail] = useState("");
   const [voiceOpen, setVoiceOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(cosmosCopy.videos[0]);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
@@ -105,13 +104,6 @@ export default function CosmosLanding() {
     progress < 0.84 ? -1 : 3;
   const visualStage = progress < 0.25 ? 0 : progress < 0.49 ? 1 : progress < 0.78 ? 2 : 3;
   const reveals = [1, range(progress, 0.19, 0.29), range(progress, 0.43, 0.54), range(progress, 0.71, 0.85)];
-
-  const requestInvite = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const subject = encodeURIComponent("Free Cosmos demo invite");
-    const body = encodeURIComponent(`Hi Jawly,\n\nPlease send the scheduling link for a free, 30-minute Cosmos classroom demo to ${inviteEmail.trim()}.\n\nCenter name:\nYour name:\n`);
-    window.location.href = `mailto:${site.salesEmail}?subject=${subject}&body=${body}`;
-  };
 
   return (
     <main className={`${styles.page} ${styles.cosmosPage}`}>
@@ -363,13 +355,10 @@ export default function CosmosLanding() {
               <p>One live, 30-minute Cosmos session for your class — free, no commitment. Tell us where to send the scheduling link.</p>
             </div>
             <div className={styles.inviteAction}>
-              <form className={styles.inviteForm} onSubmit={requestInvite}>
-                <label htmlFor="cosmos-invite-email" className={styles.srOnly}>Email address</label>
-                <input id="cosmos-invite-email" type="email" placeholder="you@center.com" autoComplete="email" required value={inviteEmail} onChange={(event) => setInviteEmail(event.target.value)} />
-                <button type="submit">Send My Invite <ArrowRight size={17} /></button>
-              </form>
+              <div className={styles.inviteForm}>
+                <CheckArea demoHref="#calendar" page="cosmos:invite" label="Check Availability" />
+              </div>
               <p className={styles.inviteNote}>No credit card, no obligation — just pick a slot that works.</p>
-              <p className={styles.inviteHandoff} role="status">This opens a prepared email to our team.</p>
             </div>
           </article>
 

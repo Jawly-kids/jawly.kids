@@ -468,17 +468,6 @@
   font: 700 .95rem/1 var(--font-display);
 }
 
-.supportEmail {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.supportEmail svg {
-  width: 14px;
-  height: 14px;
-}
-
 .footer a:hover {
   color: var(--yellow);
 }

@@ -1,7 +1,6 @@
 export const site = {
   name: "Jawly",
   description: "Live character adventures for early childhood classrooms.",
-  salesEmail: "kyle@jawly.kids",
   phoneDisplay: "1-888-77-JAWLY",
   phoneHref: "tel:+18887752959",
 } as const;
