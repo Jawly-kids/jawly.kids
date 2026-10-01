@@ -14,7 +14,6 @@ const reasons = [
     eyebrow: "LIVE, PHYSICAL-WORLD ATTENTION",
     title: "Jawly earns attention in the room—not from a screen.",
     body: "The character walks through the classroom door, talks, sings, and reacts with the children in real time. The story is suddenly here—at child height, in shared space. Screen-free matters because it makes room for something richer: eye contact, movement, imagination, and a room responding together.",
-    photo: "IMAGE INTENT · The instant a character enters and every child turns toward the same live moment. Show faces, eye lines, and shared attention—not a posed group photo.",
   },
   {
     id: "characters",
@@ -23,14 +22,12 @@ const reasons = [
     body: "Bravo, Orla, and Mira do not start from zero every week. The children know who is coming back, remember what happened together, and anticipate where the story will go next. That relationship turns a series of activities into one continuing adventure.",
     quote: "97% of teachers said children remembered the character and the curriculum week after week.",
     quoteSource: "Jawly teacher reviews · 50 responses",
-    photo: "IMAGE INTENT · Recognition at the start of a return visit: children pointing, calling out, or moving toward a character they already know.",
   },
   {
     id: "human",
     eyebrow: "LIVE MEANS HUMAN",
     title: "A live performer makes every child part of the moment.",
     body: "A trained Jawly performer brings the character’s mouth and voice to life by hand, then reads the room as it unfolds. They can notice a hesitant child, celebrate an unexpected answer, wait for the laugh, and help the group find its way back. The story is authored; the connection is live.",
-    photo: "IMAGE INTENT · A responsive exchange at child height—character and one or two children visibly reacting to each other, with the wider group included in the moment.",
   },
   {
     id: "consistency",
@@ -45,7 +42,6 @@ const reasons = [
     title: "Children do not watch the adventure. They move it forward.",
     body: "They move, sing, answer, pretend, help, and cooperate. A planet becomes a stomp, courage becomes a breath and a pose, and an ocean current becomes a push and pull the whole group can feel. Participation is not a break from the story. It is how the story works.",
     verbs: ["Move", "Sing", "Answer", "Pretend", "Help", "Cooperate"],
-    photo: "IMAGE INTENT · A full-body group action with a clear story purpose—children freezing, balancing, reaching, or moving together rather than generic dancing.",
   },
   {
     id: "story-arc",
@@ -62,21 +58,18 @@ const reasons = [
     quote: "96% of teachers gave the end-of-session cool-down a perfect 5.",
     quoteSource: "Jawly teacher reviews · 50 responses",
     steps: ["Anticipate", "Move", "Listen", "Take on the challenge", "Laugh", "Wind down", "Reflect"],
-    photo: "IMAGE INTENT · The contrast at the end of a visit: children seated or lying calmly, breathing or reflecting with the character. The image should visibly communicate ‘calm, not wired.’",
   },
   {
     id: "learning",
     eyebrow: "ONE LEARNING SPINE, THREE JOURNEYS",
     title: "Children learn because the lesson is inside the adventure.",
     body: "Body, language, executive function, social-emotional learning, cognition, and creativity develop through what children must do to complete the mission. They recall, sequence, plan, persist, take turns, name feelings, and move as one group—without the experience stopping to announce a lesson.",
-    photo: "IMAGE INTENT · A learning moment disguised as play: children sequencing mission steps, responding to a prompt, or solving something together with the character.",
   },
   {
     id: "belonging",
     eyebrow: "AN IDENTITY THAT STICKS",
     title: "The adventure ends with a name children carry home.",
     body: "They are not merely the class that watched Bravo, Orla, or Mira. They become Little Legends, Stardusters, or Mighty Minnows. The final visit retells what they accomplished, celebrates the crew, and leaves children with an identity rooted in courage, curiosity, or discovery.",
-    photo: "IMAGE INTENT · Graduation or goodbye moment showing earned belonging—keepsakes, a crew gesture, hugs, or children proudly repeating their group identity.",
   },
 ] as const;
 

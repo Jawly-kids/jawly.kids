@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useId, useState } from "react";
-import { CalendarDays, MessageCircle, Phone } from "lucide-react";
+import { CalendarDays, Phone } from "lucide-react";
 import { lookupZip } from "@/content/service-area";
 import { site } from "@/lib/site";
 import styles from "./marketing.module.css";
@@ -191,7 +191,6 @@ export default function LeadCaptureCta({ theme, page, id = "contact" }: { theme:
             <h3>Talk with Jawly.</h3>
           </div>
           <a href={site.phoneHref}><Phone aria-hidden="true" /><span><strong>Call us now</strong><small>{site.phoneDisplay}</small></span></a>
-          <button type="button" disabled data-commerce-action="ask-jawly-ai"><MessageCircle aria-hidden="true" /><span><strong>Ask Jawly AI</strong><small>Coming soon</small></span></button>
           <a href={site.scheduleHref} target="_blank" rel="noreferrer"><CalendarDays aria-hidden="true" /><span><strong>Schedule a meeting</strong><small>Choose a time to talk</small></span></a>
         </div>
       </div>

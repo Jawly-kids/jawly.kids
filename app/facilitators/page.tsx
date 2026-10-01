@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { site } from "@/lib/site";
 import styles from "./facilitators.module.css";
+
+export const metadata: Metadata = {
+  title: "Join the Jawly Crew",
+  description: "Bring Jawly characters and live adventures to early-learning classrooms.",
+  alternates: { canonical: "/facilitators" },
+};
 
 export default function FacilitatorsPage() {
   return (
@@ -12,10 +20,11 @@ export default function FacilitatorsPage() {
           imagination, and meaningful play into early-learning classrooms.
         </p>
         <div className={styles.status}>
-          <strong>Applications are coming soon.</strong>
-          <span>Role details, service areas, and the application process are still being prepared.</span>
+          <strong>Interested in joining the Jawly Crew?</strong>
+          <span>Tell us about your performance experience, availability, and the communities you know.</span>
         </div>
-        <Link href="/">Return to Jawly</Link>
+        <a href={site.phoneHref}>Call {site.phoneDisplay}</a>
+        <Link href="/contact">Contact the Jawly team</Link>
       </section>
     </main>
   );
