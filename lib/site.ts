@@ -3,6 +3,7 @@ export const site = {
   description: "Live character adventures for early childhood classrooms.",
   phoneDisplay: "1-888-77-JAWLY",
   phoneHref: "tel:+18887752959",
+  scheduleHref: "https://calendar.app.google/BRyt623ZvDnUqATH8",
 } as const;
 
 export type ProgramStatus = "live" | "draft";

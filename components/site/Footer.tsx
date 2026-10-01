@@ -98,9 +98,9 @@ export default function Footer() {
               <MessageCircle aria-hidden="true" />
               <span><strong>Questions?</strong><small>Tell us what you need</small></span>
             </Link>
-            <a href={site.phoneHref}>
+            <a href={site.scheduleHref} target="_blank" rel="noreferrer">
               <CalendarDays aria-hidden="true" />
-              <span><strong>Scheduling hotline</strong><small>{site.phoneDisplay}</small></span>
+              <span><strong>Schedule a meeting</strong><small>Choose a time to talk</small></span>
             </a>
             <a href={site.phoneHref}>
               <Users aria-hidden="true" />

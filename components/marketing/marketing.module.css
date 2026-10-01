@@ -190,13 +190,6 @@
 .leadSecondary strong, .leadSecondary small { display: block; }
 .leadSecondary strong { font: 800 1rem/1.2 var(--font-display); }
 .leadSecondary small { margin-top: 6px; color: var(--muted); font-size: .78rem; line-height: 1.35; }
-.leadDialog { width: min(520px, calc(100% - 32px)); padding: 38px; color: var(--ink); background: white; border: 0; border-radius: 16px; box-shadow: 0 24px 80px rgb(8 28 46 / .25); }
-.leadDialog::backdrop { background: rgb(8 28 46 / .62); }
-.leadDialog h2 { margin: 0; font: 800 2rem/1.1 var(--font-display); }
-.leadDialog p { margin: 16px 0 26px; color: var(--muted); line-height: 1.55; }
-.leadDialog a { display: inline-block; padding: 14px 20px; color: white; background: var(--lead-bg, #17365f); border-radius: 12px; font: 700 1rem var(--font-display); text-decoration: none; }
-.leadDialogClose { position: absolute; top: 14px; right: 18px; padding: 0; color: var(--ink); background: none; border: 0; font-size: 2rem; line-height: 1; cursor: pointer; }
-
 @media (max-width: 900px) {
   .experienceStrip { grid-template-columns: 1fr 1fr; }
   .experienceAvailability { grid-column: 1 / -1; }

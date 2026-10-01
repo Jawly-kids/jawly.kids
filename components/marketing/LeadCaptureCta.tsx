@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useId, useRef, useState } from "react";
+import { FormEvent, useEffect, useId, useState } from "react";
 import { CalendarDays, MessageCircle, Phone } from "lucide-react";
 import { lookupZip } from "@/content/service-area";
 import { site } from "@/lib/site";
@@ -40,7 +40,6 @@ const copy = {
 export default function LeadCaptureCta({ theme, page, id = "contact" }: { theme: LeadTheme; page: string; id?: string }) {
   const content = copy[theme];
   const formId = useId();
-  const scheduleDialogRef = useRef<HTMLDialogElement>(null);
   const [zip, setZip] = useState("");
   const [coverage, setCoverage] = useState<Coverage | null>(null);
   const [name, setName] = useState("");
@@ -193,16 +192,9 @@ export default function LeadCaptureCta({ theme, page, id = "contact" }: { theme:
           </div>
           <a href={site.phoneHref}><Phone aria-hidden="true" /><span><strong>Call us now</strong><small>{site.phoneDisplay}</small></span></a>
           <button type="button" disabled data-commerce-action="ask-jawly-ai"><MessageCircle aria-hidden="true" /><span><strong>Ask Jawly AI</strong><small>Coming soon</small></span></button>
-          <button type="button" onClick={() => scheduleDialogRef.current?.showModal()}><CalendarDays aria-hidden="true" /><span><strong>Schedule a meeting</strong><small>Choose a time to talk</small></span></button>
+          <a href={site.scheduleHref} target="_blank" rel="noreferrer"><CalendarDays aria-hidden="true" /><span><strong>Schedule a meeting</strong><small>Choose a time to talk</small></span></a>
         </div>
       </div>
-
-      <dialog ref={scheduleDialogRef} className={styles.leadDialog} aria-labelledby={`${formId}-schedule-title`}>
-        <button type="button" className={styles.leadDialogClose} onClick={() => scheduleDialogRef.current?.close()} aria-label="Close scheduling">×</button>
-        <h2 id={`${formId}-schedule-title`}>Schedule a meeting</h2>
-        <p>The scheduling connection is coming next. For now, call us and we&apos;ll find a time together.</p>
-        <a href={site.phoneHref}>Call {site.phoneDisplay}</a>
-      </dialog>
     </section>
   );
 }
