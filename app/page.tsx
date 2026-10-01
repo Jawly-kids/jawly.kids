@@ -16,7 +16,14 @@ export const metadata: Metadata = {
     title: "Jawly | Live. Captivating. Screen-free.",
     description: "Character-led adventures for daycare and preschool children to sing, dance, learn, and build social-emotional skills through play.",
     url: "/",
+    images: [{
+      url: "/homepage/performer-trio.png",
+      width: 1803,
+      height: 1161,
+      alt: "Three Jawly performers bringing live characters to early-learning classrooms",
+    }],
   },
+  twitter: { card: "summary_large_image", images: ["/homepage/performer-trio.png"] },
 };
 
 export default function Home() {
