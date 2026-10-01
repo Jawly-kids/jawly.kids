@@ -1,6 +1,14 @@
 .experienceSection { position: relative; z-index: 4; padding: 0 max(4vw, 24px); background: var(--paper); }
-.experienceProgram { padding-bottom: 96px; }
+.experienceProgram {
+  padding-top: 32px;
+  padding-bottom: 96px;
+  background-color: white;
+  background-image: linear-gradient(to bottom, #f8ece8 0 126px, white 126px 100%);
+  background-repeat: no-repeat;
+  box-shadow: inset 0 18px 24px -24px rgb(42 37 33 / .28);
+}
 .experienceStrip { width: min(1240px, 100%); min-height: 190px; margin: -34px auto 0; display: grid; grid-template-columns: 1fr 2fr 1.15fr; align-items: stretch; color: var(--ink); background: var(--paper); box-shadow: var(--shadow-overlay, 0 16px 40px rgb(42 37 33 / .14), 0 4px 8px rgb(42 37 33 / .08)); }
+.experienceProgram .experienceStrip { margin-top: 0; }
 .experienceLead, .experienceFacts, .experienceAvailability { padding: 35px 36px; }
 .experienceLead { display: flex; align-items: flex-start; justify-content: center; flex-direction: column; }
 .experienceStrip strong { display: block; font: 700 clamp(1.15rem, 1.55vw, 1.45rem)/1.1 var(--font-display); letter-spacing: -.03em; }
@@ -79,7 +87,7 @@
 
 @media (max-width: 720px) {
   .experienceSection { padding-right: 20px; padding-left: 20px; }
-  .experienceProgram { padding-bottom: 70px; }
+  .experienceProgram { padding-top: 24px; padding-bottom: 70px; background-size: 100% 112px; background-repeat: no-repeat; }
   .experienceStrip { grid-template-columns: 1fr; }
   .experienceFacts { grid-template-columns: 1fr; border-top: 1px solid var(--border); }
   .experienceFacts::before { display: none; }
