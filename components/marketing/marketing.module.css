@@ -1,13 +1,15 @@
 .experienceSection { position: relative; z-index: 4; padding: 0 max(4vw, 24px); background: var(--paper); }
 .experienceProgram {
+  --experience-tint-depth: 126px;
   padding-top: 32px;
   padding-bottom: 96px;
   background-color: white;
-  background-image: linear-gradient(to bottom, #f8ece8 0 126px, white 126px 100%);
+  background-image: linear-gradient(to bottom, #f8ece8 0 var(--experience-tint-depth), white var(--experience-tint-depth) 100%);
   background-repeat: no-repeat;
-  box-shadow: inset 0 18px 24px -24px rgb(42 37 33 / .28);
 }
+.experienceProgram::after { content: ""; position: absolute; z-index: 0; top: var(--experience-tint-depth); right: 0; left: 0; height: 26px; background: linear-gradient(to bottom, rgb(42 37 33 / .1), transparent); pointer-events: none; }
 .experienceStrip { width: min(1240px, 100%); min-height: 190px; margin: -34px auto 0; display: grid; grid-template-columns: 1fr 2fr 1.15fr; align-items: stretch; color: var(--ink); background: var(--paper); box-shadow: var(--shadow-overlay, 0 16px 40px rgb(42 37 33 / .14), 0 4px 8px rgb(42 37 33 / .08)); }
+.experienceProgram .experienceStrip { position: relative; z-index: 1; }
 .experienceSection:not(.experienceProgram) .experienceStrip { margin-top: -95px; }
 .experienceProgram .experienceStrip { margin-top: 0; }
 .experienceCosmos { background-image: linear-gradient(to bottom, #f0edff 0 126px, white 126px 100%); }
@@ -129,7 +131,7 @@
 
 @media (max-width: 720px) {
   .experienceSection { padding-right: 20px; padding-left: 20px; }
-  .experienceProgram { padding-top: 24px; padding-bottom: 70px; background-size: 100% 112px; background-repeat: no-repeat; }
+  .experienceProgram { --experience-tint-depth: 112px; padding-top: 24px; padding-bottom: 70px; }
   .experienceSection:not(.experienceProgram) .experienceStrip { margin-top: -34px; }
   .experienceStrip { grid-template-columns: 1fr; }
   .experienceFacts { grid-template-columns: 1fr; border-top: 1px solid var(--border); }
