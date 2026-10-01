@@ -1,4 +1,4 @@
-import CheckArea from "@/components/availability/CheckArea";
+import CompactZipEntry from "./CompactZipEntry";
 import styles from "./marketing.module.css";
 
 type ExperienceStripProps = {
@@ -35,7 +35,7 @@ export default function ExperienceStrip({
         <div className={styles.experienceAvailability}>
           <small>{programContext ? "Serving Chicagoland" : "Expanding across Chicagoland"}</small>
           <strong>{programContext ? `Can we bring ${program} to you?` : "Are we serving your area?"}</strong>
-          <CheckArea className={styles.experienceButton} demoHref={demoHref} page={page} label="Check Your Area" />
+          <CompactZipEntry targetHref={demoHref} page={page} />
         </div>
       </div>
     </section>

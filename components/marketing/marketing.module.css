@@ -21,12 +21,21 @@
 .experienceFacts::before { content: ""; position: absolute; left: 0; top: 50%; width: 1px; height: 68px; background: var(--border); transform: translateY(-50%); }
 .experienceFacts i { width: 1px; height: 68px; background: var(--border); }
 .experienceAvailability { display: flex; flex-direction: column; justify-content: center; padding: 27px 28px; color: white; background: var(--red); border: 10px solid var(--paper); }
+.experienceCosmos .experienceAvailability { background: #4b3aa8; }
+.experienceTides .experienceAvailability { background: #087f83; }
 .experienceAvailability small { margin-bottom: 10px; font: 700 .68rem var(--font-display); letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
 .experienceAvailability > strong { font-size: clamp(1rem, 1.25vw, 1.25rem); white-space: nowrap; }
-.experienceButton { align-self: flex-start; min-height: 48px; margin-top: 20px; padding: 0 20px; color: var(--ink); background: var(--paper); border: 1px solid var(--paper); border-radius: 12px; font: 700 1rem var(--font-display); cursor: pointer; transition: background-color 180ms ease, transform 120ms ease; }
-.experienceButton:hover { background: var(--surface-soft); }
-.experienceButton:active { transform: scale(.97); }
-.experienceButton:focus-visible { outline: 3px solid rgb(255 255 255 / .5); outline-offset: 3px; }
+.compactZip { margin-top: 18px; }
+.compactZip > label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.compactZip > div { display: grid; grid-template-columns: minmax(0, 1fr) 46px; }
+.compactZip input { min-width: 0; height: 48px; padding: 0 14px; color: white; background: rgb(255 255 255 / .09); border: 1.5px solid rgb(255 255 255 / .72); border-right: 0; border-radius: 9px 0 0 9px; font: 700 .9rem var(--font-display); letter-spacing: .01em; }
+.compactZip input::placeholder { color: rgb(255 255 255 / .75); opacity: 1; }
+.compactZip button { width: 46px; height: 48px; display: grid; place-items: center; color: var(--ink); background: var(--paper); border: 1px solid var(--paper); border-radius: 0 9px 9px 0; cursor: pointer; transition: background-color 180ms ease, transform 120ms ease; }
+.compactZip button:hover { background: var(--surface-soft); }
+.compactZip button:active { transform: scale(.96); }
+.compactZip button:focus-visible, .compactZip input:focus-visible { position: relative; z-index: 1; outline: 3px solid rgb(255 255 255 / .52); outline-offset: 2px; }
+.compactZip svg { width: 19px; height: 19px; stroke-width: 2; }
+.compactZip > span { display: block; margin-top: 7px; color: white; font-size: .74rem; }
 
 .proof {
   padding: 125px clamp(24px, 7vw, 100px) 0;

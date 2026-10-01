@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useId, useRef, useState } from "react";
+import { FormEvent, useEffect, useId, useRef, useState } from "react";
 import { CalendarDays, MessageCircle, Phone } from "lucide-react";
 import { lookupZip } from "@/content/service-area";
 import { site } from "@/lib/site";
@@ -8,6 +8,7 @@ import styles from "./marketing.module.css";
 
 type LeadTheme = "home" | "heroes" | "cosmos" | "tides";
 type Coverage = "covered" | "not-covered";
+type LeadEntry = { zip: string; coverage: Coverage; page: string };
 
 const copy = {
   home: {
@@ -47,6 +48,25 @@ export default function LeadCaptureCta({ theme, page, id = "calendar" }: { theme
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [received, setReceived] = useState(false);
+
+  useEffect(() => {
+    const applyEntry = (entry: LeadEntry | null) => {
+      if (!entry || entry.page.split("-")[0] !== page.split("-")[0]) return;
+      setZip(entry.zip);
+      setCoverage(entry.coverage);
+      setReceived(false);
+      setError("");
+    };
+
+    const saved = sessionStorage.getItem("jawly-lead-entry");
+    if (saved) {
+      try { applyEntry(JSON.parse(saved) as LeadEntry); } catch { sessionStorage.removeItem("jawly-lead-entry"); }
+    }
+
+    const receiveEntry = (event: Event) => applyEntry((event as CustomEvent<LeadEntry>).detail);
+    window.addEventListener("jawly:lead-entry", receiveEntry);
+    return () => window.removeEventListener("jawly:lead-entry", receiveEntry);
+  }, [page]);
 
   const checkZip = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
