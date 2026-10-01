@@ -6,8 +6,6 @@ import {
   ArrowRight,
   Activity,
   Brain,
-  Check,
-  CirclePlay,
   Heart,
   MessageCircle,
   Move,
@@ -15,13 +13,13 @@ import {
   Palette,
   Play,
   Shapes,
-  Target,
   Volume2,
   Wind,
   Zap,
 } from "lucide-react";
 import CheckArea from "@/components/availability/CheckArea";
 import ClassroomTrust from "@/components/marketing/ClassroomTrust";
+import ExperienceStrip from "@/components/marketing/ExperienceStrip";
 import ProofSection from "@/components/marketing/ProofSection";
 import { programs, site } from "@/lib/site";
 import styles from "./heroes.module.css";
@@ -182,26 +180,7 @@ export default function HeroesLanding() {
         <img className={styles.heroFigures} src="/heroes/bravo-little-legends.png" alt="Bravo standing with the Little Legends" />
       </section>
 
-      <section id="basics" className={styles.basicsSection} aria-label="Heroes program basics">
-        <div className={styles.basicsGrid}>
-          <article className={`${styles.basicsCard} ${styles.basicsSky}`}>
-            <span className={styles.basicsIcon} aria-hidden="true"><CirclePlay size={19} strokeWidth={2} /></span>
-            <h2>A live performance with no videos or screens</h2>
-            <p>A trained performer brings Bravo directly into your classroom, in person. You bring the classroom and we bring everything else.</p>
-          </article>
-          <article className={`${styles.basicsCard} ${styles.basicsGold}`}>
-            <span className={styles.basicsIcon} aria-hidden="true"><Check size={23} strokeWidth={3} /></span>
-            <h2>Your first session is a FREE demo</h2>
-            <p>One live, 30-minute session for a class with no commitment. Then enroll in the full six-visit Heroes series when you&apos;re ready.</p>
-          </article>
-          <article className={`${styles.basicsCard} ${styles.basicsGreen}`}>
-            <span className={styles.basicsIcon} aria-hidden="true"><Target size={22} strokeWidth={2.5} /></span>
-            <h2>Serving Chicagoland daycares + preschools</h2>
-            <p>Find out if we can bring Heroes to your center.</p>
-            <CheckArea className={styles.basicsCta} demoHref="#calendar" page="heroes" />
-          </article>
-        </div>
-      </section>
+      <ExperienceStrip context="program" character="Bravo" program="Heroes" demoHref="#calendar" page="heroes" />
 
       <section id="experience" ref={storyRef} className={styles.storySection}>
         <div className={styles.storySticky}>

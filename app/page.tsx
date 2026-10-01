@@ -3,6 +3,7 @@ import Link from "next/link";
 import { AudioWaveform, Heart, PersonStanding } from "lucide-react";
 import CheckArea from "@/components/availability/CheckArea";
 import ClassroomTrust from "@/components/marketing/ClassroomTrust";
+import ExperienceStrip from "@/components/marketing/ExperienceStrip";
 import ProofSection from "@/components/marketing/ProofSection";
 import styles from "./home.module.css";
 
@@ -43,21 +44,7 @@ export default function Home() {
         />
       </section>
 
-      <section className={styles.grounding} aria-label="Jawly at a glance">
-        <div className={styles.groundingLead}>
-          <div><strong>Live &amp; in person</strong><span>A character comes right into your classroom.</span></div>
-        </div>
-        <div className={styles.groundingMiddle}>
-          <div><strong>30 minutes</strong><span>Designed for ages 3 to 8</span></div>
-          <span className={styles.factDivider} aria-hidden="true" />
-          <div><strong>First visit free</strong><span>Start with Chapter One</span></div>
-        </div>
-        <div className={styles.availabilityPanel}>
-          <span className={styles.availabilityLabel}>Expanding across Chicagoland</span>
-          <strong>Are we serving your area?</strong>
-          <CheckArea className={styles.availabilityButton} demoHref="#start" page="home-top" label="Check Your Area" />
-        </div>
-      </section>
+      <ExperienceStrip demoHref="#start" page="home-top" />
 
       <section className={styles.adventures} id="programs" aria-labelledby="adventures-title">
         <div className={styles.adventuresIntro}>

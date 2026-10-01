@@ -1,3 +1,21 @@
+.experienceSection { position: relative; z-index: 4; padding: 0 max(4vw, 24px); background: var(--paper); }
+.experienceProgram { padding-bottom: 96px; }
+.experienceStrip { width: min(1240px, 100%); min-height: 190px; margin: -34px auto 0; display: grid; grid-template-columns: 1fr 2fr 1.15fr; align-items: stretch; color: var(--ink); background: var(--paper); box-shadow: var(--shadow-overlay, 0 16px 40px rgb(42 37 33 / .14), 0 4px 8px rgb(42 37 33 / .08)); }
+.experienceLead, .experienceFacts, .experienceAvailability { padding: 35px 36px; }
+.experienceLead { display: flex; align-items: flex-start; justify-content: center; flex-direction: column; }
+.experienceStrip strong { display: block; font: 700 clamp(1.15rem, 1.55vw, 1.45rem)/1.1 var(--font-display); letter-spacing: -.03em; }
+.experienceLead span, .experienceFacts span { display: block; margin-top: 9px; color: var(--muted); line-height: 1.35; }
+.experienceFacts { position: relative; display: grid; grid-template-columns: 1fr 1px 1fr; align-items: center; gap: 28px; }
+.experienceFacts::before { content: ""; position: absolute; left: 0; top: 50%; width: 1px; height: 68px; background: var(--border); transform: translateY(-50%); }
+.experienceFacts i { width: 1px; height: 68px; background: var(--border); }
+.experienceAvailability { display: flex; flex-direction: column; justify-content: center; padding: 27px 28px; color: white; background: var(--red); border: 10px solid var(--paper); }
+.experienceAvailability small { margin-bottom: 10px; font: 700 .68rem var(--font-display); letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+.experienceAvailability > strong { font-size: clamp(1rem, 1.25vw, 1.25rem); white-space: nowrap; }
+.experienceButton { align-self: flex-start; min-height: 48px; margin-top: 20px; padding: 0 20px; color: var(--ink); background: var(--paper); border: 1px solid var(--paper); border-radius: 12px; font: 700 1rem var(--font-display); cursor: pointer; transition: background-color 180ms ease, transform 120ms ease; }
+.experienceButton:hover { background: var(--surface-soft); }
+.experienceButton:active { transform: scale(.97); }
+.experienceButton:focus-visible { outline: 3px solid rgb(255 255 255 / .5); outline-offset: 3px; }
+
 .proof {
   padding: 125px max(7vw, 48px) 0;
   color: white;
@@ -52,11 +70,20 @@
 .trustPrinciples p { margin: 7px 0 0; color: var(--muted); font-size: .94rem; line-height: 1.52; }
 
 @media (max-width: 900px) {
+  .experienceStrip { grid-template-columns: 1fr 1fr; }
+  .experienceAvailability { grid-column: 1 / -1; }
   .easyCopy { grid-template-columns: 1fr; }
   .trustCard { width: 100%; }
 }
 
 @media (max-width: 720px) {
+  .experienceSection { padding-right: 20px; padding-left: 20px; }
+  .experienceProgram { padding-bottom: 70px; }
+  .experienceStrip { grid-template-columns: 1fr; }
+  .experienceFacts { grid-template-columns: 1fr; border-top: 1px solid var(--border); }
+  .experienceFacts::before { display: none; }
+  .experienceFacts i { width: 100%; height: 1px; }
+  .experienceAvailability { grid-column: auto; }
   .proof, .reassurance { padding-left: 24px; padding-right: 24px; }
   .proofHeading h2, .easyCopy h2 { font-size: 3.2rem; }
   .stats { grid-template-columns: 1fr; }
