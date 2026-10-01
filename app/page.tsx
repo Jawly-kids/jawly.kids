@@ -94,7 +94,7 @@ export default function Home() {
       <section className={styles.liveSection} id="live" aria-labelledby="live-title">
         <div className={styles.sectionIntro}>
           <p className={styles.eyebrowDark}>See Jawly live</p>
-          <h2 id="live-title">This is what screen-free attention looks like.</h2>
+          <h2 id="live-title">Classrooms become worlds of wonder.</h2>
           <p>Children aren&apos;t watching the adventure. <strong>They&apos;re inside it</strong>, moving, responding, imagining, laughing, and learning alongside the character.</p>
         </div>
         <GalleryPlaceholder />
