@@ -58,7 +58,6 @@ html:has(nav[aria-label="On this page"]) {
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-height) + 8px);
 }
 
@@ -81,12 +80,6 @@ select {
   html:has(nav[aria-label="On this page"]) {
     --tier1-height: 64px;
     --tier2-height: 0px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
   }
 }
 
