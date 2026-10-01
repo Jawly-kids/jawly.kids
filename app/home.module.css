@@ -185,7 +185,7 @@
 .join { min-height:420px; padding:70px max(7vw,40px) 0; display:grid; grid-template-columns:minmax(300px,.72fr) minmax(500px,1.28fr); gap:clamp(36px,5vw,80px); align-items:end; overflow:hidden; background:#fff; }
 .joinCopy { align-self:center; max-width:480px; padding-bottom:60px; }
 .joinCopy .eyebrowDark { margin:0 0 18px; color:var(--red); }
-.joinCopy h2 { margin:0; font-size:clamp(2rem,3.2vw,3.15rem); line-height:1.04; letter-spacing:-.04em; }
+.joinCopy h2 { margin:0; font:900 clamp(2rem,3.2vw,3.15rem)/1.04 var(--font-display); letter-spacing:-.04em; }
 .joinCopy>p:not(.eyebrowDark) { margin:22px 0 0; color:var(--muted); font-size:1.05rem; line-height:1.6; }
 .joinCopy a { display:inline-block; margin-top:28px; padding-bottom:5px; color:var(--red); border-bottom:1px solid currentColor; font:800 .95rem/1.2 var(--font-display); text-decoration:none; }
 .joinCopy a span { display:inline-block; margin-left:5px; transition:transform 180ms ease; }.joinCopy a:hover span { transform:translateX(4px); }
