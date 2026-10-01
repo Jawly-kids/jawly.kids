@@ -275,6 +275,13 @@
 .page:not(.cosmosPage) .inviteCard,
 .page:not(.cosmosPage) .scheduleDialog { border-radius: var(--radius-card); }
 .page:not(.cosmosPage) .inviteCard { box-shadow: var(--shadow-overlay); }
+.page:not(.cosmosPage) .journeySection {
+  color: var(--paper);
+  background: #4f1715;
+}
+.page:not(.cosmosPage) .journeySection .eyebrow { color: var(--yellow); }
+.page:not(.cosmosPage) .journeySection .sectionHeading > p:last-child { color: rgb(255 253 249 / .78); }
+.page:not(.cosmosPage) .journeySection .sectionHeading h2 { max-width: 16ch; }
 .page:not(.cosmosPage) .visitSection,
 .page:not(.cosmosPage) .gallerySection,
 .page:not(.cosmosPage) .proofSection,
@@ -339,6 +346,7 @@
   .storyProgress { right: 12px; }
   .safetyList { margin-top: 14px; }.voiceButton { margin-top: 16px; }.voiceTranscript { bottom: 10px; }
   .gallerySection, .proofSection, .journeySection, .calendarSection, .moreSection { padding: 74px 20px; }
+  .page:not(.cosmosPage) .journeySection .sectionHeading h2 { max-width: 100%; font-size: 2.65rem; overflow-wrap: break-word; }
   .videoCaption { align-items: flex-start; flex-direction: column; gap: 14px; }
   .videoRail { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
   .videoRail button { flex: 0 0 72vw; scroll-snap-align: start; }

@@ -17,15 +17,16 @@
 .experienceButton:focus-visible { outline: 3px solid rgb(255 255 255 / .5); outline-offset: 3px; }
 
 .proof {
-  padding: 125px max(7vw, 48px) 0;
+  padding: 125px clamp(24px, 7vw, 100px) 0;
+  overflow: hidden;
   color: white;
   background: linear-gradient(145deg, #17365f 0%, #1d4778 58%, #245987 100%);
 }
-.proofHeroes { background: linear-gradient(145deg, #5d1d19 0%, #74251f 58%, #9a3027 100%); }
+.proofHeroes { background: linear-gradient(145deg, #a53329 0%, #c6402f 58%, #d45a43 100%); }
 .proofHeading, .stats, .testimonials, .serving { width: min(1180px, 100%); margin-left: auto; margin-right: auto; }
 .eyebrow, .neutralEyebrow, .redEyebrow { margin: 0 0 22px; font: 600 .6875rem/1 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
 .eyebrow { color: var(--yellow); }
-.proofHeading h2 { max-width: 780px; margin: 0; font: 800 clamp(2.5rem, 4vw, 3.5rem)/1 var(--font-display); letter-spacing: -.035em; text-wrap: balance; }
+.proofHeading h2 { max-width: min(780px, 100%); margin: 0; font: 800 clamp(2.5rem, 4vw, 3.5rem)/1 var(--font-display); letter-spacing: -.035em; overflow-wrap: break-word; text-wrap: balance; }
 .stats { margin-top: 72px; padding: 48px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(46px, 7vw, 110px); border-top: 1px solid rgb(255 255 255 / .2); border-bottom: 1px solid rgb(255 255 255 / .2); }
 .stats strong { display: block; font: 900 clamp(3rem, 5vw, 4.5rem)/.95 var(--font-display); letter-spacing: -.035em; }
 .stats strong span { font-size: .42em; letter-spacing: -.02em; }
@@ -41,7 +42,7 @@
 .testimonialDots button { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%; background: rgb(255 255 255 / .32); cursor: pointer; }
 .testimonialDots button[aria-pressed="true"] { width: 25px; border-radius: 8px; background: var(--yellow); }
 .testimonialDots button:focus-visible { outline: 2px solid white; outline-offset: 4px; }
-.serving { width: min(1320px, calc(100% + 6vw)); padding: 28px clamp(18px, 2vw, 30px) 30px; display: grid; gap: 16px; align-items: center; color: var(--ink); background: var(--paper); border-radius: var(--radius-card, 16px) var(--radius-card, 16px) 0 0; }
+.serving { width: min(1180px, 100%); padding: 28px clamp(18px, 2vw, 30px) 30px; display: grid; gap: 16px; align-items: center; color: var(--ink); background: var(--paper); border-radius: var(--radius-card, 16px) var(--radius-card, 16px) 0 0; }
 .serving > span { color: var(--muted); font: 700 .75rem var(--font-display); letter-spacing: .15em; text-align: center; text-transform: uppercase; }
 .customerLogos { width: min(100%, 1160px); min-width: 0; margin: 0 auto; display: flex; justify-content: space-around; align-items: center; gap: clamp(18px, 3vw, 48px); }
 .customerLogos img { width: auto; min-width: 0; display: block; object-fit: contain; mix-blend-mode: multiply; }
@@ -85,14 +86,15 @@
   .experienceFacts i { width: 100%; height: 1px; }
   .experienceAvailability { grid-column: auto; }
   .proof, .reassurance { padding-left: 24px; padding-right: 24px; }
-  .proofHeading h2, .easyCopy h2 { font-size: 3.2rem; }
+  .proof { padding-top: 84px; }
+  .proofHeading h2, .easyCopy h2 { font-size: 2.65rem; }
   .stats { grid-template-columns: 1fr; }
   .testimonials { padding: 88px 0 78px 44px; }
   .trustCard { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 520px) {
-  .proofHeading h2, .easyCopy h2 { font-size: 2.55rem; }
+  .proofHeading h2, .easyCopy h2 { font-size: 2.3rem; }
   .customerLogos { flex-direction: column; }
   .testimonials { padding-left: 26px; }
   .trustCard { margin-top: 54px; padding: 30px 24px; }
