@@ -75,11 +75,13 @@ export default function Header() {
                 <div id="program-navigation" className={`${styles.programDropdown} ${programsOpen ? styles.programDropdownOpen : ""}`}>
                   {programs.map((program) => (
                     <Link key={program.slug} href={program.href} aria-current={pathname === program.href ? "page" : undefined}>
-                      <span>
+                      <img src={program.thumbnail} alt="" />
+                      <span className={styles.programCardCopy}>
+                        <small>{program.character}</small>
                         <strong>{program.label}</strong>
-                        <small>{program.journey}</small>
+                        <span>{program.summary}</span>
+                        {program.status === "draft" ? <em>Coming soon</em> : null}
                       </span>
-                      {program.status === "draft" ? <em>Coming soon</em> : null}
                     </Link>
                   ))}
                 </div>

@@ -14,6 +14,8 @@ export type SiteProgram = {
   label: string;
   character: string;
   journey: string;
+  summary: string;
+  thumbnail: string;
   mark: string;
   tone: "cosmos" | "tides" | "heroes";
   status: ProgramStatus;
@@ -26,6 +28,8 @@ export const programs: SiteProgram[] = [
     label: "Heroes",
     character: "Bravo",
     journey: "The Courage Journey",
+    summary: "Courage, teamwork, and movement.",
+    thumbnail: "/heroes/bravo-state-1.jpg",
     mark: "★",
     tone: "heroes",
     status: "live",
@@ -36,6 +40,8 @@ export const programs: SiteProgram[] = [
     label: "Cosmos",
     character: "Orla Orbit",
     journey: "The Knowledge Journey",
+    summary: "Wonder, discovery, and real science.",
+    thumbnail: "/cosmos/state-1.jpg",
     mark: "✦",
     tone: "cosmos",
     status: "live",
@@ -46,6 +52,8 @@ export const programs: SiteProgram[] = [
     label: "Tides",
     character: "Mira",
     journey: "The Discovery Journey",
+    summary: "Kindness, movement, and ocean discovery.",
+    thumbnail: "/homepage/Tides_for_Jawly_HomePage.png",
     mark: "≈",
     tone: "tides",
     status: "draft",
