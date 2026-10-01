@@ -108,7 +108,7 @@ export default function LeadCaptureCta({ theme, page, id = "calendar" }: { theme
                       inputMode="numeric"
                       autoComplete="postal-code"
                       maxLength={5}
-                      placeholder="ZIP code"
+                      placeholder="Enter ZIP code"
                       value={zip}
                       onChange={(event) => {
                         setZip(event.target.value.replace(/\D/g, "").slice(0, 5));
