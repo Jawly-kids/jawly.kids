@@ -85,16 +85,6 @@ export const pageSections: Record<string, SiteLink[]> = {
     { href: "#people", label: "People" },
     { href: "#standards", label: "Standards" },
   ],
-  "/heroes": [
-    { href: "#experience", label: "The experience" },
-    { href: "#journey", label: "The journey" },
-    { href: "#proof", label: "Proof" },
-  ],
-  "/cosmos": [
-    { href: "#experience", label: "The experience" },
-    { href: "#journey", label: "The journey" },
-    { href: "#proof", label: "Proof" },
-  ],
 };
 
 /** Full-bleed first screen. The header stays transparent until the page scrolls. */

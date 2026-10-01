@@ -244,6 +244,51 @@
 .programCard p { margin-top: 34px; display: flex; align-items: center; gap: 8px; color: var(--red); font-weight: 700; }
 .programCardSoon p { color: #68717b; }
 
+/* Heroes visual alignment. Cosmos shares this module and is intentionally excluded. */
+.page:not(.cosmosPage) {
+  --radius-button: 12px;
+  --radius-card: 16px;
+  --shadow-overlay: 0 16px 40px rgb(42 37 33 / .14), 0 4px 8px rgb(42 37 33 / .08);
+}
+.page:not(.cosmosPage) h1,
+.page:not(.cosmosPage) h2 { font-weight: 800; }
+.page:not(.cosmosPage) .eyebrow,
+.page:not(.cosmosPage) .heroEyebrow {
+  color: var(--red);
+  font: 600 .6875rem/1 var(--font-sans);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.page:not(.cosmosPage) .primaryButton,
+.page:not(.cosmosPage) .calendarButton,
+.page:not(.cosmosPage) .basicsCta,
+.page:not(.cosmosPage) .inviteForm button,
+.page:not(.cosmosPage) .scheduleButton,
+.page:not(.cosmosPage) .scheduleDialog a { border-radius: var(--radius-button); }
+.page:not(.cosmosPage) .basicsCta,
+.page:not(.cosmosPage) .inviteForm button { font-family: var(--font-display); }
+.page:not(.cosmosPage) .basicsCard,
+.page:not(.cosmosPage) .videoGalleryPlaceholder,
+.page:not(.cosmosPage) .metricGrid article,
+.page:not(.cosmosPage) .testimonialPanel,
+.page:not(.cosmosPage) .journeyNode,
+.page:not(.cosmosPage) .inviteCard,
+.page:not(.cosmosPage) .scheduleDialog { border-radius: var(--radius-card); }
+.page:not(.cosmosPage) .inviteCard { box-shadow: var(--shadow-overlay); }
+.page:not(.cosmosPage) .visitSection,
+.page:not(.cosmosPage) .gallerySection,
+.page:not(.cosmosPage) .proofSection,
+.page:not(.cosmosPage) .journeySection,
+.page:not(.cosmosPage) .calendarSection,
+.page:not(.cosmosPage) .moreSection { padding-top: 120px; padding-bottom: 120px; }
+.page:not(.cosmosPage) .sectionHeading h2 {
+  margin-top: 18px;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+
 @media (max-width: 980px) {
   .basicsGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .basicsCard { min-height: 300px; padding: 32px; }
