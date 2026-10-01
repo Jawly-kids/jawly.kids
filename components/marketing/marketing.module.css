@@ -1,4 +1,5 @@
 .experienceSection { position: relative; z-index: 4; padding: 0 max(4vw, 24px); background: var(--paper); }
+.experienceSection:not(.experienceProgram) { background: transparent; }
 .experienceProgram {
   --experience-tint-depth: 126px;
   padding-top: 32px;
