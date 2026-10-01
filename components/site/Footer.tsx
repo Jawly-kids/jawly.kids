@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone } from "lucide-react";
+import { CalendarDays, MessageCircle, Users } from "lucide-react";
 import { programs, site } from "@/lib/site";
 import styles from "./site.module.css";
 
@@ -74,37 +74,39 @@ export default function Footer() {
         </div>
 
         <div className={styles.footerGroup}>
-          <h2>Explore</h2>
+          <h2>Explore &amp; Join</h2>
           <Link href="/">Home</Link>
           <Link href="/why-jawly">Why Jawly</Link>
           <Link href="/trust-safety">Trust &amp; Safety</Link>
+          <Link href="/facilitators">Join the Jawly Crew</Link>
+          <Link href="/contact">Book a Free Visit</Link>
         </div>
 
         <div className={styles.footerGroup}>
           <h2>Programs</h2>
           {programs.map((program) => (
             <Link key={program.slug} href={program.href}>
-              {program.label}{program.status === "draft" ? " · Coming Soon" : ""}
+              {program.label}{program.status === "draft" ? <span className={styles.footerLinkNote}> · Coming Soon</span> : null}
             </Link>
           ))}
         </div>
 
-        <div className={styles.footerGroup}>
-          <h2>Join</h2>
-          <Link href="/facilitators">Join the Jawly Crew</Link>
-          <Link href="/contact">Book a Free Visit</Link>
-        </div>
-
         <div className={`${styles.footerGroup} ${styles.footerSupport}`}>
-          <h2>Questions?</h2>
-          <p>Call the Jawly team. We&apos;re happy to talk through fit, timing, and what a first visit looks like.</p>
-          <a className={styles.supportCall} href={site.phoneHref}>
-            <Phone aria-hidden="true" />
-            <span>
-              <small>Call us</small>
-              <strong>{site.phoneDisplay}</strong>
-            </span>
-          </a>
+          <h2>Talk with Jawly</h2>
+          <div className={styles.footerContactCards}>
+            <Link href="/contact">
+              <MessageCircle aria-hidden="true" />
+              <span><strong>Questions?</strong><small>Tell us what you need</small></span>
+            </Link>
+            <a href={site.phoneHref}>
+              <CalendarDays aria-hidden="true" />
+              <span><strong>Scheduling hotline</strong><small>{site.phoneDisplay}</small></span>
+            </a>
+            <a href={site.phoneHref}>
+              <Users aria-hidden="true" />
+              <span><strong>Interested in joining?</strong><small>Call the Jawly team</small></span>
+            </a>
+          </div>
         </div>
       </div>
 
