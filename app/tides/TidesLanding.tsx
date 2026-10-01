@@ -19,7 +19,7 @@ export default function TidesLanding() {
         <img className={styles.heroFigures} src="/tides/TidesGroupShot.png" alt="Mira swimming with the Mighty Minnows" />
       </section>
 
-      <ExperienceStrip context="program" character="Mira" program="Tides" demoHref="#calendar" page="tides" theme="tides" />
+      <ExperienceStrip context="program" character="Mira" program="Tides" demoHref="#contact" page="tides" theme="tides" />
 
       <section id="experience" className={styles.tidesStory} aria-labelledby="mira-title">
         <div className={styles.tidesStoryInner}>

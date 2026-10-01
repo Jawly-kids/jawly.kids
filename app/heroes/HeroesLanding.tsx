@@ -178,7 +178,7 @@ export default function HeroesLanding() {
         <img className={styles.heroFigures} src="/heroes/bravo-little-legends.png" alt="Bravo standing with the Little Legends" />
       </section>
 
-      <ExperienceStrip context="program" character="Bravo" program="Heroes" demoHref="#calendar" page="heroes" />
+      <ExperienceStrip context="program" character="Bravo" program="Heroes" demoHref="#contact" page="heroes" />
 
       <section id="experience" ref={storyRef} className={styles.storySection}>
         <div className={styles.storySticky}>

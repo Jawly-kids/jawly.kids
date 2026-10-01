@@ -128,7 +128,7 @@ export default function TrustSafetyPage() {
 
       <section className={styles.questions}>
         <div><p className={styles.overline}>QUESTIONS ARE WELCOME</p><h2>Trust should be easy to understand.</h2></div>
-        <div><p>Directors and families deserve specific answers about how Jawly works, what its equipment can do, and how separately recorded media is handled.</p><a href="mailto:privacy@jawly.kids">Ask us about safety or privacy <span aria-hidden="true">→</span></a><Link href="/heroes#calendar">See how a visit works</Link></div>
+        <div><p>Directors and families deserve specific answers about how Jawly works, what its equipment can do, and how separately recorded media is handled.</p><a href="mailto:privacy@jawly.kids">Ask us about safety or privacy <span aria-hidden="true">→</span></a><Link href="/contact">See how a visit works</Link></div>
       </section>
     </main>
   );

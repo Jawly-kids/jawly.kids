@@ -4,9 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
-import CheckArea from "@/components/availability/CheckArea";
 import {
-  demoHref,
   globalNav,
   headerOverlayUsesLightType,
   headerOverlaysHero,
@@ -94,12 +92,7 @@ export default function Header() {
               </Link>
             ),
           )}
-          <CheckArea
-            className={styles.navCta}
-            demoHref={demoHref(pathname)}
-            page={`header:${pathname}`}
-            label="Book a Free Visit"
-          />
+          <Link className={styles.navCta} href="/contact">Book a Free Visit</Link>
         </nav>
       </div>
 

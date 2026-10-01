@@ -94,7 +94,7 @@ export default function CosmosLanding() {
         <img className={styles.heroFigures} src={cosmosCopy.heroFigures} alt={cosmosCopy.heroFiguresAlt} />
       </section>
 
-      <ExperienceStrip context="program" character="Orla" program="Cosmos" demoHref="#calendar" page="cosmos" theme="cosmos" />
+      <ExperienceStrip context="program" character="Orla" program="Cosmos" demoHref="#contact" page="cosmos" theme="cosmos" />
 
       <section id="experience" ref={storyRef} className={styles.storySection}>
         <div className={styles.storySticky}>

@@ -92,7 +92,7 @@ export default function Footer() {
         <div className={styles.footerGroup}>
           <h2>Join</h2>
           <Link href="/facilitators">Join the Jawly Crew</Link>
-          <Link href="/heroes#calendar">Book a Free Visit</Link>
+          <Link href="/contact">Book a Free Visit</Link>
         </div>
 
         <div className={`${styles.footerGroup} ${styles.footerSupport}`}>

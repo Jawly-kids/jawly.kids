@@ -37,7 +37,7 @@ const copy = {
   },
 } as const;
 
-export default function LeadCaptureCta({ theme, page, id = "calendar" }: { theme: LeadTheme; page: string; id?: string }) {
+export default function LeadCaptureCta({ theme, page, id = "contact" }: { theme: LeadTheme; page: string; id?: string }) {
   const content = copy[theme];
   const formId = useId();
   const scheduleDialogRef = useRef<HTMLDialogElement>(null);

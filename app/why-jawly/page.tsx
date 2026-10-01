@@ -125,7 +125,7 @@ export default function WhyJawlyPage() {
         <p className={styles.overline}>SEE IT IN THE ROOM</p>
         <h2>Start with Chapter One.</h2>
         <p>Your first Jawly visit is free.</p>
-        <Link href="/heroes#calendar">Bring Jawly to your classroom <span aria-hidden="true">→</span></Link>
+        <Link href="/contact">Bring Jawly to your classroom <span aria-hidden="true">→</span></Link>
       </footer>
     </main>
   );

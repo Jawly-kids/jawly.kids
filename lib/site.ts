@@ -99,9 +99,3 @@ export function headerOverlaysHero(pathname: string) {
 export function headerOverlayUsesLightType(pathname: string) {
   return pathname === "/cosmos";
 }
-
-export function demoHref(pathname: string) {
-  if (pathname === "/heroes" || pathname === "/cosmos") return "#calendar";
-  const destination = livePrograms[0]?.href ?? "/";
-  return `${destination}#calendar`;
-}

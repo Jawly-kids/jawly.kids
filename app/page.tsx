@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AudioWaveform, Heart, PersonStanding } from "lucide-react";
-import CheckArea from "@/components/availability/CheckArea";
 import ClassroomTrust from "@/components/marketing/ClassroomTrust";
 import ExperienceStrip from "@/components/marketing/ExperienceStrip";
 import GalleryPlaceholder from "@/components/marketing/GalleryPlaceholder";
@@ -35,7 +34,7 @@ export default function Home() {
           <h1 id="home-title"><span>Live.</span><span>Captivating.</span><span>Screen-free.</span></h1>
           <p className={styles.heroSubhead}>Character-led adventures for daycare and preschool children to sing, dance, learn, and build social-emotional skills through play.</p>
           <div className={styles.heroActions}>
-            <CheckArea className={styles.primaryHero} demoHref="#start" page="home-hero" label="Book a Free First Visit" />
+            <a className={styles.primaryHero} href="#contact">Book a Free First Visit</a>
             <a className={styles.secondaryHero} href="#programs">See How Jawly Works</a>
           </div>
         </div>
@@ -46,7 +45,7 @@ export default function Home() {
         />
       </section>
 
-      <ExperienceStrip demoHref="#start" page="home-top" />
+      <ExperienceStrip demoHref="#contact" page="home-top" />
 
       <section className={styles.adventures} id="programs" aria-labelledby="adventures-title">
         <div className={styles.adventuresIntro}>
@@ -129,12 +128,12 @@ export default function Home() {
           <p className={styles.eyebrowDark}>We&apos;re hiring</p>
           <h2 id="join-title">Do work that makes the room light up.</h2>
           <p>Join a warm, creative crew bringing movement, imagination, and meaningful play into children&apos;s classrooms.</p>
-          <a className={styles.textCta} href="tel:+18887752959">Talk to the Jawly team <span aria-hidden="true">→</span></a>
+          <a className={styles.textCta} href="#contact">Talk to the Jawly team <span aria-hidden="true">→</span></a>
         </div>
         <img src="/homepage/join-jawly.png" alt="Three members of the Jawly crew holding character performance masks" />
       </section>
 
-      <LeadCaptureCta theme="home" page="home-final" id="start" />
+      <LeadCaptureCta theme="home" page="home-final" />
     </main>
   );
 }
