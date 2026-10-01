@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AudioWaveform, Heart, PersonStanding } from "lucide-react";
-import { PreparedExperienceIcon, PrivateSystemIcon, TrustedPeopleIcon } from "@/components/illustrations/TrustPrincipleIcons";
 import CheckArea from "@/components/availability/CheckArea";
+import ClassroomTrust from "@/components/marketing/ClassroomTrust";
+import ProofSection from "@/components/marketing/ProofSection";
 import styles from "./home.module.css";
 
 export const metadata: Metadata = {
@@ -120,30 +121,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.proof} aria-labelledby="proof-title">
-        <div className={styles.proofHeading}>
-          <p className={styles.eyebrowDark}>Tested in real classrooms</p>
-          <h2 id="proof-title">Classrooms are buzzing.<br />Thumbs up all around.</h2>
-        </div>
-        <div className={styles.stats}>
-          <div><strong>4.8<span>/5</span></strong><p>Average across 50+ teacher reviews</p></div>
-          <div><strong>97<span>%</span></strong><p>said children remembered the character and curriculum week after week</p></div>
-          <div><strong>96<span>%</span></strong><p>gave the end-of-session cool-down a perfect 5</p></div>
-        </div>
-        <blockquote>
-          <p>This is <span className={styles.smallCaps}>THE</span> coolest thing I&apos;ve seen in 11 years of being here.</p>
-          <cite>Amber P. · Center Director · KinderCare Learning Centers</cite>
-        </blockquote>
-        <div className={styles.serving} id="serving">
-          <span>Currently serving families at</span>
-          <div className={styles.customerLogos} aria-label="Jawly customers">
-            <img src="/homepage/clients/kindercare-balanced.jpg" alt="KinderCare" />
-            <img src="/homepage/clients/kids-r-kids-balanced.jpg" alt="Kids 'R' Kids Learning Academies" />
-            <img src="/homepage/clients/kiddie-academy-balanced.jpg" alt="Kiddie Academy" />
-          </div>
-          <p>Now expanding to more early-learning centers across Chicago and the Northwest suburbs.</p>
-        </div>
-      </section>
+      <ProofSection />
 
       <section className={styles.meaning} aria-labelledby="meaning-title">
         <div className={styles.meaningIntro}>
@@ -164,26 +142,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.reassurance} aria-labelledby="easy-title">
-        <div className={styles.easyCopy}>
-          <p className={styles.eyebrowLight}>Designed for real classrooms</p>
-          <h2 id="easy-title">You bring the room.<br />We bring the adventure.</h2>
-          <p>Jawly arrives ready to go with the character, trained performer, story, music, activities, and materials. There&apos;s no lesson for your team to prepare, and your classroom staff remain part of the room throughout the visit.</p>
-        </div>
-        <div className={styles.trustCard}>
-          <div className={styles.trustIntro}>
-            <p className={styles.eyebrowDark}>Trust &amp; Safety</p>
-            <h3>Carefully designed for the people and places that trust us.</h3>
-            <p>Jawly pairs thoughtful technology with trained people and clear boundaries around children’s information.</p>
-            <Link className={styles.textCta} href="/trust-safety">Our approach to Trust &amp; Safety <span aria-hidden="true">→</span></Link>
-          </div>
-          <div className={styles.trustPrinciples}>
-            <article><TrustedPeopleIcon className={styles.trustIcon}/><div><h4>Trusted people</h4><p>Background-checked performers are trained for the responsibility of entering an early-learning classroom.</p></div></article>
-            <article><PrivateSystemIcon className={styles.trustIcon}/><div><h4>Private by design</h4><p>No child accounts, recognition, stored child memory, or advertising profiles.</p></div></article>
-            <article><PreparedExperienceIcon className={styles.trustIcon}/><div><h4>Prepared before arrival</h4><p>Stories, prompts, songs, and responses are authored in advance, then delivered with human warmth.</p></div></article>
-          </div>
-        </div>
-      </section>
+      <ClassroomTrust />
 
       <section className={styles.finalCta} id="start" aria-labelledby="start-title">
         <div className={styles.finalCtaInner}>

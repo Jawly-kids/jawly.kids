@@ -21,6 +21,8 @@ import {
   Zap,
 } from "lucide-react";
 import CheckArea from "@/components/availability/CheckArea";
+import ClassroomTrust from "@/components/marketing/ClassroomTrust";
+import ProofSection from "@/components/marketing/ProofSection";
 import { programs, site } from "@/lib/site";
 import styles from "./heroes.module.css";
 
@@ -35,7 +37,7 @@ const stages = [
     eyebrow: "PATENT PENDING TECH",
     title: "Screenless. Yet Captivating Wearable Expression System.",
     body:
-      "Jawly is an education technology platform, not a costumed performer. Bravo speaks through a patent-pending wearable expression system — a rich character voice, produced ahead of time with AI rather than improvised by an actor in the moment. Delivered through screenless wearable hardware, that same voice and personality show up the same way in every visit, while a real performer brings the movement, eye contact, and play.",
+      "Jawly is an education technology platform, not a costumed performer. Bravo speaks through a patent-pending wearable expression system: a rich character voice, produced ahead of time with AI rather than improvised by an actor in the moment. Delivered through screenless wearable hardware, that same voice and personality show up the same way in every visit, while a real performer brings the movement, eye contact, and play.",
   },
   {
     eyebrow: "HEAR IT FOR YOURSELF",
@@ -64,17 +66,17 @@ const visitShow = [
   { title: "SING", body: "A chant or call-and-response that gets the whole room's voice in the room.", Icon: Music2, color: "showDeep" },
   { title: "DANCE", body: "Capes on, hero pose struck - movement that gets everybody up and moving together.", Icon: Move, color: "showYellow" },
   { title: "MOVE", body: "Power squeezes, big stomps, physical challenges that build strength and focus.", Icon: Zap, color: "showGreen" },
-  { title: "WIND DOWN", body: "One last breath together — the calm that closes every visit.", Icon: Wind, color: "showAsphalt" },
+  { title: "WIND DOWN", body: "One last breath together. The calm that closes every visit.", Icon: Wind, color: "showAsphalt" },
 ];
 
 const journey = [
-  ["MEET & ESTABLISH", "Becoming a Superhero", "Capes on, hero pose struck: you’re a Little Legend now. And a secret comes with it. There’s already a spark of courage inside you — that’s your Bravo.", "/heroes/journey-1.png"],
+  ["MEET & ESTABLISH", "Becoming a Superhero", "Capes on, hero pose struck: you’re a Little Legend now. And a secret comes with it. There’s already a spark of courage inside you. That’s your Bravo.", "/heroes/journey-1.png"],
   ["FIRST DEEP DIVE", "Finding Your Strength", "Training day. Power squeezes, mighty stomps, five big reps and one more. Getting braver looks a lot like practice.", "/heroes/journey-2.png"],
   ["EXPAND", "Better Together", "The biggest hero secret: nobody has to be brave alone. Capes work best side by side.", "/heroes/journey-3.png"],
   ["THE BIG CHALLENGE", "Finding Your Bravo", "Trouble in the city, and it’s a little scary. Hand on your heart, one brave breath, fist to the sky. There it is.", "/heroes/journey-4.png"],
   ["SKILLS ROUNDUP", "Saving the Day", "Everything they trained for: see it, make a plan, be brave. The Legends save the day.", "/heroes/journey-5.png"],
   ["GRADUATION CELEBRATION", "Hero Graduation", "Bravo asks for the capes back… and no one feels one bit smaller. Hand on heart, fist to the sky: the cape was never the superpower. You were.", "/heroes/journey-6.png"],
-  ["CREW & KEEPSAKE", "What the Little Legends carry home", "Every class becomes the Little Legends — a name they carry through all six visits and keep after. What they take home: a cape, a mask, and a squeeze-and-breathe stress ball — a coping tool they can actually use, whenever they need to find their Bravo again.", ""],
+  ["CREW & KEEPSAKE", "What the Little Legends carry home", "Every class becomes the Little Legends, a name they carry through all six visits and keep after. What they take home: a cape, a mask, and a squeeze-and-breathe stress ball, a coping tool they can actually use whenever they need to find their Bravo again.", ""],
 ];
 
 const videos = [
@@ -97,7 +99,7 @@ const videos = [
   {
     id: "1227770634",
     hash: "3e50750d7b",
-    title: "Hero Training — Power Squeezes",
+    title: "Hero Training: Power Squeezes",
     shortTitle: "Power Squeezes",
     invitation: "Join a quick hero-training exercise that gives big energy a focused place to go.",
     thumbnail: "/heroes/video-power.jpg",
@@ -113,17 +115,11 @@ const videos = [
   {
     id: "1227770632",
     hash: "3a4e5e6f9f",
-    title: "Find Your Bravo — The Theme Song",
+    title: "Find Your Bravo: The Theme Song",
     shortTitle: "The Theme Song",
     invitation: "Hear the song that gives every visit its shared rhythm, language, and heroic lift.",
     thumbnail: "/heroes/video-theme.jpg",
   },
-];
-
-const teacherTestimonials = [
-  { quote: "It beat the sports and movement classes we already run — no contest.", attribution: "Lead Teacher - KinderCare" },
-  { quote: "Several children now bring him up on their own, between visits — he's become someone they think about.", attribution: "Teacher - Kids R Kids" },
-  { quote: "Almost mesmerized, not scared like expected.", attribution: "Center Director - FinderCare" },
 ];
 
 function clamp(value: number, min = 0, max = 1) {
@@ -140,16 +136,6 @@ export default function HeroesLanding() {
   const [progress, setProgress] = useState(0);
   const [voiceOpen, setVoiceOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(videos[0]);
-  const [testimonialIndex, setTestimonialIndex] = useState(0);
-  const [testimonialsPaused, setTestimonialsPaused] = useState(false);
-
-  useEffect(() => {
-    if (testimonialsPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const interval = window.setInterval(() => {
-      if (!document.hidden) setTestimonialIndex((index) => (index + 1) % teacherTestimonials.length);
-    }, 5500);
-    return () => window.clearInterval(interval);
-  }, [testimonialsPaused]);
 
   useEffect(() => {
     let frame = 0;
@@ -189,9 +175,9 @@ export default function HeroesLanding() {
       <section id="top" className={styles.hero}>
         <img className={styles.heroBackdrop} src="/heroes/figma-hero-background.png" alt="" aria-hidden="true" />
         <div className={styles.heroCopy}>
-          <p className={styles.heroEyebrow}>HEROES — THE COURAGE JOURNEY</p>
-          <img className={styles.bravoLogo} src="/heroes/find-your-bravo-logo.png" alt="Find Your Bravo — The Courage Within" />
-          <p className={styles.heroLead}>A live, six-visit courage adventure — feeling words, brave breaths, teamwork, and a plan for when something goes wrong.</p>
+          <p className={styles.heroEyebrow}>HEROES: THE COURAGE JOURNEY</p>
+          <img className={styles.bravoLogo} src="/heroes/find-your-bravo-logo.png" alt="Find Your Bravo: The Courage Within" />
+          <p className={styles.heroLead}>A live, six-visit courage adventure with feeling words, brave breaths, teamwork, and a plan for when something goes wrong.</p>
         </div>
         <img className={styles.heroFigures} src="/heroes/bravo-little-legends.png" alt="Bravo standing with the Little Legends" />
       </section>
@@ -200,13 +186,13 @@ export default function HeroesLanding() {
         <div className={styles.basicsGrid}>
           <article className={`${styles.basicsCard} ${styles.basicsSky}`}>
             <span className={styles.basicsIcon} aria-hidden="true"><CirclePlay size={19} strokeWidth={2} /></span>
-            <h2>A live performance — no videos or screens</h2>
+            <h2>A live performance with no videos or screens</h2>
             <p>A trained performer brings Bravo directly into your classroom, in person. You bring the classroom and we bring everything else.</p>
           </article>
           <article className={`${styles.basicsCard} ${styles.basicsGold}`}>
             <span className={styles.basicsIcon} aria-hidden="true"><Check size={23} strokeWidth={3} /></span>
             <h2>Your first session is a FREE demo</h2>
-            <p>One live, 30-minute session for a class, no commitment — then enroll in the full six-visit Heroes series when you&apos;re ready.</p>
+            <p>One live, 30-minute session for a class with no commitment. Then enroll in the full six-visit Heroes series when you&apos;re ready.</p>
           </article>
           <article className={`${styles.basicsCard} ${styles.basicsGreen}`}>
             <span className={styles.basicsIcon} aria-hidden="true"><Target size={22} strokeWidth={2.5} /></span>
@@ -303,7 +289,7 @@ export default function HeroesLanding() {
         </div>
         <div className={styles.videoGalleryPlaceholder}>
           <h3>Video gallery coming soon</h3>
-          <p>We&apos;re updating this section with new footage — check back shortly.</p>
+          <p>We&apos;re updating this section with new footage. Check back shortly.</p>
         </div>
         {/* Gallery hidden while new footage is prepared. Restore this block, and re-apply the JAW-181 width fix on .videoDisclosure, when the videos return.
         <div className={styles.videoGallery}>
@@ -339,59 +325,17 @@ export default function HeroesLanding() {
               </button>
             ))}
           </div>
-          <p className={styles.videoDisclosure}>{"Every clip above is genuine, unscripted footage from a real Jawly classroom — we’ve used AI to alter the children’s faces to protect their privacy."}</p>
+          <p className={styles.videoDisclosure}>{"Every clip above is genuine, unscripted footage from a real Jawly classroom. We’ve used AI to alter the children’s faces to protect their privacy."}</p>
         </div>
         */}
       </section>
 
-      <section id="proof" className={styles.proofSection}>
-        <div className={styles.sectionHeading}>
-          <p className={styles.eyebrow}>PROOF</p>
-          <h2>The response is through the roof.</h2>
-        </div>
-        <div className={styles.metricGrid}>
-          <article><strong>4.8/5</strong><p>Average across 42 teacher reviews, five centers</p></article>
-          <article><strong>86%</strong><p>Rated Bravo&apos;s first session above comparable enrichment programs</p><small className={styles.metricNote}>From our pilot cohort</small></article>
-          <article><strong>100%</strong><p>Gave the end-of-visit cool-down a perfect 5</p></article>
-        </div>
-        <div
-          className={styles.testimonialPanel}
-          onMouseEnter={() => setTestimonialsPaused(true)}
-          onMouseLeave={() => setTestimonialsPaused(false)}
-          onFocus={() => setTestimonialsPaused(true)}
-          onBlur={(event) => {
-            if (!event.currentTarget.contains(event.relatedTarget)) setTestimonialsPaused(false);
-          }}
-        >
-          <span className={styles.testimonialLabel}>IN THEIR WORDS</span>
-          <div className={styles.testimonialViewport} aria-label="Teacher testimonials">
-            <div className={styles.testimonialTrack} style={{ transform: `translateX(-${testimonialIndex * 100}%)` }}>
-              {teacherTestimonials.map((testimonial, index) => (
-                <figure key={index} className={styles.testimonialSlide} aria-hidden={index !== testimonialIndex}>
-                  <blockquote>“{testimonial.quote}”</blockquote>
-                  <figcaption>{testimonial.attribution}</figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-          <div className={styles.testimonialDots} aria-label="Choose a teacher testimonial">
-            {teacherTestimonials.map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                aria-label={`Show testimonial ${index + 1}`}
-                aria-pressed={index === testimonialIndex}
-                onClick={() => setTestimonialIndex(index)}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      <ProofSection theme="heroes" />
 
       <section id="journey" className={styles.journeySection}>
         <div className={styles.sectionHeading}>
           <p className={styles.eyebrow}>THE COURAGE JOURNEY</p>
-          <h2>Every visit moves the story—and the child—forward.</h2>
+          <h2>Every visit moves the story and the child forward.</h2>
           <p>Six classroom adventures lead to a final chapter children carry home.</p>
         </div>
         <div className={styles.timeline}>
@@ -409,18 +353,20 @@ export default function HeroesLanding() {
         </div>
       </section>
 
+      <ClassroomTrust />
+
       <section id="calendar" className={styles.calendarSection}>
         <div className={styles.ctaShell}>
           <article className={styles.inviteCard}>
             <div className={styles.inviteIntro}>
               <h2>Start with a <span>FREE</span> demo.</h2>
-              <p>One live, 30-minute Heroes session for your class — free, no commitment. Tell us where to send the scheduling link.</p>
+              <p>One live, 30-minute Heroes session for your class, free with no commitment. Tell us where to send the scheduling link.</p>
             </div>
             <div className={styles.inviteAction}>
               <div className={styles.inviteForm}>
                 <CheckArea demoHref="#calendar" page="heroes:invite" label="Check Availability" />
               </div>
-              <p className={styles.inviteNote}>No credit card, no obligation — just pick a slot that works.</p>
+              <p className={styles.inviteNote}>No credit card and no obligation. Just pick a slot that works.</p>
             </div>
           </article>
 
