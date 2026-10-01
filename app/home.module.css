@@ -3,7 +3,7 @@
   background: var(--paper);
 }
 .home *, .home *::before, .home *::after { box-sizing: border-box; }
-.heroStage { position: relative; isolation: isolate; padding-bottom: 48px; background: #d6ddda; }
+.heroStage { position: relative; isolation: isolate; overflow: hidden; background: #d6ddda; }
 .heroStage > .heroBackground, .heroStage > .heroAtmosphere { position: absolute; inset: 0; width: 100%; height: 100%; }
 .heroStage > .heroBackground { z-index: -2; object-fit: cover; object-position: 50% 54%; filter: blur(7px) saturate(.58) contrast(.88) brightness(1.08); transform: scale(1.025); }
 .heroStage > .heroAtmosphere { z-index: -1; background: rgba(255,248,232,.32); }
