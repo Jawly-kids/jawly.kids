@@ -11,6 +11,24 @@ function LinkedInIcon() {
   );
 }
 
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function FacebookIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+      <path d="M14 8.5V6.8c0-.8.5-1 1-1h2.7V2.1L14.6 2C11.2 2 10 4.1 10 6.4v2.1H7v4.1h3V22h4v-9.4h3.3l.5-4.1H14Z" />
+    </svg>
+  );
+}
+
 export default function Footer() {
   return (
     <footer className={styles.footer}>
@@ -29,12 +47,28 @@ export default function Footer() {
           </div>
           <div className={styles.footerSocials} aria-label="Jawly social media">
             <a
-              href="https://www.linkedin.com/company/jawly-kids"
+              href="https://www.linkedin.com/company/jawly-kids/"
               target="_blank"
               rel="noreferrer"
               aria-label="Jawly on LinkedIn"
             >
               <LinkedInIcon />
+            </a>
+            <a
+              href="https://www.instagram.com/jawly.kids/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Jawly on Instagram"
+            >
+              <InstagramIcon />
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61588455315994"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Jawly on Facebook"
+            >
+              <FacebookIcon />
             </a>
           </div>
         </div>

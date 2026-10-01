@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     title: "Jawly | Live. Captivating. Screen-free.",
-    description: "A six-part character-led adventure for daycare and preschool classrooms.",
+    description: "Character-led adventures for daycare and preschool children to sing, dance, learn, and build social-emotional skills through play.",
     url: "/",
   },
 };
@@ -29,7 +29,7 @@ export default function Home() {
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}>Early learning enrichment</p>
           <h1 id="home-title"><span>Live.</span><span>Captivating.</span><span>Screen-free.</span></h1>
-          <p className={styles.heroSubhead}>A six-part, character-led adventure where daycare and preschool children sing, dance, learn, and build social-emotional skills through play.</p>
+          <p className={styles.heroSubhead}>Character-led adventures for daycare and preschool children to sing, dance, learn, and build social-emotional skills through play.</p>
           <div className={styles.heroActions}>
             <CheckArea className={styles.primaryHero} demoHref="#start" page="home-hero" label="Book a Free First Visit" />
             <a className={styles.secondaryHero} href="#programs">See How Jawly Works</a>
