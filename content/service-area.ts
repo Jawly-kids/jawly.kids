@@ -13,14 +13,42 @@ export type ServiceCell = {
  * Source of the locked lists: jawly-website-service-area-definition.md
  * Cell 1 is Chicago's north, northwest, and central side, west to California Ave.
  * Cell 2 is the Crystal Lake–Barrington northwest suburbs corridor.
- * That file is not in this repo. Leave these arrays empty until those lists are pasted in.
  * An empty array means the cell is defined but no ZIP is covered yet.
  */
 export const serviceCells: readonly ServiceCell[] = [
   {
     id: "chicago",
     label: "Chicago",
-    zips: [],
+    zips: [
+      "60601",
+      "60602",
+      "60603",
+      "60604",
+      "60606",
+      "60607",
+      "60610",
+      "60611",
+      "60613",
+      "60614",
+      "60618",
+      "60622",
+      "60625",
+      "60626",
+      "60630",
+      "60631",
+      "60634",
+      "60641",
+      "60642",
+      "60645",
+      "60646",
+      "60647",
+      "60654",
+      "60656",
+      "60657",
+      "60659",
+      "60660",
+      "60661",
+    ],
   },
   {
     id: "nw-suburbs",
