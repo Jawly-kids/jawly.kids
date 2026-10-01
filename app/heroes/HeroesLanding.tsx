@@ -332,6 +332,31 @@ export default function HeroesLanding() {
         </div>
       </section>
 
+      <section className={styles.moreSection} aria-labelledby="other-programs-title">
+        <div className={styles.sectionHeading}>
+          <h2 id="other-programs-title">Explore our other programs.</h2>
+          <p>Meet two more character-led worlds built for movement, imagination, and discovery.</p>
+        </div>
+        <div className={styles.moreGrid}>
+          {programs.filter((program) => program.slug !== "heroes").map((program) => {
+            const image = program.slug === "cosmos"
+              ? "/homepage/Cosmos_for_Jawly_HomePage.png"
+              : "/homepage/Tides_for_Jawly_HomePage.png";
+            return (
+              <Link key={program.slug} href={program.href} className={styles.otherProgramCard}>
+                <img src={image} alt="" />
+                <div>
+                  <small>{program.label}{program.status === "draft" ? " · Coming Soon" : ""}</small>
+                  <h3>{program.character}</h3>
+                  <p>{program.summary}</p>
+                  <strong>{program.status === "draft" ? "Preview Tides" : `Explore ${program.label}`} <span aria-hidden="true">→</span></strong>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
       <ClassroomTrust />
 
       <section id="calendar" className={styles.calendarSection}>
@@ -375,21 +400,6 @@ export default function HeroesLanding() {
         <a href={site.phoneHref}>Call {site.phoneDisplay}</a>
       </dialog>
 
-      <section className={styles.moreSection}>
-        <div className={styles.sectionHeading}><p className={styles.eyebrow}>CONTINUE THE STORY</p><h2>Bravo is one hero in a growing world.</h2></div>
-        <div className={styles.moreGrid}>
-          {programs.filter((program) => program.status !== "live").map((program) => (
-            <Link key={program.slug} href={program.href} className={`${styles.programCard} ${styles.programCardSoon}`}>
-              <span className={styles[program.tone]}>{program.mark}</span>
-              <div>
-                <small>{program.label.toUpperCase()}</small>
-                <h3>{program.character} · {program.journey}</h3>
-                <p>Coming soon</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
     </main>
   );
 }

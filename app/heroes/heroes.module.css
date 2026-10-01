@@ -232,15 +232,28 @@
 .scheduleDialogClose { position: absolute; top: 14px; right: 18px; color: var(--ink); background: none; border: 0; font-size: 2rem; line-height: 1; cursor: pointer; }
 
 .moreSection { background: white; }
-.moreSection .sectionHeading h2 { font-size: clamp(2.5rem, 4vw, 3.7rem); }
+.moreSection .sectionHeading h2 { margin-top: 0; font-size: clamp(2.5rem, 4vw, 3.7rem); }
 .moreGrid { width: min(1180px, 100%); margin: auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.otherProgramCard { position: relative; isolation: isolate; min-height: 430px; display: flex; align-items: flex-end; overflow: hidden; color: white; background: var(--deep); border-radius: var(--radius-card, 16px); text-decoration: none; }
+.otherProgramCard::after { content: ""; position: absolute; z-index: -1; inset: 20% 0 0; background: linear-gradient(transparent, rgb(7 14 24 / .92)); }
+.otherProgramCard > img { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms ease; }
+.otherProgramCard:hover > img { transform: scale(1.025); }
+.otherProgramCard > div { width: 100%; padding: clamp(28px, 4vw, 46px); }
+.otherProgramCard small { color: var(--yellow); font: 600 .6875rem/1 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
+.otherProgramCard h3 { margin-top: 12px; font-size: clamp(2rem, 3vw, 3rem); line-height: 1; letter-spacing: -.035em; }
+.otherProgramCard p { max-width: 440px; margin-top: 14px; color: rgb(255 255 255 / .82); font-size: 1rem; line-height: 1.5; }
+.otherProgramCard strong { margin-top: 28px; display: inline-flex; gap: 7px; padding-bottom: 6px; border-bottom: 1px solid currentColor; font: 700 1rem/1.2 var(--font-display); }
+.otherProgramCard strong span { transition: transform 180ms ease; }
+.otherProgramCard:hover strong span { transform: translateX(4px); }
+
 .programCard { min-height: 240px; display: grid; grid-template-columns: 190px 1fr; background: #fafafa; border: 1px solid #ececec; border-radius: 14px; overflow: hidden; color: inherit; text-decoration: none; }
 .programCard > span { display: grid; place-items: center; color: white; font: 700 4rem/1 var(--font-display); }
 .heroes { background: var(--red); }
 .cosmos { background: var(--deep); }
 .tides { background: var(--blue); }
 .programCard > div { display: flex; flex-direction: column; justify-content: center; padding: 28px; }
-.programCard small { color: var(--deep); font-weight: 700; }.programCard h3 { margin-top: 13px; font-size: 1.5rem; }
+.programCard small { color: var(--deep); font-weight: 700; }
+.programCard h3 { margin-top: 13px; font-size: 1.5rem; }
 .programCard p { margin-top: 34px; display: flex; align-items: center; gap: 8px; color: var(--red); font-weight: 700; }
 .programCardSoon p { color: #68717b; }
 
@@ -373,6 +386,7 @@
   .secondaryGrid { grid-template-columns: 1fr; }
   .meetingCard, .callCard { min-height: 0; padding: 26px 22px; }
   .callCard a { margin-top: 26px; }
+  .otherProgramCard { min-height: 370px; }
   .programCard { grid-template-columns: 120px 1fr; }
 }
 
