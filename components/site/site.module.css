@@ -109,7 +109,7 @@
   position: fixed;
   top: var(--header-height);
   left: 50%;
-  width: min(900px, calc(100vw - 48px));
+  width: min(1120px, calc(100vw - 48px));
   padding: 0;
   display: none;
   color: var(--ink);
@@ -128,33 +128,51 @@
 }
 
 .programDropdown a {
+  position: relative;
+  isolation: isolate;
   min-width: 0;
-  min-height: 128px;
+  min-height: 250px;
   padding: 0;
-  display: grid;
-  grid-template-columns: 108px minmax(0, 1fr);
-  align-items: stretch;
-  gap: 0;
-  color: inherit;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: white;
+  background: #101b4d;
   text-decoration: none;
 }
 
+.programDropdown a::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(0deg, rgb(7 14 24 / .88) 0%, rgb(7 14 24 / .46) 54%, transparent 88%);
+  pointer-events: none;
+}
+
+.programDropdown a:nth-child(1)::after,
+.programDropdown a:nth-child(3)::after {
+  background: linear-gradient(270deg, rgb(7 14 24 / .88) 0%, rgb(7 14 24 / .58) 48%, transparent 92%), linear-gradient(0deg, rgb(7 14 24 / .58), transparent 70%);
+}
+
 .programDropdown a + a {
-  border-left: 1px solid var(--border);
+  border-left: 1px solid rgb(255 255 255 / .32);
 }
 
 .programDropdown a:hover,
 .programDropdown a[aria-current="page"] {
-  background: var(--surface-soft);
+  color: white;
 }
 
 .programImage {
-  width: 108px;
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
   height: 100%;
-  min-height: 128px;
   display: block;
   overflow: hidden;
-  background: var(--quiet);
+  background: #101b4d;
 }
 
 .programImage img {
@@ -162,45 +180,51 @@
   height: 100%;
   display: block;
   object-fit: cover;
-  object-position: center top;
-  transition: transform 320ms ease;
+  object-position: center;
+  transition: transform 600ms ease;
 }
 
 .programDropdown a:hover .programImage img,
 .programDropdown a:focus-visible .programImage img {
-  transform: scale(1.055);
+  transform: scale(1.035);
 }
 
 .programCardCopy {
+  position: relative;
+  z-index: 1;
   min-width: 0;
-  padding: 20px 18px;
+  width: min(82%, 330px);
+  padding: 28px;
   display: grid;
-  align-content: center;
-  gap: 5px;
+  align-content: end;
+  gap: 7px;
 }
 
-.programCardCopy strong {
-  font: 800 1.1rem/1 var(--font-display);
-}
+.programDropdown a:nth-child(1),
+.programDropdown a:nth-child(3) { justify-content: flex-end; text-align: right; }
+.programDropdown a:nth-child(1) .programCardCopy,
+.programDropdown a:nth-child(3) .programCardCopy { justify-items: end; }
+
+.programCardCopy strong { color: white; font: 800 1.55rem/1 var(--font-display); letter-spacing: -.035em; }
 
 .programCardCopy small {
-  color: var(--red);
-  font: 600 .65rem/1 var(--font-sans);
-  letter-spacing: .12em;
+  color: var(--yellow);
+  font: var(--eyebrow-font);
+  letter-spacing: var(--eyebrow-tracking);
   text-transform: uppercase;
 }
 
 .programDropdown a:nth-child(2) .programCardCopy small {
-  color: #176b8c;
+  color: #79e2ee;
 }
 
 .programDropdown a:nth-child(3) .programCardCopy small {
-  color: #087f7a;
+  color: #d7fbf5;
 }
 
 .programCardCopy > span {
-  color: var(--muted);
-  font-size: .74rem;
+  color: rgb(255 255 255 / .76);
+  font-size: .78rem;
   line-height: 1.4;
 }
 
@@ -208,8 +232,8 @@
   width: fit-content;
   margin-top: 3px;
   padding: 5px 7px;
-  color: var(--muted);
-  background: var(--quiet);
+  color: rgb(255 255 255 / .58);
+  background: rgb(255 255 255 / .1);
   border-radius: 4px;
   font-size: .6rem;
   font-style: normal;
@@ -550,24 +574,24 @@
   }
 
   .programDropdown a {
-    min-height: 96px;
+    min-height: 132px;
     padding: 0;
-    grid-template-columns: 82px 1fr;
   }
 
   .programDropdown a + a {
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgb(255 255 255 / .3);
     border-left: 0;
   }
 
   .programImage {
-    width: 82px;
+    width: 100%;
     height: 100%;
-    min-height: 96px;
+    min-height: 132px;
   }
 
   .programCardCopy {
-    padding: 15px 16px;
+    width: min(72%, 340px);
+    padding: 18px;
   }
 
   .navCta,
