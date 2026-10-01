@@ -103,7 +103,6 @@ export default function WhyJawlyPage() {
               {"verbs" in reason ? <ul className={styles.verbs}>{reason.verbs.map((verb) => <li key={verb}>{verb}</li>)}</ul> : null}
               {"equation" in reason ? <div className={styles.equation} aria-label="Crafted experience plus human performance">{reason.equation.map((item) => <span key={item}>{item}</span>)}</div> : null}
               {"steps" in reason ? <ol className={styles.steps}>{reason.steps.map((step, stepIndex) => <li key={step}><span>{stepIndex + 1}</span>{step}</li>)}</ol> : null}
-              {"photo" in reason ? <figure className={styles.photoPlaceholder}><div aria-hidden="true"><strong>IMAGE PLACEHOLDER</strong><span>{reason.photo.replace("IMAGE INTENT · ", "")}</span></div><figcaption>{reason.photo}</figcaption></figure> : null}
             </div>
           </article>
         ))}
