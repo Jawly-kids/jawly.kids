@@ -78,10 +78,13 @@
 }
 
 .primaryNav > a[aria-current="page"],
-.programMenuTrigger[aria-current="page"],
-.tier2 a:hover {
-  color: var(--red);
+.programMenuTrigger[aria-current="page"] {
+  color: inherit;
+  box-shadow: inset 0 -2px currentColor;
+  font-weight: 800;
 }
+
+.tier2 a:hover { color: var(--red); }
 
 .programMenu {
   position: relative;
