@@ -400,6 +400,64 @@
 .cosmosHero { background: var(--cosmos-surface-soft); }
 .cosmosHero .heroCopy { color: #f6f3ee; }
 
+.tidesPage {
+  --program-primary: #1479a6;
+  --program-foundation: #081c2e;
+  --program-highlight: #1aae78;
+  --surface-soft: #dff2ea;
+  --paper: #f4fcfd;
+  --red: var(--program-primary);
+  --yellow: #e05c3a;
+  --green: var(--program-highlight);
+  --deep: var(--program-foundation);
+  --ink: #2a2521;
+  --muted: #5c6068;
+  --border: #d8e7e3;
+  --radius-button: 12px;
+  --radius-card: 16px;
+  --shadow-overlay: 0 16px 40px rgb(8 28 46 / .14), 0 4px 8px rgb(8 28 46 / .08);
+}
+.tidesPage h1,
+.tidesPage h2 { font-weight: 800; }
+.tidesPage .eyebrow,
+.tidesPage .heroEyebrow {
+  color: #e05c3a;
+  font: 600 .6875rem/1 var(--font-sans);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.tidesHero { background: var(--surface-soft); }
+.tidesHero .heroCopy { color: white; }
+.tidesHero .heroBackdrop { filter: saturate(.92) brightness(.78); }
+.tidesHero .heroFigures { top: 46%; width: min(82vw, 1180px); }
+
+.tidesStory { padding: 120px max(7vw, 30px); color: var(--ink); background: #faf0e6; }
+.tidesStoryInner { width: min(1180px, 100%); min-height: 660px; margin: 0 auto; display: grid; grid-template-columns: minmax(320px, .85fr) minmax(0, 1.15fr); align-items: center; gap: clamp(38px, 7vw, 100px); }
+.tidesStoryCopy h2 { max-width: 620px; margin: 18px 0 0; font-size: clamp(2.5rem, 4vw, 3.6rem); line-height: 1; letter-spacing: -.04em; text-wrap: balance; }
+.tidesStoryCopy > p:not(.eyebrow) { max-width: 600px; margin: 26px 0 0; color: var(--muted); font-size: 1.1rem; line-height: 1.62; }
+.tidesStoryCopy .tidesCastNote { padding-top: 24px; border-top: 1px solid rgb(42 37 33 / .14); font-size: .96rem; }
+.tidesPortrait { align-self: stretch; min-height: 600px; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; background: #f4fcfd; }
+.tidesPortrait img { width: min(100%, 620px); height: 100%; display: block; object-fit: contain; object-position: center bottom; }
+
+.tidesPage .calendarSection { padding-top: 120px; padding-bottom: 120px; background: var(--surface-soft); }
+.tidesPage .inviteCard { border-radius: var(--radius-card); background: linear-gradient(135deg, #081c2e, #094768); box-shadow: var(--shadow-overlay); }
+.tidesCtaEyebrow { margin: 0 0 16px !important; color: #8fe0c0 !important; font: 600 .6875rem/1 var(--font-sans) !important; letter-spacing: .16em; text-transform: uppercase; }
+.tidesPage .inviteForm button { color: #081c2e; background: #1aae78; border-radius: var(--radius-button); font-family: var(--font-display); }
+.tidesPage .inviteForm button:hover { background: #22c888; }
+.tidesPage .inviteForm input:focus-visible { outline-color: #1aae78; }
+.tidesPage .callCard a { color: #1479a6; }
+.tidesPage .scheduleButton,
+.tidesPage .scheduleDialog a { border-radius: var(--radius-button); }
+.tidesPage .scheduleButton:hover { background: #1479a6; }
+
+@media (max-width: 700px) {
+  .tidesHero .heroFigures { top: 50%; width: 145vw; }
+  .tidesStory { padding: 78px 20px 0; }
+  .tidesStoryInner { min-height: 0; grid-template-columns: 1fr; gap: 42px; }
+  .tidesPortrait { min-height: 480px; }
+  .tidesPage .calendarSection { padding-top: 74px; padding-bottom: 74px; }
+}
+
 /*
  * Cosmos keeps the same component architecture while remapping every semantic
  * color role into the Stardusters world: midnight, violet, pink and aurora.

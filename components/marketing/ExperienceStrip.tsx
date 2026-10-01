@@ -7,7 +7,7 @@ type ExperienceStripProps = {
   program?: string;
   demoHref: string;
   page: string;
-  theme?: "heroes" | "cosmos";
+  theme?: "heroes" | "cosmos" | "tides";
 };
 
 export default function ExperienceStrip({
@@ -21,7 +21,7 @@ export default function ExperienceStrip({
   const programContext = context === "program" && program;
 
   return (
-    <section className={`${styles.experienceSection} ${programContext ? styles.experienceProgram : ""} ${programContext && theme === "cosmos" ? styles.experienceCosmos : ""}`} aria-label={programContext ? `${program} program basics` : "Jawly at a glance"}>
+    <section className={`${styles.experienceSection} ${programContext ? styles.experienceProgram : ""} ${programContext && theme === "cosmos" ? styles.experienceCosmos : ""} ${programContext && theme === "tides" ? styles.experienceTides : ""}`} aria-label={programContext ? `${program} program basics` : "Jawly at a glance"}>
       <div className={styles.experienceStrip}>
         <div className={styles.experienceLead}>
           <strong>Live &amp; in person</strong>

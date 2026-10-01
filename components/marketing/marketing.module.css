@@ -12,6 +12,7 @@
 .experienceSection:not(.experienceProgram) .experienceStrip { margin-top: -95px; }
 .experienceProgram .experienceStrip { margin-top: 0; }
 .experienceCosmos { background-image: linear-gradient(to bottom, #f0edff 0 126px, white 126px 100%); }
+.experienceTides { background-image: linear-gradient(to bottom, #dff2ea 0 var(--experience-tint-depth), white var(--experience-tint-depth) 100%); }
 .experienceLead, .experienceFacts, .experienceAvailability { padding: 35px 36px; }
 .experienceLead { display: flex; align-items: flex-start; justify-content: center; flex-direction: column; }
 .experienceStrip strong { display: block; font: 700 clamp(1.15rem, 1.55vw, 1.45rem)/1.1 var(--font-display); letter-spacing: -.03em; }
