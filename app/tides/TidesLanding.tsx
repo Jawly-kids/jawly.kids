@@ -12,7 +12,7 @@ export default function TidesLanding() {
       <section id="top" className={`${styles.hero} ${styles.tidesHero}`}>
         <img className={styles.heroBackdrop} src="/tides/Tides_Background.png" alt="" aria-hidden="true" />
         <div className={styles.heroCopy}>
-          <p className={styles.heroEyebrow}>TIDES: THE DISCOVERY JOURNEY · COMING SOON</p>
+          <p className={styles.heroEyebrow}>TIDES: THE DISCOVERY JOURNEY <span>· COMING SOON</span></p>
           <img className={styles.bravoLogo} src="/tides/Mighty_Minnows_by_Jawly.png" alt="Mighty Minnows: Tiny Fins. Kindness Wins." />
           <p className={styles.heroLead}>A live ocean adventure where children move, imagine, practice kindness, and discover an underwater world alongside Mira and the Mighty Minnows.</p>
         </div>

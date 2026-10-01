@@ -431,6 +431,7 @@
 .tidesHero { background: var(--surface-soft); }
 .tidesHero .heroCopy { color: white; }
 .tidesHero .heroEyebrow { color: white; }
+.tidesHero .heroEyebrow span { color: #f0c23a; }
 .tidesHero .heroBackdrop { filter: saturate(.92) brightness(.78); }
 .tidesHero .heroFigures { top: 50%; width: min(78vw, 1120px); }
 
