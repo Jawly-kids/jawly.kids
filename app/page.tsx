@@ -131,7 +131,7 @@ export default function Home() {
           <div><strong>96<span>%</span></strong><p>gave the end-of-session cool-down a perfect 5</p></div>
         </div>
         <blockquote>
-          <p>This is THE coolest thing I&apos;ve seen in 11 years of being here.</p>
+          <p>This is <span className={styles.smallCaps}>THE</span> coolest thing I&apos;ve seen in 11 years of being here.</p>
           <cite>Amber P. · Center Director · KinderCare Learning Centers</cite>
         </blockquote>
         <div className={styles.serving} id="serving">
