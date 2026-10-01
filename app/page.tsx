@@ -4,6 +4,7 @@ import { AudioWaveform, Heart, PersonStanding } from "lucide-react";
 import CheckArea from "@/components/availability/CheckArea";
 import ClassroomTrust from "@/components/marketing/ClassroomTrust";
 import ExperienceStrip from "@/components/marketing/ExperienceStrip";
+import GalleryPlaceholder from "@/components/marketing/GalleryPlaceholder";
 import ProofSection from "@/components/marketing/ProofSection";
 import styles from "./home.module.css";
 
@@ -96,16 +97,7 @@ export default function Home() {
           <h2 id="live-title">This is what screen-free attention looks like.</h2>
           <p>Children aren&apos;t watching the adventure. <strong>They&apos;re inside it</strong>, moving, responding, imagining, laughing, and learning alongside the character.</p>
         </div>
-        <div className={styles.liveMontage}>
-          <figure className={styles.liveMain}>
-            <img src="/heroes/video-power.jpg" alt="Children joining Bravo in a live classroom adventure" />
-            <figcaption><span className={styles.liveDot} /> Real character. Real room. Real participation.</figcaption>
-          </figure>
-          <div className={styles.liveSide}>
-            <img src="/heroes/video-dance.jpg" alt="Children moving together during a Jawly visit" />
-            <img src="/cosmos/IMG_4058.jpg" alt="A performer bringing a Jawly character to life" />
-          </div>
-        </div>
+        <GalleryPlaceholder />
       </section>
 
       <ProofSection />

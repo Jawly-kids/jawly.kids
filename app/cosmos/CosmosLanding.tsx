@@ -19,6 +19,7 @@ import {
 import CheckArea from "@/components/availability/CheckArea";
 import ClassroomTrust from "@/components/marketing/ClassroomTrust";
 import ExperienceStrip from "@/components/marketing/ExperienceStrip";
+import GalleryPlaceholder from "@/components/marketing/GalleryPlaceholder";
 import OtherPrograms from "@/components/marketing/OtherPrograms";
 import ProofSection from "@/components/marketing/ProofSection";
 import { cosmosCopy } from "@/content/programs/cosmos";
@@ -188,10 +189,7 @@ export default function CosmosLanding() {
           <h2>{cosmosCopy.galleryTitle}</h2>
           <p>{cosmosCopy.galleryLead}</p>
         </div>
-        <div className={styles.videoGalleryPlaceholder}>
-          <h3>Video gallery coming soon</h3>
-          <p>We&apos;re updating this section with new footage. Check back shortly.</p>
-        </div>
+        <GalleryPlaceholder />
         {/* Gallery hidden while new footage is prepared. Restore this block, and re-apply the JAW-181 width fix on .videoDisclosure, when the videos return.
         <div className={styles.videoGallery}>
           <div className={styles.featuredVideo}>

@@ -35,7 +35,9 @@
 .proofCosmos { background: linear-gradient(145deg, #4b3aa8 0%, #6550c7 58%, #7d65d8 100%); }
 .proofCosmos .eyebrow { color: #79e2ee; }
 .proofHeading, .stats, .testimonials, .serving { width: min(1180px, 100%); margin-left: auto; margin-right: auto; }
+.proofHeading { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
 .eyebrow, .neutralEyebrow, .redEyebrow { margin: 0 0 22px; font: 600 .6875rem/1 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
+.proofHeading .eyebrow { margin-bottom: 0; }
 .eyebrow { color: var(--yellow); }
 .proofHeading h2 { max-width: min(780px, 100%); margin: 0; font: 800 clamp(2.5rem, 4vw, 3.5rem)/1 var(--font-display); letter-spacing: -.035em; overflow-wrap: break-word; text-wrap: balance; }
 .stats { margin-top: 72px; padding: 48px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(46px, 7vw, 110px); border-top: 1px solid rgb(255 255 255 / .2); border-bottom: 1px solid rgb(255 255 255 / .2); }
@@ -62,6 +64,19 @@
 .customerLogos img:nth-child(2) { height: clamp(56px, 5.2vw, 82px); }
 .customerLogos img:nth-child(3) { height: clamp(60px, 5.6vw, 88px); }
 .serving > p { margin: -2px 0 0; color: var(--muted); font-size: .9rem; text-align: center; }
+
+.galleryPlaceholder {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: clamp(48px, 7vw, 78px) 28px;
+  color: var(--ink);
+  text-align: center;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card, 16px);
+}
+.galleryPlaceholder h3 { margin: 0; font: 800 clamp(2rem, 3vw, 3rem)/1.08 var(--font-display); letter-spacing: -.035em; }
+.galleryPlaceholder p { margin: 24px 0 0; color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.25rem); line-height: 1.5; }
 
 .reassurance { padding: 120px max(7vw, 48px); color: var(--ink); background: var(--quiet); }
 .easyCopy { width: min(1180px, 100%); margin: 0 auto; display: grid; grid-template-columns: 1.15fr .85fr; gap: 28px 9vw; }

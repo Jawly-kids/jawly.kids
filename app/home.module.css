@@ -45,12 +45,6 @@
 .sectionIntro .eyebrowDark { grid-column: 1 / -1; }
 .sectionIntro h2, .adventuresIntro h2, .meaning h2, .finalCta h2 { margin: 0; font: 800 clamp(2.5rem, 4vw, 3.5rem)/1 var(--font-display); letter-spacing: -.035em; text-wrap: balance; }
 .sectionIntro > p:last-child { margin: 0 0 7px; color: var(--muted); font-size: 1.14rem; line-height: 1.65; }
-.liveMontage { width: min(1280px, 100%); height: min(690px, 52vw); margin: 0 auto; display: grid; grid-template-columns: 2.2fr .9fr; gap: 14px; }
-.liveMontage img { width: 100%; height: 100%; display: block; object-fit: cover; }
-.liveMain { position: relative; min-width: 0; margin: 0; overflow: hidden; }
-.liveMain figcaption { position: absolute; left: 24px; bottom: 22px; padding: 11px 15px; color: white; background: rgba(11,18,29,.72); border-radius: 999px; font-size: .85rem; backdrop-filter: blur(8px); }
-.liveDot { display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: #f0c23a; }
-.liveSide { display: grid; grid-template-rows: 1fr 1fr; gap: 14px; overflow: hidden; }
 
 .adventures { padding: 145px max(5vw, 40px); background: #fffdf9; }
 .adventuresIntro { width: min(1180px, 100%); margin: 0 auto 85px; display: grid; grid-template-columns: 1.25fr .75fr; gap: 10px 10vw; align-items: end; }
@@ -145,8 +139,6 @@
   .sectionIntro, .adventuresIntro, .finalCtaInner { grid-template-columns: 1fr; }
   .adventureRow { min-height: 620px; }
   .adventureCopy { width: min(62%, 540px); }
-  .liveMontage { height: 620px; grid-template-columns: 1fr; }
-  .liveSide { display: none; }
   .meaning { grid-template-columns: .45fr 1fr; }
 }
 
