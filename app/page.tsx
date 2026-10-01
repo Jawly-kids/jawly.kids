@@ -5,6 +5,7 @@ import CheckArea from "@/components/availability/CheckArea";
 import ClassroomTrust from "@/components/marketing/ClassroomTrust";
 import ExperienceStrip from "@/components/marketing/ExperienceStrip";
 import GalleryPlaceholder from "@/components/marketing/GalleryPlaceholder";
+import LeadCaptureCta from "@/components/marketing/LeadCaptureCta";
 import ProofSection from "@/components/marketing/ProofSection";
 import styles from "./home.module.css";
 
@@ -123,22 +124,6 @@ export default function Home() {
 
       <ClassroomTrust />
 
-      <section className={styles.finalCta} id="start" aria-labelledby="start-title">
-        <div className={styles.finalCtaInner}>
-          <div>
-            <p className={styles.eyebrowLight}>A complete first chapter</p>
-            <h2 id="start-title">Start with a <em>free visit.</em></h2>
-            <p>Bring Jawly into your classroom for one live, 30-minute Chapter One experience. Your class gets the real adventure, and you decide whether to continue.</p>
-          </div>
-          <div className={styles.finalAction}>
-            <p>See if Jawly is available at your center.</p>
-            <CheckArea className={styles.finalButton} demoHref="/heroes#calendar" page="home-final" label="Check Availability" />
-            <span>ZIP check · service confirmation · choose a time</span>
-            <a className={styles.questionLink} href="/heroes#calendar">Have questions? Talk with us</a>
-          </div>
-        </div>
-      </section>
-
       <section className={styles.join} aria-labelledby="join-title">
         <div className={styles.joinCopy}>
           <p className={styles.eyebrowDark}>We&apos;re hiring</p>
@@ -148,6 +133,8 @@ export default function Home() {
         </div>
         <img src="/homepage/join-jawly.png" alt="Three members of the Jawly crew holding character performance masks" />
       </section>
+
+      <LeadCaptureCta theme="home" page="home-final" id="start" />
     </main>
   );
 }

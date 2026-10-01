@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import {
-  ArrowRight,
   Activity,
   Brain,
   Heart,
@@ -16,14 +15,13 @@ import {
   Wind,
   Zap,
 } from "lucide-react";
-import CheckArea from "@/components/availability/CheckArea";
 import ClassroomTrust from "@/components/marketing/ClassroomTrust";
 import ExperienceStrip from "@/components/marketing/ExperienceStrip";
 import GalleryPlaceholder from "@/components/marketing/GalleryPlaceholder";
+import LeadCaptureCta from "@/components/marketing/LeadCaptureCta";
 import OtherPrograms from "@/components/marketing/OtherPrograms";
 import ProofSection from "@/components/marketing/ProofSection";
 import { cosmosCopy } from "@/content/programs/cosmos";
-import { site } from "@/lib/site";
 import styles from "../heroes/heroes.module.css";
 
 const skillIcons = [Heart, Brain, Activity, MessageCircle, Shapes, Palette];
@@ -44,7 +42,6 @@ function range(progress: number, start: number, end: number) {
 
 export default function CosmosLanding() {
   const storyRef = useRef<HTMLElement>(null);
-  const schedulingDialogRef = useRef<HTMLDialogElement>(null);
   const [progress, setProgress] = useState(0);
   const [voiceOpen, setVoiceOpen] = useState(false);
   const journey = [
@@ -266,46 +263,7 @@ export default function CosmosLanding() {
 
       <ClassroomTrust />
 
-      <section id="calendar" className={styles.calendarSection}>
-        <div className={styles.ctaShell}>
-          <article className={styles.inviteCard}>
-            <div className={styles.inviteIntro}>
-              <h2>Start with a <span>FREE</span> demo.</h2>
-              <p>One live, 30-minute Cosmos session for your class, free with no commitment. Tell us where to send the scheduling link.</p>
-            </div>
-            <div className={styles.inviteAction}>
-              <div className={styles.inviteForm}>
-                <CheckArea demoHref="#calendar" page="cosmos:invite" label="Check Availability" />
-              </div>
-              <p className={styles.inviteNote}>No credit card and no obligation. Just pick a slot that works.</p>
-            </div>
-          </article>
-
-          <div className={styles.secondaryHeading}>
-            <h3>Not ready for a classroom demo?</h3>
-            <p>Start with a conversation.</p>
-          </div>
-          <div className={styles.secondaryGrid}>
-            <article className={styles.meetingCard}>
-              <h4>Schedule a meeting</h4>
-              <p>Choose a time to talk through the program and what it could look like at your center.</p>
-              <button type="button" className={styles.scheduleButton} onClick={() => schedulingDialogRef.current?.showModal()}>Choose a time <ArrowRight size={17} /></button>
-            </article>
-            <article className={styles.callCard}>
-              <h4>Call us now</h4>
-              <a href={site.phoneHref}>{site.phoneDisplay}</a>
-              <p>We pick up fast, and you&apos;ll always reach a real person for anything more.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <dialog ref={schedulingDialogRef} className={styles.scheduleDialog} aria-labelledby="cosmos-schedule-dialog-title">
-        <button type="button" className={styles.scheduleDialogClose} onClick={() => schedulingDialogRef.current?.close()} aria-label="Close scheduling">×</button>
-        <h2 id="cosmos-schedule-dialog-title">Schedule a meeting</h2>
-        <p>Online scheduling is coming soon. For now, call us and we’ll find a time together.</p>
-        <a href={site.phoneHref}>Call {site.phoneDisplay}</a>
-      </dialog>
+      <LeadCaptureCta theme="cosmos" page="cosmos-bottom" />
     </main>
   );
 }
