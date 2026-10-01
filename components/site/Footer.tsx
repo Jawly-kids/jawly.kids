@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Phone } from "lucide-react";
-import CheckArea from "@/components/availability/CheckArea";
 import { programs, site } from "@/lib/site";
 import styles from "./site.module.css";
 
@@ -15,20 +14,6 @@ function LinkedInIcon() {
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.footerCta}>
-        <div>
-          <p className={styles.footerEyebrow}>Bring Jawly to your center</p>
-          <h2>Ready to light up the room?</h2>
-          <p>Check your area, then start with one complete 30-minute adventure—free.</p>
-        </div>
-        <CheckArea
-          className={styles.footerCtaButton}
-          demoHref="/heroes#calendar"
-          page="footer"
-          label="Check Availability"
-        />
-      </div>
-
       <div className={styles.footerInner}>
         <div className={styles.footerBrand}>
           <Link className={styles.footerWordmark} href="/" aria-label={`${site.name} home`}>
