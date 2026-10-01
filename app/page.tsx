@@ -123,7 +123,7 @@ export default function Home() {
       <section className={styles.proof} aria-labelledby="proof-title">
         <div className={styles.proofHeading}>
           <p className={styles.eyebrowDark}>Tested in real classrooms</p>
-          <h2 id="proof-title">Children remember.<br />Educators notice.</h2>
+          <h2 id="proof-title">Classrooms are buzzing.<br />Thumbs up all around.</h2>
         </div>
         <div className={styles.stats}>
           <div><strong>4.8<span>/5</span></strong><p>Average across 50+ teacher reviews</p></div>
