@@ -431,7 +431,7 @@
 .tidesHero .heroBackdrop { filter: saturate(.92) brightness(.78); }
 .tidesHero .heroFigures { top: 46%; width: min(82vw, 1180px); }
 
-.tidesStory { padding: 120px max(7vw, 30px); color: var(--ink); background: #faf0e6; }
+.tidesStory { padding: 120px max(7vw, 30px); color: var(--ink); background: white; }
 .tidesStoryInner { width: min(1180px, 100%); min-height: 660px; margin: 0 auto; display: grid; grid-template-columns: minmax(320px, .85fr) minmax(0, 1.15fr); align-items: center; gap: clamp(38px, 7vw, 100px); }
 .tidesStoryCopy h2 { max-width: 620px; margin: 18px 0 0; font-size: clamp(2.5rem, 4vw, 3.6rem); line-height: 1; letter-spacing: -.04em; text-wrap: balance; }
 .tidesStoryCopy > p:not(.eyebrow) { max-width: 600px; margin: 26px 0 0; color: var(--muted); font-size: 1.1rem; line-height: 1.62; }
