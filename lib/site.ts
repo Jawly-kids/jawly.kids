@@ -74,18 +74,6 @@ export const globalNav: SiteLink[] = [
 
 /** Tier 2 in-page anchors, keyed by path. Any route can opt in. */
 export const pageSections: Record<string, SiteLink[]> = {
-  "/why-jawly": [
-    { href: "#physical-world", label: "The reasons" },
-    { href: "#rhythm", label: "The rhythm" },
-    { href: "#evidence", label: "The thinking" },
-  ],
-  "/trust-safety": [
-    { href: "#privacy", label: "Privacy" },
-    { href: "#documentation", label: "Filming" },
-    { href: "#personal", label: "Personalization" },
-    { href: "#people", label: "People" },
-    { href: "#standards", label: "Standards" },
-  ],
 };
 
 /** Full-bleed first screen. The header stays transparent until the page scrolls. */

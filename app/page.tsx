@@ -16,36 +16,45 @@ export const metadata: Metadata = {
     title: "Jawly | Live. Captivating. Screen-free.",
     description: "Character-led adventures for daycare and preschool children to sing, dance, learn, and build social-emotional skills through play.",
     url: "/",
+    images: [{
+      url: "/homepage/performer-trio.png",
+      width: 1803,
+      height: 1161,
+      alt: "Three Jawly performers bringing live characters to early-learning classrooms",
+    }],
   },
+  twitter: { card: "summary_large_image", images: ["/homepage/performer-trio.png"] },
 };
 
 export default function Home() {
   return (
     <main className={styles.home} data-homepage>
-      <section className={styles.hero} aria-labelledby="home-title">
+      <div className={styles.heroStage}>
         <img
           className={styles.heroBackground}
           src="/homepage/classroom-hero3.png"
           alt="A bright, welcoming preschool classroom"
         />
         <div className={styles.heroAtmosphere} aria-hidden="true" />
-        <div className={styles.heroCopy}>
-          <p className={styles.eyebrow}>Early learning enrichment</p>
-          <h1 id="home-title"><span>Live.</span><span>Captivating.</span><span>Screen-free.</span></h1>
-          <p className={styles.heroSubhead}>Character-led adventures for daycare and preschool children to sing, dance, learn, and build social-emotional skills through play.</p>
-          <div className={styles.heroActions}>
-            <a className={styles.primaryHero} href="#contact">Book a Free First Visit</a>
-            <a className={styles.secondaryHero} href="#programs">See How Jawly Works</a>
+        <section className={styles.hero} aria-labelledby="home-title">
+          <div className={styles.heroCopy}>
+            <p className={styles.eyebrow}>Early learning enrichment</p>
+            <h1 id="home-title"><span>Live.</span><span>Captivating.</span><span>Screen-free.</span></h1>
+            <p className={styles.heroSubhead}>Character-led adventures for daycare and preschool children to sing, dance, learn, and build social-emotional skills through play.</p>
+            <div className={styles.heroActions}>
+              <a className={styles.primaryHero} href="#contact">Book a Free First Visit</a>
+              <a className={styles.secondaryHero} href="#programs">See How Jawly Works</a>
+            </div>
           </div>
-        </div>
-        <img
-          className={styles.heroPerformers}
-          src="/homepage/performer-trio.png"
-          alt="Three Jawly performers in colorful character costumes"
-        />
-      </section>
+          <img
+            className={styles.heroPerformers}
+            src="/homepage/performer-trio.png"
+            alt="Three Jawly performers in colorful character costumes"
+          />
+        </section>
 
-      <ExperienceStrip demoHref="#contact" page="home-top" />
+        <ExperienceStrip demoHref="#contact" page="home-top" />
+      </div>
 
       <section className={styles.adventures} id="programs" aria-labelledby="adventures-title">
         <div className={styles.adventuresIntro}>
