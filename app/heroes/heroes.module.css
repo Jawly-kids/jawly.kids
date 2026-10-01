@@ -35,7 +35,7 @@
 
 .hero {
   position: relative; height: min(82.3vw, 1185px); min-height: 800px;
-  overflow: hidden; background: white;
+  overflow: hidden; background: var(--surface-soft);
 }
 .heroBackdrop { position: absolute; inset: 0 0 auto; width: 100%; height: 78.9%; object-fit: cover; }
 .heroCopy {
@@ -397,6 +397,7 @@
   .imageStage, .storyProgress { display: none; }.copyStage { height: auto; display: grid; gap: 42px; }.storyCopy { position: relative; inset: auto; display: block; opacity: 1; transform: none; }
 }
 
+.cosmosHero { background: var(--cosmos-surface-soft); }
 .cosmosHero .heroCopy { color: #f6f3ee; }
 
 /*
