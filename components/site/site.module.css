@@ -112,7 +112,7 @@
   top: var(--header-height);
   left: 50%;
   width: min(1120px, calc(100vw - 48px));
-  padding: 0;
+  padding: 12px;
   display: none;
   color: var(--ink);
   background: var(--paper);
@@ -127,6 +127,7 @@
 .programDropdownOpen {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 
 .programDropdown a {
@@ -136,10 +137,11 @@
   min-height: 250px;
   padding: 0;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   overflow: hidden;
   color: white;
-  background: #401312;
+  background: #101b4d;
+  border-radius: 6px;
   text-decoration: none;
 }
 
@@ -148,20 +150,17 @@
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: linear-gradient(0deg, rgb(12 14 24 / .72) 0%, transparent 45%);
+  background: linear-gradient(90deg, rgb(13 24 45 / .8) 0%, rgb(13 24 45 / .48) 48%, transparent 78%);
   pointer-events: none;
 }
 
-.programDropdown a:nth-child(1)::after,
+.programDropdown a:nth-child(2)::after,
 .programDropdown a:nth-child(3)::after {
-  background: linear-gradient(0deg, rgb(12 14 24 / .72) 0%, transparent 45%);
+  background: linear-gradient(270deg, rgb(5 19 39 / .84) 0%, rgb(5 19 39 / .5) 48%, transparent 82%);
 }
 
-.programDropdown a:nth-child(2) { background: #11194a; }
-.programDropdown a:nth-child(3) { background: #07354b; }
-
 .programDropdown a + a {
-  border-left: 1px solid rgb(255 255 255 / .32);
+  border-left: 0;
 }
 
 .programDropdown a:hover,
@@ -184,9 +183,9 @@
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: contain;
-  object-position: center 28%;
-  padding: 22px 18px 64px;
+  object-fit: cover;
+  object-position: center;
+  padding: 0;
   transition: transform 600ms ease;
 }
 
@@ -199,22 +198,37 @@
   position: relative;
   z-index: 1;
   min-width: 0;
-  width: 100%;
-  padding: 20px 24px;
+  width: min(62%, 230px);
+  padding: 24px;
   display: grid;
-  align-content: end;
+  align-content: center;
   gap: 7px;
 }
 
-.programDropdown a:nth-child(1) .programImage img { object-position: center 24%; padding-inline: 22px; }
-.programDropdown a:nth-child(2) .programImage img { object-position: center 28%; padding-inline: 18px; }
-.programDropdown a:nth-child(3) .programImage img { object-position: center 26%; padding-inline: 10px; }
+.programDropdown a:nth-child(1) { justify-content: flex-start; text-align: left; }
+.programDropdown a:nth-child(2),
+.programDropdown a:nth-child(3) { justify-content: flex-end; text-align: right; }
+.programDropdown a:nth-child(1) .programCardCopy { justify-items: start; }
+.programDropdown a:nth-child(2) .programCardCopy,
+.programDropdown a:nth-child(3) .programCardCopy { justify-items: end; }
+
+.programCardCopy strong { color: white; font: 800 1.55rem/1 var(--font-display); letter-spacing: -.035em; }
+
+.programCardCopy small {
+  color: var(--yellow);
+  font: var(--eyebrow-font);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: uppercase;
+}
+
+.programDropdown a:nth-child(2) .programCardCopy small { color: #f267bd; }
+.programDropdown a:nth-child(3) .programCardCopy small { color: #d7fbf5; }
 
 .programCardCopy > span {
   color: rgb(255 255 255 / .8);
   font-size: .78rem;
   line-height: 1.4;
-  text-align: center;
+  text-align: inherit;
 }
 
 .programCardCopy em {
@@ -228,7 +242,7 @@
   font-style: normal;
   letter-spacing: .08em;
   text-transform: uppercase;
-  justify-self: center;
+  justify-self: end;
 }
 
 .header a:focus-visible,
@@ -553,7 +567,7 @@
     position: static;
     width: auto;
     margin: 4px 0 8px;
-    padding: 0;
+    padding: 8px;
     border-radius: 6px;
     box-shadow: none;
     transform: none;
@@ -564,34 +578,35 @@
   }
 
   .programDropdown a {
-    min-height: 132px;
+    min-height: 150px;
     padding: 0;
   }
 
   .programDropdown a + a {
-    border-top: 1px solid rgb(255 255 255 / .3);
+    border-top: 0;
     border-left: 0;
   }
 
   .programImage {
     width: 100%;
     height: 100%;
-    min-height: 132px;
+    min-height: 150px;
   }
 
   .programImage img,
   .programDropdown a:nth-child(1) .programImage img,
   .programDropdown a:nth-child(2) .programImage img,
   .programDropdown a:nth-child(3) .programImage img {
-    object-position: center 24%;
-    padding: 10px 24px 38px;
+    object-position: center;
+    padding: 0;
   }
 
   .programCardCopy {
-    width: 100%;
-    padding: 9px 14px;
+    width: min(66%, 260px);
+    padding: 16px;
   }
 
+  .programCardCopy strong { font-size: 1.15rem; }
   .programCardCopy > span { font-size: .68rem; }
   .programCardCopy em { padding: 3px 5px; font-size: .52rem; }
 
