@@ -1,17 +1,36 @@
 import Link from "next/link";
+import { ArrowUpRight, Phone, ShieldCheck } from "lucide-react";
+import CheckArea from "@/components/availability/CheckArea";
 import { programs, site } from "@/lib/site";
 import styles from "./site.module.css";
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
+      <div className={styles.footerCta}>
+        <div>
+          <p className={styles.footerEyebrow}>Bring Jawly to your center</p>
+          <h2>Ready to light up the room?</h2>
+          <p>Check your area, then start with one complete 30-minute adventure—free.</p>
+        </div>
+        <CheckArea
+          className={styles.footerCtaButton}
+          demoHref="/heroes#calendar"
+          page="footer"
+          label="Check Availability"
+        />
+      </div>
+
       <div className={styles.footerInner}>
         <div className={styles.footerBrand}>
           <Link className={styles.footerWordmark} href="/" aria-label={`${site.name} home`}>
             {site.name}
           </Link>
           <p>{site.description}</p>
-          <a className={styles.footerPhone} href={site.phoneHref}>{site.phoneDisplay}</a>
+          <div className={styles.footerTrustMark}>
+            <ShieldCheck aria-hidden="true" />
+            <span>Thoughtfully designed for real classrooms.</span>
+          </div>
         </div>
 
         <div className={styles.footerGroup}>
@@ -36,16 +55,34 @@ export default function Footer() {
           <Link href="/heroes#calendar">Book a Free Visit</Link>
         </div>
 
-        <div className={styles.footerGroup}>
-          <h2>Legal</h2>
-          <Link href="/privacy">Privacy</Link>
-          <Link href="/term">Terms</Link>
+        <div className={`${styles.footerGroup} ${styles.footerSupport}`}>
+          <h2>Questions?</h2>
+          <p>Call the Jawly team. We&apos;re happy to talk through fit, timing, and what a first visit looks like.</p>
+          <a className={styles.supportCall} href={site.phoneHref}>
+            <Phone aria-hidden="true" />
+            <span>
+              <small>Call us</small>
+              <strong>{site.phoneDisplay}</strong>
+            </span>
+          </a>
+          <a className={styles.supportEmail} href={`mailto:${site.salesEmail}`}>
+            Email the team <ArrowUpRight aria-hidden="true" />
+          </a>
         </div>
+      </div>
+
+      <div className={styles.footerTrustRow} aria-label="Jawly trust principles">
+        <span>No child accounts</span>
+        <span>Background-checked performers</span>
+        <span>Prepared before arrival</span>
       </div>
 
       <div className={styles.footerBottom}>
         <span>© {new Date().getFullYear()} Jawly</span>
-        <span>Live character adventures for early learners.</span>
+        <div>
+          <Link href="/privacy">Privacy</Link>
+          <Link href="/term">Terms</Link>
+        </div>
       </div>
     </footer>
   );
