@@ -3,17 +3,33 @@
 import { useEffect, useState } from "react";
 import styles from "./marketing.module.css";
 
-const testimonials = [
+const defaultTestimonials = [
   { quote: "It beat the sports and movement classes we already run. No contest.", attribution: "Lead Teacher · KinderCare" },
   { quote: "Several children now bring him up on their own between visits. He has become someone they think about.", attribution: "Teacher · Kids R Kids" },
   { quote: "Almost mesmerized, not scared like expected.", attribution: "Center Director · KinderCare" },
 ];
 
 type ProofSectionProps = {
-  theme?: "home" | "heroes";
+  theme?: "home" | "heroes" | "cosmos";
+  eyebrow?: string;
+  headline?: string;
+  metrics?: Array<{ value: string; body: string }>;
+  testimonials?: Array<{ quote: string; attribution: string }>;
 };
 
-export default function ProofSection({ theme = "home" }: ProofSectionProps) {
+const defaultMetrics = [
+  { value: "4.8/5", body: "Average across 50+ teacher reviews" },
+  { value: "97%", body: "said children remembered the character and curriculum week after week" },
+  { value: "96%", body: "gave the end-of-session cool-down a perfect 5" },
+];
+
+export default function ProofSection({
+  theme = "home",
+  eyebrow = "Tested in real classrooms",
+  headline = "Classrooms are buzzing.\nThumbs up all around.",
+  metrics = defaultMetrics,
+  testimonials = defaultTestimonials,
+}: ProofSectionProps) {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -23,18 +39,16 @@ export default function ProofSection({ theme = "home" }: ProofSectionProps) {
       if (!document.hidden) setTestimonialIndex((index) => (index + 1) % testimonials.length);
     }, 5500);
     return () => window.clearInterval(interval);
-  }, [paused]);
+  }, [paused, testimonials.length]);
 
   return (
-    <section className={`${styles.proof} ${theme === "heroes" ? styles.proofHeroes : ""}`} aria-labelledby={`${theme}-proof-title`}>
+    <section className={`${styles.proof} ${theme === "heroes" ? styles.proofHeroes : ""} ${theme === "cosmos" ? styles.proofCosmos : ""}`} aria-labelledby={`${theme}-proof-title`}>
       <div className={styles.proofHeading}>
-        <p className={styles.eyebrow}>Tested in real classrooms</p>
-        <h2 id={`${theme}-proof-title`}>Classrooms are buzzing.<br />Thumbs up all around.</h2>
+        <p className={styles.eyebrow}>{eyebrow}</p>
+        <h2 id={`${theme}-proof-title`}>{headline.split("\n").map((line, index) => <span key={line}>{index > 0 && <br />}{line}</span>)}</h2>
       </div>
       <div className={styles.stats}>
-        <div><strong>4.8<span>/5</span></strong><p>Average across 50+ teacher reviews</p></div>
-        <div><strong>97<span>%</span></strong><p>said children remembered the character and curriculum week after week</p></div>
-        <div><strong>96<span>%</span></strong><p>gave the end-of-session cool-down a perfect 5</p></div>
+        {metrics.map((metric) => <div key={metric.value}><strong>{metric.value}</strong><p>{metric.body}</p></div>)}
       </div>
       <div
         className={styles.testimonials}

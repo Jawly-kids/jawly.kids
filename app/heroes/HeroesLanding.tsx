@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import {
   ArrowRight,
   Activity,
@@ -20,8 +19,9 @@ import {
 import CheckArea from "@/components/availability/CheckArea";
 import ClassroomTrust from "@/components/marketing/ClassroomTrust";
 import ExperienceStrip from "@/components/marketing/ExperienceStrip";
+import OtherPrograms from "@/components/marketing/OtherPrograms";
 import ProofSection from "@/components/marketing/ProofSection";
-import { programs, site } from "@/lib/site";
+import { site } from "@/lib/site";
 import styles from "./heroes.module.css";
 
 const stages = [
@@ -332,34 +332,7 @@ export default function HeroesLanding() {
         </div>
       </section>
 
-      <section className={styles.moreSection} aria-labelledby="other-programs-title">
-        <div className={styles.sectionHeading}>
-          <h2 id="other-programs-title">Explore our other programs.</h2>
-          <p>Meet two more character-led worlds built for movement, imagination, and discovery.</p>
-        </div>
-        <div className={styles.moreGrid}>
-          {programs.filter((program) => program.slug !== "heroes").map((program) => {
-            const image = program.slug === "cosmos"
-              ? "/homepage/Cosmos_for_Jawly_HomePage.png"
-              : "/homepage/Tides_for_Jawly_HomePage.png";
-            return (
-              <Link
-                key={program.slug}
-                href={program.href}
-                className={`${styles.otherProgramCard} ${program.slug === "tides" ? styles.otherProgramRight : styles.otherProgramLeft}`}
-              >
-                <img src={image} alt="" />
-                <div>
-                  <small>{program.label}{program.status === "draft" ? " · Coming Soon" : ""}</small>
-                  <h3>{program.slug === "cosmos" ? "Stardusters - Glow and Go" : "Mighty Minnows - Tiny Fins. Kindness Wins."}</h3>
-                  <p>{program.summary}</p>
-                  <strong>{program.status === "draft" ? "Preview Tides" : `Explore ${program.label}`} <span aria-hidden="true">→</span></strong>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
+      <OtherPrograms currentSlug="heroes" />
 
       <ClassroomTrust />
 
