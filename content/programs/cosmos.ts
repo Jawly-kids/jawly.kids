@@ -39,8 +39,8 @@ export const cosmosCopy: ProgramCopy = {
   stages: [
     {
       eyebrow: "THE CHARACTER",
-      title: "Meet Orla—a cosmic commander who turns the universe into an adventure.",
-      body: "Orla is powered by Jawly, an education technology platform—not a traditional costumed-character program. Character, technology, produced narrative, and live performance work together to create a commander children can see, hear, and follow on an adventure through space.",
+      title: "Meet Orla, a cosmic commander who turns the universe into an adventure.",
+      body: "Orla is powered by Jawly, an education technology platform, not a traditional costumed-character program. Character, technology, produced narrative, and live performance work together to create a commander children can see, hear, and follow on an adventure through space.",
     },
     {
       eyebrow: "THE TECHNOLOGY",
@@ -50,12 +50,12 @@ export const cosmosCopy: ProgramCopy = {
     {
       eyebrow: "THE NARRATIVE",
       title: "A theatrical voice fills every mission with music and wonder.",
-      body: "Orla’s distinctive voice, original music, mission stories, dialogue, activities, and curriculum are authored and highly produced in advance. Together, they create one cohesive character experience—not a role improvised through the mask.",
+      body: "Orla’s distinctive voice, original music, mission stories, dialogue, activities, and curriculum are authored and highly produced in advance. Together, they create one cohesive character experience, not a role improvised through the mask.",
     },
     {
       eyebrow: "THE HUMAN",
       title: "A performer leads the mission with human warmth.",
-      body: "Our cast members bring physical presence, shared laughter, and the human warmth we desperately need in education—while the Jawly system carries the character, narrative, and curriculum.",
+      body: "Our cast members bring physical presence, shared laughter, and the human warmth we desperately need in education, while the Jawly system carries the character, narrative, and curriculum.",
     },
   ],
   visitIntro: "Every Cosmos visit is built around the same character and the same real curriculum.",
