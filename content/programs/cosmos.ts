@@ -31,26 +31,26 @@ export const cosmosCopy: ProgramCopy = {
   stages: [
     {
       eyebrow: "THE CHARACTER",
-      title: "Meet Orla, a cosmic commander who inspires wonder.",
-      body: "Orla is powered by Jawly, an education technology platform, not a traditional costumed-character program. Character, technology, produced narrative, and live performance work together to create a commander children can see, hear, and follow on an adventure through space.",
+      title: "Meet Orla, a cosmic commander who leads the mission.",
+      body: "Orla is powered by Jawly, an education technology platform, not a traditional costumed-character program. Character, technology, an authored story, and live performance work together to create a commander children can see, hear, and follow on an adventure through space.",
     },
     {
       eyebrow: "THE TECHNOLOGY",
-      title: "A patent-pending wearable expression system.",
-      body: "Jawly’s screen-free technology brings Orla to life while leaving the performer free to move through the room, meet children eye to eye, and lead the physical adventure.",
+      title: "A wearable expression system brings Orla to life.",
+      body: "Jawly’s patent-pending, screen-free technology gives Orla consistent expression while leaving the performer free to move through the room, meet children eye to eye, and lead the physical adventure.",
     },
     {
-      eyebrow: "THE NARRATIVE",
-      title: "A theatrical voice launches music and wonder.",
-      body: "Orla’s distinctive voice, original music, mission stories, dialogue, activities, and curriculum are authored and highly produced in advance. Together, they create one cohesive character experience, not a role improvised through the mask.",
+      eyebrow: "THE STORY",
+      title: "A theatrical voice creates a world of music and wonder.",
+      body: "Orla’s distinctive voice, original music, mission stories, dialogue, activities, and learning journey are authored and highly produced in advance. Together, they create one cohesive character experience, not a role improvised through the mask.",
     },
     {
       eyebrow: "THE HUMAN",
-      title: "A performer leads the mission with human warmth.",
-      body: "Our cast members bring physical presence, shared laughter, and the human warmth we desperately need in education, while the Jawly system carries the character, narrative, and curriculum.",
+      title: "A passionate performer completes the experience with human warmth.",
+      body: "Our cast members bring physical presence, shared laughter, and the human warmth we desperately need in education, while the Jawly system carries Orla’s character and story.",
     },
   ],
-  visitIntro: "Every Cosmos visit is built around the same character and the same real curriculum.",
+  visitIntro: "Every Cosmos visit is built around the same character and the same purposeful learning journey.",
   skills: [
     {
       title: "SOCIAL-EMOTIONAL",
@@ -135,7 +135,7 @@ export const cosmosCopy: ProgramCopy = {
   proofTitle: "What teachers are already telling us.",
   metrics: [
     { value: "4.8/5", body: "Average over 50+ teacher reviews" },
-    { value: "97%", body: "Said kids remembered the character and curriculum week after week" },
+    { value: "97%", body: "Said kids remembered the character and lessons week after week" },
     { value: "96%", body: "Gave the end-of-session cool-down a perfect 5" },
   ],
   testimonials: [

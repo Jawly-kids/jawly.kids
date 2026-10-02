@@ -26,28 +26,28 @@ import styles from "./heroes.module.css";
 const stages = [
   {
     eyebrow: "THE CHARACTER",
-    title: "Meet Bravo—a hero who champions courage from within.",
+    title: "Meet Bravo, a hero who champions courage from within.",
     body:
-      "Bravo is powered by Jawly, an education technology platform—not a traditional costumed-character program. Character, technology, produced narrative, and live performance work together to create a hero children can see, hear, and join in the room.",
+      "Bravo is powered by Jawly, an education technology platform, not a traditional costumed-character program. Character, technology, an authored story, and live performance work together to create a hero children can see, hear, and join in the room.",
   },
   {
     eyebrow: "THE TECHNOLOGY",
-    title: "A patent-pending wearable expression system.",
+    title: "A wearable expression system brings Bravo to life.",
     body:
-      "Jawly’s screen-free technology brings Bravo to life while leaving the performer free to move through the room, meet children eye to eye, and lead the physical play.",
+      "Jawly’s patent-pending, screen-free technology gives Bravo consistent expression while leaving the performer free to move through the room, meet children eye to eye, and lead the physical play.",
   },
   {
-    eyebrow: "THE NARRATIVE",
-    title: "A theatrical voice conjures music and wonder.",
+    eyebrow: "THE STORY",
+    title: "A theatrical voice creates a world of music and wonder.",
     body:
-      "Bravo’s distinctive voice, original music, stories, dialogue, activities, and curriculum are authored and highly produced in advance. Together, they create one cohesive character experience—not a role improvised through the mask.",
+      "Bravo’s distinctive voice, original music, stories, dialogue, activities, and learning journey are authored and highly produced in advance. Together, they create one cohesive character experience, not a role improvised through the mask.",
     soundMark: true,
   },
   {
     eyebrow: "THE HUMAN",
-    title: "A performer embodies the magic with human warmth.",
+    title: "A passionate performer completes the experience with human warmth.",
     body:
-      "Our cast members bring physical presence, shared laughter, and the human warmth we desperately need in education—while the Jawly system carries the character, narrative, and curriculum.",
+      "Our cast members bring physical presence, shared laughter, and the human warmth we desperately need in education, while the Jawly system carries Bravo’s character and story.",
   },
 ];
 
@@ -216,7 +216,7 @@ export default function HeroesLanding() {
           <div className={styles.visitHeader}>
             <p className={styles.eyebrow}>WHAT&apos;S IN A JAWLY VISIT</p>
             <h2 id="visit-heading">One story. Real skills. Built like a show.</h2>
-            <p>Every Heroes visit is built around the same character and the same real curriculum.</p>
+            <p>Every Heroes visit is built around the same character and the same purposeful learning journey.</p>
           </div>
           <div className={styles.visitGroup}>
             <h3>THE SKILLS</h3>
