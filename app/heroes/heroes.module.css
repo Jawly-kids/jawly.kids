@@ -67,7 +67,10 @@
 .maskSequence picture { position: absolute; inset: 0; }
 .maskSequence::after { content: ""; position: absolute; z-index: 3; inset: -1px; pointer-events: none; background: linear-gradient(90deg, #fff 0%, rgb(255 255 255 / .86) 2.5%, transparent 8%, transparent 92%, rgb(255 255 255 / .86) 97.5%, #fff 100%), linear-gradient(180deg, transparent 70%, rgb(255 255 255 / .16) 78%, rgb(255 255 255 / .76) 91%, #fff 100%); }
 .sequenceLayer { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: contain; }
-.soundMark { width: 84px; height: 84px; margin-top: 24px; display: block; object-fit: cover; object-position: center; border-radius: 50%; mix-blend-mode: multiply; }
+.soundMark { width: 68px; height: 68px; display: block; object-fit: cover; object-position: center; border-radius: 50%; mix-blend-mode: multiply; }
+.narrativeActions { display: flex; align-items: center; gap: 18px; margin-top: 24px; }
+.bravoAudioButton { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 48px; padding: 0 22px; border: 1px solid var(--red); border-radius: 999px; color: var(--red); background: white; font: 750 .92rem/1 var(--font-display); letter-spacing: -.01em; white-space: nowrap; }
+.bravoAudioButton:disabled { cursor: default; opacity: 1; }
 
 .visitSection { padding: 96px max(7vw, 30px); background: var(--surface-soft); }
 .visitInner { width: min(var(--content-width), 100%); margin: 0 auto; }
@@ -296,7 +299,8 @@
   .heroCopy { padding-top: 170px; }
   .heroFigures { top: 49%; width: min(94vw, 940px); }
   .storySection { height: 390vh; }
-  .storyGrid { grid-template-columns: minmax(280px, .85fr) minmax(0, 1.15fr); gap: 24px; }
+  .storyGrid { grid-template-columns: minmax(310px, .95fr) minmax(0, 1.05fr); gap: 24px; }
+  .storyCopy h2 { font-size: clamp(2rem, 4.1vw, 2.75rem); }
   .journeyNode, .journeyNode.nodeReverse { height: auto; grid-template-columns: 1fr; }
   .nodeReverse .journeyImage { order: 0; }
   .journeyImage { aspect-ratio: 1 / 1; }
@@ -326,15 +330,20 @@
   .heroLead { max-width: 460px; margin-top: 10px; padding-inline: 16px; font-size: .95rem; }
   .heroFigures { top: 51%; width: 132vw; max-width: 850px; }
   .storySection { height: 430vh; }
-  .storySticky { align-items: start; padding: 64px 20px 10px; }
-  .storyGrid { grid-template-columns: 1fr; grid-template-rows: 32svh 1fr; gap: 12px; }
-  .imageStage { grid-row: 1; width: min(82vw, 36svh, 430px); margin: auto; }
+  .storySticky { align-items: start; padding: 52px 20px 12px; }
+  .storyGrid { height: 100%; grid-template-columns: 1fr; grid-template-rows: 38svh minmax(0, 1fr); gap: 10px; }
+  .imageStage { grid-row: 1; width: min(78vw, 31svh, 390px); margin: auto; }
   .maskSequence { top: -12%; left: -12%; width: 124%; height: 124%; }
-  .copyStage { grid-row: 2; height: 55svh; min-height: 330px; }
-  .storyCopy { inset: 18px 0 auto; transform: translateY(12px); text-align: left; }
-  .storyCopyActive { transform: translateY(0); }.storyCopy h2 { font-size: 2rem; }.storyCopy > p:not(.eyebrow):not(.castNote) { margin-top: 14px; font-size: 1rem; }
+  .copyStage { grid-row: 2; height: 100%; min-height: 0; }
+  .storyCopy { inset: 62px 0 auto; transform: translateY(12px); text-align: left; }
+  .storyCopyActive { transform: translateY(0); }
+  .storyCopy h2 { margin-top: 12px; font-size: clamp(1.72rem, 7.4vw, 2.1rem); line-height: 1.02; }
+  .storyCopy > p:not(.eyebrow):not(.castNote) { margin-top: 12px; font-size: clamp(.9rem, 3.7vw, 1rem); line-height: 1.42; }
   .storyIndex { gap: 5px; }
   .storyIndex span { font-size: .56rem; }
+  .narrativeActions { gap: 12px; margin-top: 14px; }
+  .soundMark { width: 48px; height: 48px; }
+  .bravoAudioButton { min-height: 42px; padding: 0 17px; font-size: .82rem; }
   .safetyList { margin-top: 14px; }
   .gallerySection, .proofSection, .journeySection, .calendarSection, .moreSection { padding: 74px 20px; }
   .page:not(.cosmosPage) .journeySection .sectionHeading h2 { max-width: 100%; font-size: 2.65rem; overflow-wrap: break-word; }
@@ -366,6 +375,22 @@
   .callCard a { margin-top: 26px; }
   .otherProgramCard { min-height: 370px; }
   .programCard { grid-template-columns: 120px 1fr; }
+}
+
+@media (max-width: 700px) and (max-height: 700px) {
+  .storySticky { padding-top: 42px; }
+  .storyGrid { grid-template-rows: 34svh minmax(0, 1fr); }
+  .imageStage { width: min(72vw, 27svh, 340px); }
+  .storyCopy { inset: 54px 0 auto; }
+  .storyCopy h2 { font-size: clamp(1.55rem, 6.7vw, 1.85rem); }
+  .storyCopy > p:not(.eyebrow):not(.castNote) { font-size: .86rem; line-height: 1.36; }
+  .narrativeActions { margin-top: 10px; }
+}
+
+@media (min-width: 701px) and (max-height: 760px) {
+  .copyStage { height: min(560px, 76svh); }
+  .storyCopy h2 { font-size: clamp(1.9rem, 3vw, 2.7rem); }
+  .storyCopy > p:not(.eyebrow):not(.castNote) { font-size: clamp(.98rem, 1.45vw, 1.12rem); }
 }
 
 @media (prefers-reduced-motion: reduce) {

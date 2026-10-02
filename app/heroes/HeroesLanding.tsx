@@ -8,6 +8,7 @@ import {
   MessageCircle,
   Move,
   Music2,
+  Play,
   Palette,
   Shapes,
   Wind,
@@ -37,7 +38,7 @@ const stages = [
   },
   {
     eyebrow: "THE NARRATIVE",
-    title: "A theatrical character voice that opens a world of music, story, and wonder.",
+    title: "A theatrical voice opens a world of music and wonder.",
     body:
       "Bravo’s distinctive voice, original music, stories, dialogue, activities, and curriculum are authored and highly produced in advance. Together, they create one cohesive character experience—not a role improvised through the mask.",
     soundMark: true,
@@ -185,7 +186,20 @@ export default function HeroesLanding() {
                   <p className={styles.eyebrow}>{stage.eyebrow}</p>
                   <h2>{stage.title}</h2>
                   <p>{stage.body}</p>
-                  {stage.soundMark && <img className={styles.soundMark} src="/heroes/sound-music-reference.png" alt="" />}
+                  {stage.soundMark && (
+                    <div className={styles.narrativeActions}>
+                      <img className={styles.soundMark} src="/heroes/sound-music-reference.png" alt="" />
+                      <button
+                        className={styles.bravoAudioButton}
+                        type="button"
+                        disabled
+                        title="Bravo audio sample will be connected when the final clip is supplied."
+                      >
+                        <Play aria-hidden="true" size={17} fill="currentColor" />
+                        Hear Bravo talk
+                      </button>
+                    </div>
+                  )}
                 </article>
               ))}
             </div>
