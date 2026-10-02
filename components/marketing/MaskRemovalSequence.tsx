@@ -26,12 +26,26 @@ export default function MaskRemovalSequence({ progress, config }: { progress: nu
   const desiredFrameRef = useRef(config.firstFrame);
   const [size, setSize] = useState<SequenceSize | null>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [hasEnteredPreloadRange, setHasEnteredPreloadRange] = useState(false);
 
   const sequenceProgress = clamp(progress / config.sequenceEnd);
   const desiredFrame = reducedMotion
     ? config.lastFrame
     : Math.round(config.firstFrame + sequenceProgress * (config.lastFrame - config.firstFrame));
   desiredFrameRef.current = desiredFrame;
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container || hasEnteredPreloadRange) return;
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        setHasEnteredPreloadRange(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: "100% 0px" });
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [hasEnteredPreloadRange]);
 
   const drawBestAvailableFrame = useCallback((requestedFrame: number) => {
     const canvas = canvasRef.current;
@@ -114,19 +128,19 @@ export default function MaskRemovalSequence({ progress, config }: { progress: nu
     loadFrameRef.current = loadFrame;
 
     const preloadBatch = () => {
-      if (cancelled || reducedMotion || nextFrame > config.lastFrame) return;
+      if (cancelled || reducedMotion || !hasEnteredPreloadRange || nextFrame > config.lastFrame) return;
       const batch = Array.from({ length: 4 }, () => nextFrame++).filter((frame) => frame <= config.lastFrame);
       void Promise.all(batch.map(loadFrame)).finally(scheduleBatch);
     };
     const scheduleBatch = () => {
-      if (cancelled || reducedMotion || nextFrame > config.lastFrame) return;
+      if (cancelled || reducedMotion || !hasEnteredPreloadRange || nextFrame > config.lastFrame) return;
       if ("requestIdleCallback" in window) idleHandle = window.requestIdleCallback(preloadBatch, { timeout: 600 });
       else timeoutHandle = setTimeout(preloadBatch, 50);
     };
 
     void loadFrame(config.firstFrame).then(() => {
       if (reducedMotion) void loadFrame(config.lastFrame);
-      else scheduleBatch();
+      else if (hasEnteredPreloadRange) scheduleBatch();
     });
 
     return () => {
@@ -135,7 +149,7 @@ export default function MaskRemovalSequence({ progress, config }: { progress: nu
       if (idleHandle && "cancelIdleCallback" in window) window.cancelIdleCallback(idleHandle);
       if (timeoutHandle) clearTimeout(timeoutHandle);
     };
-  }, [config, drawBestAvailableFrame, reducedMotion, size]);
+  }, [config, drawBestAvailableFrame, hasEnteredPreloadRange, reducedMotion, size]);
 
   useEffect(() => {
     drawBestAvailableFrame(desiredFrame);

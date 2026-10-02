@@ -8,13 +8,13 @@
   "desktop": {
     "width": 1080,
     "height": 1080,
-    "quality": 84,
+    "quality": 78,
     "pattern": "1080/orla-mask-{frame:03d}.webp"
   },
   "mobile": {
     "width": 720,
     "height": 720,
-    "quality": 82,
+    "quality": 76,
     "pattern": "720/orla-mask-{frame:03d}.webp"
   },
   "productionToOriginalFrame": [
