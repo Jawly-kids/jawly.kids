@@ -61,7 +61,10 @@
 .storyCopy h2 { margin-top: 18px; font-size: clamp(2.15rem, 3.3vw, 3.25rem); line-height: 1.04; letter-spacing: -.04em; }
 .storyCopy > p:not(.eyebrow):not(.castNote) { margin-top: 24px; color: #5e5e5e; font-size: 1.08rem; line-height: 1.52; }
 .imageStage { position: relative; z-index: 1; width: min(100%, 78svh, 690px); aspect-ratio: 1; justify-self: center; overflow: visible; background: transparent; }
-.stateImage { position: absolute; top: -12.5%; left: -12.5%; width: 125%; height: 125%; object-fit: contain; will-change: clip-path; }
+.maskSequence { position: absolute; top: -12.5%; left: -12.5%; width: 125%; height: 125%; overflow: hidden; background: white; }
+.maskSequence picture { position: absolute; inset: 0; }
+.sequenceLayer { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: contain; }
+.sequenceOutgoing { object-position: center; transform: translateY(-.5%) scale(.94); transform-origin: center; will-change: opacity, filter; }
 .storyProgress { position: absolute; z-index: 4; top: 50%; right: clamp(16px, 2vw, 28px); display: flex; flex-direction: column; gap: 8px; transform: translateY(-50%); }
 .storyProgress span { width: 4px; height: 32px; background: #d8d8d8; border-radius: 999px; transition: background .25s ease, height .25s ease; }
 .storyProgress .storyProgressActive { height: 48px; background: var(--deep); }
@@ -330,7 +333,7 @@
   .storySticky { align-items: start; padding: 64px 20px 10px; }
   .storyGrid { grid-template-columns: 1fr; grid-template-rows: 32svh 1fr; gap: 12px; }
   .imageStage { grid-row: 1; width: min(82vw, 36svh, 430px); margin: auto; }
-  .stateImage { top: -12%; left: -12%; width: 124%; height: 124%; }
+  .maskSequence { top: -12%; left: -12%; width: 124%; height: 124%; }
   .copyStage { grid-row: 2; height: 55svh; min-height: 330px; }
   .storyCopy { inset: 18px 0 auto; transform: translateY(12px); text-align: left; }
   .storyCopyActive { transform: translateY(0); }.storyCopy h2 { font-size: 2rem; }.storyCopy > p:not(.eyebrow):not(.castNote) { margin-top: 14px; font-size: 1rem; }
@@ -371,7 +374,7 @@
 @media (prefers-reduced-motion: reduce) {
   .page *, .page *::before, .page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
   .storySection { height: auto; }.storySticky { position: relative; height: auto; }.storyGrid { display: block; }
-  .imageStage, .storyProgress { display: none; }.copyStage { height: auto; display: grid; gap: 42px; }.storyCopy { position: relative; inset: auto; display: block; opacity: 1; transform: none; }
+  .storyProgress { display: none; }.storySticky { padding-block: 72px; }.imageStage { display: block; width: min(78vw, 430px); margin: 0 auto 54px; }.copyStage { height: auto; display: grid; gap: 42px; }.storyCopy { position: relative; inset: auto; display: block; opacity: 1; transform: none; }
 }
 
 .cosmosHero { background: var(--cosmos-surface-soft); }

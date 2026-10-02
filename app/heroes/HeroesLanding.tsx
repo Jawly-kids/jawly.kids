@@ -21,6 +21,7 @@ import GalleryPlaceholder from "@/components/marketing/GalleryPlaceholder";
 import LeadCaptureCta from "@/components/marketing/LeadCaptureCta";
 import OtherPrograms from "@/components/marketing/OtherPrograms";
 import ProofSection from "@/components/marketing/ProofSection";
+import BravoMaskSequence from "./BravoMaskSequence";
 import styles from "./heroes.module.css";
 
 const stages = [
@@ -123,10 +124,6 @@ function clamp(value: number, min = 0, max = 1) {
   return Math.min(max, Math.max(min, value));
 }
 
-function range(progress: number, start: number, end: number) {
-  return clamp((progress - start) / (end - start));
-}
-
 export default function HeroesLanding() {
   const storyRef = useRef<HTMLElement>(null);
   const [progress, setProgress] = useState(0);
@@ -164,8 +161,6 @@ export default function HeroesLanding() {
     progress < 0.7 ? 2 :
     progress < 0.84 ? -1 : 3;
   const visualStage = progress < 0.25 ? 0 : progress < 0.49 ? 1 : progress < 0.78 ? 2 : 3;
-  const reveals = [1, range(progress, 0.19, 0.29), range(progress, 0.43, 0.54), range(progress, 0.71, 0.85)];
-
   return (
     <main className={styles.page}>
       <section id="top" className={styles.hero}>
@@ -198,16 +193,8 @@ export default function HeroesLanding() {
               ))}
             </div>
 
-            <div className={styles.imageStage} aria-label={`Character reveal, stage ${visualStage + 1} of 4`}>
-              {[1, 2, 3, 4].map((number, index) => (
-                <img
-                  key={number}
-                  src={`/heroes/bravo-state-${number}.jpg`}
-                  alt={index === 0 ? "Bravo" : index === 1 ? "Bravo’s physical mask" : index === 2 ? "A Jawly cast member wearing Bravo’s mask" : "The Jawly cast member behind Bravo"}
-                  className={`${styles.stateImage} ${styles[`state${number}`]}`}
-                  style={{ clipPath: `inset(${(1 - reveals[index]) * 100}% 0 0 0)` }}
-                />
-              ))}
+            <div className={styles.imageStage} role="img" aria-label="Bravo changes from an animated character into the performer behind the mask">
+              <BravoMaskSequence progress={progress} />
             </div>
           </div>
           <div className={styles.storyProgress} role="img" aria-label={`Character reveal, stage ${visualStage + 1} of 4`}>
