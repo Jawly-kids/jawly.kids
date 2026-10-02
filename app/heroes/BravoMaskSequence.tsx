@@ -1,6 +1,6 @@
 "use client";
 
-import { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./heroes.module.css";
 
 type SequenceSize = "720" | "1080";
@@ -9,7 +9,7 @@ export const bravoMaskSequence = {
   frameCount: 110,
   firstFrame: 0,
   lastFrame: 109,
-  transitionEnd: 0.07,
+  sequenceEnd: 0.92,
   mobileBreakpoint: 700,
   dimensions: { "720": 720, "1080": 1080 },
   path: (size: SequenceSize, frame: number) =>
@@ -18,11 +18,6 @@ export const bravoMaskSequence = {
 
 function clamp(value: number, min = 0, max = 1) {
   return Math.min(max, Math.max(min, value));
-}
-
-function smoothstep(value: number) {
-  const progress = clamp(value);
-  return progress * progress * (3 - 2 * progress);
 }
 
 export default function BravoMaskSequence({ progress }: { progress: number }) {
@@ -35,11 +30,7 @@ export default function BravoMaskSequence({ progress }: { progress: number }) {
   const [size, setSize] = useState<SequenceSize | null>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
 
-  const transitionProgress = clamp(progress / bravoMaskSequence.transitionEnd);
-  const outgoingOpacity = 1 - smoothstep((transitionProgress - 0.12) / 0.76);
-  const sequenceProgress = clamp(
-    (progress - bravoMaskSequence.transitionEnd) / (1 - bravoMaskSequence.transitionEnd),
-  );
+  const sequenceProgress = clamp(progress / bravoMaskSequence.sequenceEnd);
   const desiredFrame = reducedMotion
     ? bravoMaskSequence.lastFrame
     : Math.round(sequenceProgress * bravoMaskSequence.lastFrame);
@@ -175,11 +166,6 @@ export default function BravoMaskSequence({ progress }: { progress: number }) {
     return () => observer.disconnect();
   }, [drawBestAvailableFrame]);
 
-  const outgoingStyle = {
-    opacity: outgoingOpacity,
-    filter: `blur(${(1 - outgoingOpacity) * 2.5}px)`,
-  } as CSSProperties;
-
   return (
     <div ref={containerRef} className={styles.maskSequence}>
       <picture>
@@ -196,14 +182,6 @@ export default function BravoMaskSequence({ progress }: { progress: number }) {
         />
       </picture>
       <canvas ref={canvasRef} className={styles.sequenceLayer} aria-hidden="true" />
-      <img
-        className={`${styles.sequenceLayer} ${styles.sequenceOutgoing}`}
-        src="/heroes/bravo-state-1.jpg"
-        alt=""
-        fetchPriority="high"
-        decoding="sync"
-        style={reducedMotion ? { opacity: 0 } : outgoingStyle}
-      />
     </div>
   );
 }

@@ -55,23 +55,23 @@
 .storySticky { position: sticky; top: 0; height: 100svh; display: grid; place-items: center; padding: calc(var(--header-height) + 18px) 4vw 34px; }
 .storyGrid { width: min(var(--content-width), 100%); display: grid; grid-template-columns: minmax(330px, .85fr) minmax(0, 1.35fr); align-items: center; gap: clamp(28px, 5vw, 70px); }
 .copyStage { position: relative; z-index: 3; height: min(640px, 78svh); }
-.storyCopy { position: absolute; inset: 50% 0 auto; display: none; transform: translateY(-50%); }
-.storyCopyActive { display: block; animation: storyCopyIn .42s cubic-bezier(.22, 1, .36, 1) both; }
-@keyframes storyCopyIn { from { opacity: 0; translate: 0 12px; } to { opacity: 1; translate: 0 0; } }
+.storyIndex { position: absolute; z-index: 4; top: 0; left: 0; right: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.storyIndex span { padding-top: 9px; color: #8a8580; border-top: 2px solid #d8d4ce; font: 700 .65rem/1.2 var(--font-display); letter-spacing: .07em; transition: color 180ms ease, border-color 180ms ease; }
+.storyIndex .storyIndexActive { color: var(--red); border-color: var(--red); }
+.storyCopy { position: absolute; inset: 50% 0 auto; opacity: 0; visibility: hidden; transform: translateY(calc(-50% + 12px)); transition: opacity 190ms ease-out, transform 240ms cubic-bezier(.22, 1, .36, 1), visibility 0s linear 240ms; }
+.storyCopyActive { opacity: 1; visibility: visible; transform: translateY(-50%); transition-delay: 40ms, 40ms, 0s; }
 .storyCopy h2 { margin-top: 18px; font-size: clamp(2.15rem, 3.3vw, 3.25rem); line-height: 1.04; letter-spacing: -.04em; }
 .storyCopy > p:not(.eyebrow):not(.castNote) { margin-top: 24px; color: #5e5e5e; font-size: 1.08rem; line-height: 1.52; }
 .imageStage { position: relative; z-index: 1; width: min(100%, 78svh, 690px); aspect-ratio: 1; justify-self: center; overflow: visible; background: transparent; }
 .maskSequence { position: absolute; top: -12.5%; left: -12.5%; width: 125%; height: 125%; overflow: hidden; background: white; }
 .maskSequence picture { position: absolute; inset: 0; }
 .sequenceLayer { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: contain; }
-.sequenceOutgoing { object-position: center; transform: translateY(-.5%) scale(.94); transform-origin: center; will-change: opacity, filter; }
-.storyProgress { position: absolute; z-index: 4; top: 50%; right: clamp(16px, 2vw, 28px); display: flex; flex-direction: column; gap: 8px; transform: translateY(-50%); }
-.storyProgress span { width: 4px; height: 32px; background: #d8d8d8; border-radius: 999px; transition: background .25s ease, height .25s ease; }
-.storyProgress .storyProgressActive { height: 48px; background: var(--deep); }
-.voiceButton { display: none; margin-top: 26px; min-height: 48px; padding: 0 18px; align-items: center; gap: 9px; color: white; background: var(--ink); border: 0; border-radius: 3px; font: 700 .94rem var(--font-sans); cursor: pointer; }
-.voiceTranscript { display: none; position: absolute; left: 50%; bottom: 22px; width: min(650px, 86vw); transform: translateX(-50%); grid-template-columns: auto 1fr; gap: 12px; padding: 16px 20px; background: var(--ink); color: white; border-radius: 7px; box-shadow: 0 18px 50px rgb(0 0 0 / .2); }
-.voiceTranscript p { font-size: .94rem; line-height: 1.35; }
-.voiceTranscript span { grid-column: 2; color: #c8c8c8; font-size: .72rem; }
+.soundMark { width: 84px; height: 84px; margin-top: 24px; display: block; object-fit: cover; object-position: center; border-radius: 50%; mix-blend-mode: multiply; }
+.techAnnotation { position: absolute; z-index: 4; top: 37%; right: -8%; width: 190px; opacity: 0; transform: translateX(12px); transition: opacity 160ms ease-out, transform 220ms cubic-bezier(.22, 1, .36, 1); pointer-events: none; }
+.techAnnotation span { display: block; margin-left: 28px; color: var(--red); font: 800 .68rem/1.25 var(--font-display); letter-spacing: .07em; text-transform: uppercase; }
+.techAnnotation i { position: relative; width: 100%; height: 1px; margin-top: 9px; display: block; background: var(--red); transform: rotate(9deg); transform-origin: right center; }
+.techAnnotation i::after { content: ""; position: absolute; left: -3px; top: -3px; width: 7px; height: 7px; border-radius: 50%; background: var(--red); }
+.techAnnotationActive { opacity: 1; transform: translateX(0); }
 
 .visitSection { padding: 96px max(7vw, 30px); background: var(--surface-soft); }
 .visitInner { width: min(var(--content-width), 100%); margin: 0 auto; }
@@ -337,8 +337,10 @@
   .copyStage { grid-row: 2; height: 55svh; min-height: 330px; }
   .storyCopy { inset: 18px 0 auto; transform: translateY(12px); text-align: left; }
   .storyCopyActive { transform: translateY(0); }.storyCopy h2 { font-size: 2rem; }.storyCopy > p:not(.eyebrow):not(.castNote) { margin-top: 14px; font-size: 1rem; }
-  .storyProgress { right: 12px; }
-  .safetyList { margin-top: 14px; }.voiceButton { margin-top: 16px; }.voiceTranscript { bottom: 10px; }
+  .storyIndex { gap: 5px; }
+  .storyIndex span { font-size: .56rem; }
+  .techAnnotation { display: none; }
+  .safetyList { margin-top: 14px; }
   .gallerySection, .proofSection, .journeySection, .calendarSection, .moreSection { padding: 74px 20px; }
   .page:not(.cosmosPage) .journeySection .sectionHeading h2 { max-width: 100%; font-size: 2.65rem; overflow-wrap: break-word; }
   .videoCaption { align-items: flex-start; flex-direction: column; gap: 14px; }
@@ -374,7 +376,7 @@
 @media (prefers-reduced-motion: reduce) {
   .page *, .page *::before, .page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
   .storySection { height: auto; }.storySticky { position: relative; height: auto; }.storyGrid { display: block; }
-  .storyProgress { display: none; }.storySticky { padding-block: 72px; }.imageStage { display: block; width: min(78vw, 430px); margin: 0 auto 54px; }.copyStage { height: auto; display: grid; gap: 42px; }.storyCopy { position: relative; inset: auto; display: block; opacity: 1; transform: none; }
+  .storySticky { padding-block: 72px; }.imageStage { display: block; width: min(78vw, 430px); margin: 0 auto 54px; }.copyStage { height: auto; display: grid; gap: 42px; }.storyIndex { position: relative; grid-column: 1 / -1; margin-bottom: 12px; }.storyCopy { position: relative; inset: auto; display: block; opacity: 1; visibility: visible; transform: none; }
 }
 
 .cosmosHero { background: var(--cosmos-surface-soft); }
