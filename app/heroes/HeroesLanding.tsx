@@ -26,28 +26,28 @@ import styles from "./heroes.module.css";
 const stages = [
   {
     eyebrow: "THE CHARACTER",
-    title: "Meet Bravo—a hero who helps children find the courage within.",
+    title: "Meet Bravo—a hero who champions courage from within.",
     body:
       "Bravo is powered by Jawly, an education technology platform—not a traditional costumed-character program. Character, technology, produced narrative, and live performance work together to create a hero children can see, hear, and join in the room.",
   },
   {
     eyebrow: "THE TECHNOLOGY",
-    title: "A patent-pending wearable system brings him to life without a screen.",
+    title: "A patent-pending wearable expression system.",
     body:
-      "Jawly’s wearable expression system delivers the character experience while leaving the performer free to move through the room, meet children eye to eye, and lead the physical play.",
+      "Jawly’s screen-free technology brings Bravo to life while leaving the performer free to move through the room, meet children eye to eye, and lead the physical play.",
   },
   {
     eyebrow: "THE NARRATIVE",
-    title: "A theatrical voice opens a world of music and wonder.",
+    title: "A theatrical voice conjures music and wonder.",
     body:
       "Bravo’s distinctive voice, original music, stories, dialogue, activities, and curriculum are authored and highly produced in advance. Together, they create one cohesive character experience—not a role improvised through the mask.",
     soundMark: true,
   },
   {
     eyebrow: "THE HUMAN",
-    title: "A performer who embodies the magic with human warmth.",
+    title: "A performer embodies the magic with human warmth.",
     body:
-      "Our cast members love taking children on imaginative journeys. They bring physical presence, shared laughter, and the human warmth we desperately need in education, while the Jawly system carries the character, story, and curriculum.",
+      "Our cast members bring physical presence, shared laughter, and the human warmth we desperately need in education—while the Jawly system carries the character, narrative, and curriculum.",
   },
 ];
 
