@@ -192,10 +192,6 @@ export default function HeroesLanding() {
 
             <div className={styles.imageStage} role="img" aria-label="Bravo’s wearable mask is removed to reveal the performer behind the character">
               <BravoMaskSequence progress={progress} />
-              <div className={`${styles.techAnnotation} ${activeStage === 1 ? styles.techAnnotationActive : ""}`} aria-hidden="true">
-                <span>Wearable expression system</span>
-                <i />
-              </div>
             </div>
           </div>
         </div>
