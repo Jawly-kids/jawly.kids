@@ -14,14 +14,6 @@ export const cosmosCopy: ProgramCopy = {
   heroFigures: "/cosmos/orla-stardusters.png",
   heroFiguresAlt:
     "Orla and the Stardusters, standing before a rocket about to launch under a starry Milky Way sky",
-  characterStates: [
-    { src: "/cosmos/state-1.jpg", alt: "Orla" },
-    { src: "/cosmos/state-2.jpg", alt: "Orla's physical mask" },
-    { src: "/cosmos/state-3.jpg", alt: "A Jawly cast member wearing Orla's mask" },
-    { src: "/cosmos/state-4.jpg", alt: "The Jawly cast member behind Orla" },
-  ],
-  voiceWelcome:
-    "Well hello, my brand-new friends! I flew my rocket ship ALL the way across the galaxy just to meet you! My name is Orla — Orla Orbit! Can you say Orla Orbit?",
   basics: [
     {
       title: "A live performance — no videos or screens",
@@ -39,7 +31,7 @@ export const cosmosCopy: ProgramCopy = {
   stages: [
     {
       eyebrow: "THE CHARACTER",
-      title: "Meet Orla, a cosmic commander who turns the universe into an adventure.",
+      title: "Meet Orla, a cosmic commander who inspires wonder.",
       body: "Orla is powered by Jawly, an education technology platform, not a traditional costumed-character program. Character, technology, produced narrative, and live performance work together to create a commander children can see, hear, and follow on an adventure through space.",
     },
     {
@@ -49,7 +41,7 @@ export const cosmosCopy: ProgramCopy = {
     },
     {
       eyebrow: "THE NARRATIVE",
-      title: "A theatrical voice fills every mission with music and wonder.",
+      title: "A theatrical voice launches music and wonder.",
       body: "Orla’s distinctive voice, original music, mission stories, dialogue, activities, and curriculum are authored and highly produced in advance. Together, they create one cohesive character experience, not a role improvised through the mask.",
     },
     {

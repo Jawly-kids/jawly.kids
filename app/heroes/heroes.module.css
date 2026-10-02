@@ -53,14 +53,14 @@
 
 .storySection { height: 430vh; background: white; }
 .storySticky { position: sticky; top: 0; height: 100svh; display: grid; place-items: center; padding: calc(var(--header-height) + 18px) 4vw 34px; }
-.storyGrid { width: min(var(--content-width), 100%); display: grid; grid-template-columns: minmax(330px, .85fr) minmax(0, 1.35fr); align-items: center; gap: clamp(28px, 5vw, 70px); }
+.storyGrid { width: min(var(--content-width), 100%); display: grid; grid-template-columns: minmax(360px, .95fr) minmax(0, 1.25fr); align-items: center; gap: clamp(28px, 4vw, 58px); }
 .copyStage { position: relative; z-index: 3; height: min(640px, 78svh); }
 .storyIndex { position: absolute; z-index: 4; top: 0; left: 0; right: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
 .storyIndex span { padding-top: 9px; color: #8a8580; border-top: 2px solid #d8d4ce; font: 700 .65rem/1.2 var(--font-display); letter-spacing: .07em; transition: color 180ms ease, border-color 180ms ease; }
 .storyIndex .storyIndexActive { color: var(--red); border-color: var(--red); }
 .storyCopy { position: absolute; inset: 50% 0 auto; opacity: 0; visibility: hidden; transform: translateY(calc(-50% + 12px)); transition: opacity 190ms ease-out, transform 240ms cubic-bezier(.22, 1, .36, 1), visibility 0s linear 240ms; }
 .storyCopyActive { opacity: 1; visibility: visible; transform: translateY(-50%); transition-delay: 40ms, 40ms, 0s; }
-.storyCopy h2 { margin-top: 18px; font-size: clamp(2.15rem, 3.3vw, 3.25rem); line-height: 1.04; letter-spacing: -.04em; }
+.storyCopy h2 { margin-top: 18px; font-size: clamp(2rem, 2.8vw, 2.8rem); line-height: 1.04; letter-spacing: -.04em; }
 .storyCopy > p:not(.eyebrow):not(.castNote) { margin-top: 24px; color: #5e5e5e; font-size: 1.08rem; line-height: 1.52; }
 .imageStage { position: relative; z-index: 1; width: min(100%, 78svh, 690px); aspect-ratio: 1; justify-self: center; overflow: visible; background: transparent; }
 .maskSequence { position: absolute; top: -12.5%; left: -12.5%; width: 125%; height: 125%; overflow: hidden; background: white; }
@@ -300,7 +300,7 @@
   .heroFigures { top: 49%; width: min(94vw, 940px); }
   .storySection { height: 390vh; }
   .storyGrid { grid-template-columns: minmax(310px, .95fr) minmax(0, 1.05fr); gap: 24px; }
-  .storyCopy h2 { font-size: clamp(2rem, 4.1vw, 2.75rem); }
+  .storyCopy h2 { font-size: clamp(1.9rem, 3.6vw, 2.5rem); }
   .journeyNode, .journeyNode.nodeReverse { height: auto; grid-template-columns: 1fr; }
   .nodeReverse .journeyImage { order: 0; }
   .journeyImage { aspect-ratio: 1 / 1; }

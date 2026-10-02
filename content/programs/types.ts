@@ -47,8 +47,6 @@ export type ProgramCopy = {
   heroLogo: string;
   heroFigures: string;
   heroFiguresAlt: string;
-  characterStates: { src: string; alt: string }[];
-  voiceWelcome: string;
   basics: StoryCard[];
   stages: StoryStage[];
   visitIntro: string;
