@@ -10,11 +10,9 @@ export type MaskSequenceConfig = {
   firstFrame: number;
   lastFrame: number;
   sequenceEnd: number;
-  transitionEnd?: number;
   mobileBreakpoint: number;
   dimensions: Record<SequenceSize, number>;
   path: (size: SequenceSize, frame: number) => string;
-  outgoingImage?: string;
 };
 
 const clamp = (value: number, min = 0, max = 1) => Math.min(max, Math.max(min, value));
@@ -29,9 +27,7 @@ export default function MaskRemovalSequence({ progress, config }: { progress: nu
   const [size, setSize] = useState<SequenceSize | null>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
 
-  const transitionEnd = config.transitionEnd ?? 0;
-  const transitionProgress = transitionEnd ? clamp(progress / transitionEnd) : 1;
-  const sequenceProgress = clamp((progress - transitionEnd) / Math.max(0.001, config.sequenceEnd - transitionEnd));
+  const sequenceProgress = clamp(progress / config.sequenceEnd);
   const desiredFrame = reducedMotion
     ? config.lastFrame
     : Math.round(config.firstFrame + sequenceProgress * (config.lastFrame - config.firstFrame));
@@ -160,20 +156,11 @@ export default function MaskRemovalSequence({ progress, config }: { progress: nu
 
   return (
     <div ref={containerRef} className={styles.maskSequence}>
-      <picture style={{ opacity: reducedMotion ? 0 : transitionProgress }}>
+      <picture>
         <source media={`(max-width: ${config.mobileBreakpoint}px)`} srcSet={config.path("720", config.firstFrame)} />
         <img className={styles.sequenceLayer} src={config.path("1080", config.firstFrame)} alt="" fetchPriority="high" decoding="sync" />
       </picture>
-      <canvas ref={canvasRef} className={styles.sequenceLayer} style={{ opacity: reducedMotion ? 1 : transitionProgress }} aria-hidden="true" />
-      {config.outgoingImage && !reducedMotion ? (
-        <img
-          className={`${styles.sequenceLayer} ${styles.sequenceOutgoing}`}
-          src={config.outgoingImage}
-          alt=""
-          fetchPriority="high"
-          style={{ opacity: 1 - transitionProgress }}
-        />
-      ) : null}
+      <canvas ref={canvasRef} className={styles.sequenceLayer} aria-hidden="true" />
     </div>
   );
 }
