@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "@/app/heroes/heroes.module.css";
 
 type TrackKey = "voice" | "song";
+type Track = { label: string; title: string; src: string };
 
 const formatTime = (seconds: number) => {
   if (!Number.isFinite(seconds)) return "0:00";
@@ -17,27 +18,27 @@ export default function StoryAudioSamples({ character, narrationSrc, songSrc, so
   songSrc: string;
   songTitle: string;
 }) {
-  const tracks = {
-    voice: { label: "Voice", title: `Hear ${character} talk`, detail: "Character voice", src: narrationSrc },
-    song: { label: "Theme song", title: songTitle, detail: "Original music", src: songSrc },
-  } as const;
-  const [selectedTrack, setSelectedTrack] = useState<TrackKey>("voice");
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
+  const tracks: Record<TrackKey, Track> = {
+    voice: { label: "Character voice", title: `Hear ${character} talk`, src: narrationSrc },
+    song: { label: "Original music", title: songTitle, src: songSrc },
+  };
   const containerRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const canvasRefs = useRef<Record<TrackKey, HTMLCanvasElement | null>>({ voice: null, song: null });
   const contextRef = useRef<AudioContext | null>(null);
   const sourceRef = useRef<MediaElementAudioSourceNode | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
   const animationRef = useRef(0);
   const lastDrawRef = useRef(0);
   const visibleRef = useRef(true);
-  const active = tracks[selectedTrack];
+  const activeTrackRef = useRef<TrackKey>("voice");
+  const [activeTrack, setActiveTrack] = useState<TrackKey>("voice");
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
 
-  const drawIdleWave = useCallback(() => {
-    const canvas = canvasRef.current;
+  const drawIdleWave = useCallback((key: TrackKey) => {
+    const canvas = canvasRefs.current[key];
     if (!canvas) return;
     const bounds = canvas.getBoundingClientRect();
     const ratio = Math.min(window.devicePixelRatio || 1, 2);
@@ -45,21 +46,25 @@ export default function StoryAudioSamples({ character, narrationSrc, songSrc, so
     canvas.height = Math.max(1, Math.round(bounds.height * ratio));
     const context = canvas.getContext("2d");
     if (!context) return;
-    const width = canvas.width;
-    const height = canvas.height;
+    const { width, height } = canvas;
     context.clearRect(0, 0, width, height);
     context.beginPath();
     for (let x = 0; x <= width; x += 2) {
       const envelope = Math.sin((x / width) * Math.PI);
-      const y = height / 2 + Math.sin(x * 0.055) * height * 0.12 * envelope;
+      const y = height / 2 + Math.sin(x * (key === "voice" ? 0.052 : 0.07)) * height * (key === "voice" ? 0.1 : 0.15) * envelope;
       if (x === 0) context.moveTo(x, y); else context.lineTo(x, y);
     }
-    context.lineWidth = Math.max(2, ratio * 1.25);
+    context.lineWidth = Math.max(2, ratio * 1.2);
     context.strokeStyle = getComputedStyle(canvas).color;
-    context.globalAlpha = 0.34;
+    context.globalAlpha = key === activeTrackRef.current ? 0.38 : 0.2;
     context.stroke();
     context.globalAlpha = 1;
   }, []);
+
+  const drawBothIdleWaves = useCallback(() => {
+    drawIdleWave("voice");
+    drawIdleWave("song");
+  }, [drawIdleWave]);
 
   const stopDrawing = useCallback(() => {
     if (animationRef.current) cancelAnimationFrame(animationRef.current);
@@ -69,7 +74,7 @@ export default function StoryAudioSamples({ character, narrationSrc, songSrc, so
   const drawLiveWave = useCallback((timestamp = 0) => {
     if (!visibleRef.current) return;
     const analyser = analyserRef.current;
-    const canvas = canvasRef.current;
+    const canvas = canvasRefs.current[activeTrackRef.current];
     if (!analyser || !canvas) return;
     if (timestamp - lastDrawRef.current < 33) {
       animationRef.current = requestAnimationFrame(drawLiveWave);
@@ -80,10 +85,7 @@ export default function StoryAudioSamples({ character, narrationSrc, songSrc, so
     const ratio = Math.min(window.devicePixelRatio || 1, 2);
     const width = Math.max(1, Math.round(bounds.width * ratio));
     const height = Math.max(1, Math.round(bounds.height * ratio));
-    if (canvas.width !== width || canvas.height !== height) {
-      canvas.width = width;
-      canvas.height = height;
-    }
+    if (canvas.width !== width || canvas.height !== height) { canvas.width = width; canvas.height = height; }
     const data = new Uint8Array(analyser.frequencyBinCount);
     analyser.getByteTimeDomainData(data);
     const context = canvas.getContext("2d");
@@ -115,12 +117,22 @@ export default function StoryAudioSamples({ character, narrationSrc, songSrc, so
     }
   };
 
-  const togglePlayback = async () => {
+  const toggleTrack = async (key: TrackKey) => {
     const audio = audioRef.current;
     if (!audio) return;
-    if (!audio.paused) {
+    if (key === activeTrackRef.current && !audio.paused) {
       audio.pause();
       return;
+    }
+    if (key !== activeTrackRef.current) {
+      audio.pause();
+      activeTrackRef.current = key;
+      setActiveTrack(key);
+      setCurrentTime(0);
+      setDuration(0);
+      audio.src = tracks[key].src;
+      audio.load();
+      drawBothIdleWaves();
     }
     try {
       ensureAudioGraph();
@@ -133,20 +145,15 @@ export default function StoryAudioSamples({ character, narrationSrc, songSrc, so
 
   useEffect(() => {
     const audio = audioRef.current;
-    if (!audio) return;
-    audio.pause();
-    audio.load();
-    setCurrentTime(0);
-    setDuration(0);
-    stopDrawing();
-    drawIdleWave();
-  }, [drawIdleWave, selectedTrack, stopDrawing]);
+    if (audio) audio.src = tracks.voice.src;
+    drawBothIdleWaves();
+  }, [drawBothIdleWaves, narrationSrc]);
 
   useEffect(() => {
-    const redraw = () => { if (!isPlaying) drawIdleWave(); };
+    const redraw = () => { if (!isPlaying) drawBothIdleWaves(); };
     window.addEventListener("resize", redraw);
     return () => window.removeEventListener("resize", redraw);
-  }, [drawIdleWave, isPlaying]);
+  }, [drawBothIdleWaves, isPlaying]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -169,36 +176,35 @@ export default function StoryAudioSamples({ character, narrationSrc, songSrc, so
 
   return (
     <div ref={containerRef} className={styles.storyAudio} aria-label={`${character} audio samples`}>
-      <div className={styles.audioTrackTabs} aria-label="Choose an audio sample">
-        {(Object.keys(tracks) as TrackKey[]).map((key) => (
-          <button key={key} type="button" className={selectedTrack === key ? styles.audioTrackTabActive : ""} onClick={() => setSelectedTrack(key)} aria-pressed={selectedTrack === key}>
-            {tracks[key].label}
-          </button>
-        ))}
-      </div>
-      <div className={styles.audioSelectedTrack}>
-        <span><small>{active.detail}</small><strong>{active.title}</strong></span>
-        <span className={styles.audioTime}>{formatTime(currentTime)} / {formatTime(duration)}</span>
-      </div>
-      <div className={styles.audioTransport}>
-        <button type="button" className={styles.audioPlayButton} onClick={() => void togglePlayback()} aria-label={`${isPlaying ? "Pause" : "Play"} ${active.title}`}>
-          {isPlaying ? <Pause size={17} fill="currentColor" /> : <Play size={17} fill="currentColor" />}
-        </button>
-        <canvas ref={canvasRef} className={styles.audioWaveform} aria-hidden="true" />
+      <div className={styles.audioStack}>
+        {(Object.keys(tracks) as TrackKey[]).map((key) => {
+          const track = tracks[key];
+          const playing = activeTrack === key && isPlaying;
+          const selected = activeTrack === key;
+          return (
+            <div className={`${styles.audioRow} ${selected ? styles.audioRowActive : ""}`} key={key}>
+              <button type="button" className={styles.audioPlayButton} onClick={() => void toggleTrack(key)} aria-label={`${playing ? "Pause" : "Play"} ${track.title}`}>
+                {playing ? <Pause size={15} fill="currentColor" /> : <Play size={15} fill="currentColor" />}
+              </button>
+              <span className={styles.audioRowLabel}><small>{track.label}</small><strong>{track.title}</strong></span>
+              <canvas ref={(element) => { canvasRefs.current[key] = element; }} className={styles.audioWaveform} aria-hidden="true" />
+              <span className={styles.audioTime}>{selected ? `${formatTime(currentTime)} / ${formatTime(duration)}` : "0:00"}</span>
+            </div>
+          );
+        })}
       </div>
       <audio
         ref={audioRef}
-        src={active.src}
         preload="none"
         onLoadedMetadata={(event) => setDuration(event.currentTarget.duration)}
         onTimeUpdate={(event) => setCurrentTime(event.currentTarget.currentTime)}
         onPlay={() => {
           setIsPlaying(true);
-          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) drawIdleWave();
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) drawBothIdleWaves();
           else if (visibleRef.current) animationRef.current = requestAnimationFrame(drawLiveWave);
         }}
-        onPause={() => { setIsPlaying(false); stopDrawing(); drawIdleWave(); }}
-        onEnded={() => { setIsPlaying(false); setCurrentTime(0); stopDrawing(); drawIdleWave(); }}
+        onPause={() => { setIsPlaying(false); stopDrawing(); drawBothIdleWaves(); }}
+        onEnded={() => { setIsPlaying(false); setCurrentTime(0); stopDrawing(); drawBothIdleWaves(); }}
       />
     </div>
   );

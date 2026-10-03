@@ -67,24 +67,19 @@
 .maskSequence picture { position: absolute; inset: 0; }
 .maskSequence::after { content: ""; position: absolute; z-index: 3; inset: -1px; pointer-events: none; background: linear-gradient(90deg, #fff 0%, rgb(255 255 255 / .86) 2.5%, transparent 8%, transparent 92%, rgb(255 255 255 / .86) 97.5%, #fff 100%), linear-gradient(180deg, transparent 70%, rgb(255 255 255 / .16) 78%, rgb(255 255 255 / .76) 91%, #fff 100%); }
 .sequenceLayer { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: contain; }
-.storyAudio { margin-top: 22px; padding-top: 14px; border-top: 1px solid rgb(42 37 33 / .13); }
-.audioTrackTabs { display: flex; align-items: center; gap: 20px; }
-.audioTrackTabs button { position: relative; padding: 0 0 7px; border: 0; color: #8a8580; background: transparent; font: 700 .7rem/1 var(--font-display); letter-spacing: .055em; text-transform: uppercase; cursor: pointer; }
-.audioTrackTabs button::after { content: ""; position: absolute; right: 0; bottom: 0; left: 0; height: 2px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 180ms ease; }
-.audioTrackTabs button:hover { color: var(--ink); }
-.audioTrackTabs .audioTrackTabActive { color: var(--red); }
-.audioTrackTabs .audioTrackTabActive::after { transform: scaleX(1); }
-.audioTrackTabs button:focus-visible { outline: 3px solid rgb(212 62 47 / .22); outline-offset: 4px; }
-.audioSelectedTrack { margin-top: 11px; display: flex; align-items: end; justify-content: space-between; gap: 16px; }
-.audioSelectedTrack > span:first-child { min-width: 0; display: grid; gap: 2px; }
-.audioSelectedTrack small { color: #807a75; font: 600 .66rem/1.1 var(--font-display); letter-spacing: .035em; text-transform: uppercase; }
-.audioSelectedTrack strong { overflow: hidden; font: 750 .9rem/1.15 var(--font-display); text-overflow: ellipsis; white-space: nowrap; }
-.audioTime { flex: none; color: #8a8580; font: 600 .66rem/1 var(--font-display); font-variant-numeric: tabular-nums; }
-.audioTransport { margin-top: 8px; min-height: 48px; display: grid; grid-template-columns: 40px minmax(0, 1fr); align-items: center; gap: 12px; }
-.audioPlayButton { width: 40px; height: 40px; display: grid; place-items: center; border: 0; border-radius: 50%; color: white; background: var(--red); cursor: pointer; transition: transform 160ms ease, background 160ms ease; }
+.storyAudio { margin-top: 22px; border-top: 1px solid rgb(42 37 33 / .13); }
+.audioStack { display: grid; }
+.audioRow { min-width: 0; min-height: 58px; display: grid; grid-template-columns: 34px minmax(108px, .72fr) minmax(80px, 1fr) auto; align-items: center; gap: 10px; padding: 8px 0; color: #8a8580; border-bottom: 1px solid rgb(42 37 33 / .1); transition: color 160ms ease; }
+.audioRowActive { color: var(--red); }
+.audioPlayButton { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 50%; color: inherit; background: transparent; cursor: pointer; transition: transform 160ms ease, color 160ms ease, background 160ms ease; }
 .audioPlayButton:hover { transform: scale(1.045); }
 .audioPlayButton:focus-visible { outline: 3px solid rgb(212 62 47 / .24); outline-offset: 3px; }
-.audioWaveform { width: 100%; height: 44px; display: block; color: var(--red); }
+.audioRowActive .audioPlayButton { color: white; background: var(--red); border-color: var(--red); }
+.audioRowLabel { min-width: 0; display: grid; gap: 2px; }
+.audioRowLabel small { color: #8a8580; font: 600 .61rem/1 var(--font-display); letter-spacing: .05em; text-transform: uppercase; }
+.audioRowLabel strong { overflow: hidden; color: var(--ink); font: 750 .78rem/1.1 var(--font-display); text-overflow: ellipsis; white-space: nowrap; }
+.audioTime { flex: none; color: #8a8580; font: 600 .62rem/1 var(--font-display); font-variant-numeric: tabular-nums; }
+.audioWaveform { width: 100%; height: 34px; display: block; color: currentColor; }
 
 .visitSection { padding: 96px max(7vw, 30px); background: var(--surface-soft); }
 .visitInner { width: min(var(--content-width), 100%); margin: 0 auto; }
@@ -355,10 +350,11 @@
   .storyCopy > p:not(.eyebrow):not(.castNote) { margin-top: 12px; font-size: clamp(.9rem, 3.7vw, 1rem); line-height: 1.42; }
   .storyIndex { gap: 5px; }
   .storyIndex span { font-size: .56rem; }
-  .storyAudio { margin-top: 14px; padding-top: 11px; }
-  .audioSelectedTrack { margin-top: 8px; }
-  .audioTransport { margin-top: 5px; }
-  .audioWaveform { height: 38px; }
+  .storyAudio { margin-top: 14px; }
+  .audioRow { grid-template-columns: 32px minmax(96px, .9fr) minmax(54px, 1fr); gap: 8px; min-height: 52px; }
+  .audioPlayButton { width: 32px; height: 32px; }
+  .audioTime { display: none; }
+  .audioWaveform { height: 30px; }
   .safetyList { margin-top: 14px; }
   .gallerySection, .proofSection, .journeySection, .calendarSection, .moreSection { padding: 74px 20px; }
   .page:not(.cosmosPage) .journeySection .sectionHeading h2 { max-width: 100%; font-size: 2.65rem; overflow-wrap: break-word; }
