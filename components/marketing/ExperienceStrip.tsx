@@ -19,6 +19,7 @@ export default function ExperienceStrip({
   theme = "heroes",
 }: ExperienceStripProps) {
   const programContext = context === "program" && program;
+  const tidesComingSoon = programContext && theme === "tides";
 
   return (
     <section className={`${styles.experienceSection} ${programContext ? styles.experienceProgram : ""} ${programContext && theme === "cosmos" ? styles.experienceCosmos : ""} ${programContext && theme === "tides" ? styles.experienceTides : ""}`} aria-label={programContext ? `${program} program basics` : "Jawly at a glance"}>
@@ -30,11 +31,14 @@ export default function ExperienceStrip({
         <div className={styles.experienceFacts}>
           <div><strong>30 minutes</strong><span>Designed for ages 3 to 8</span></div>
           <i aria-hidden="true" />
-          <div><strong>First visit free</strong><span>Start with {programContext ? `${program} Chapter One` : "Chapter One"}</span></div>
+          <div>
+            <strong>{tidesComingSoon ? "Coming soon" : "First visit free"}</strong>
+            <span>{tidesComingSoon ? "Be the first to know when Tides becomes available." : `Start with ${programContext ? `${program} Chapter One` : "Chapter One"}`}</span>
+          </div>
         </div>
         <div className={styles.experienceAvailability}>
           <small>{programContext ? "Serving Chicagoland" : "Expanding across Chicagoland"}</small>
-          <strong>{programContext ? `Can we bring ${program} to you?` : "Are we serving your area?"}</strong>
+          <strong>{tidesComingSoon ? "Want Tides at your center?" : programContext ? `Can we bring ${program} to you?` : "Are we serving your area?"}</strong>
           <CompactZipEntry targetHref={demoHref} page={page} />
         </div>
       </div>

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { postWaitlist } from "../lib/waitlist.ts";
+import { parseWaitlistBody, postWaitlist } from "../lib/waitlist.ts";
 
 const validLead = {
   name: "Avery Chen",
@@ -59,6 +59,13 @@ test("rejects a phone that is not 10 digits", async () => {
   const response = await post({ ...validLead, phone: "555-019" });
   assert.equal(response.status, 400);
   assert.deepEqual(await response.json(), { error: "Enter a 10-digit phone number." });
+});
+
+test("accepts a lead without a phone number", () => {
+  const { phone: _phone, ...withoutPhone } = validLead;
+  const parsed = parseWaitlistBody(withoutPhone);
+  assert.equal(parsed.ok, true);
+  if (parsed.ok) assert.equal(parsed.entry.phone, "");
 });
 
 test("returns 502 when downstream storage fails", async () => {

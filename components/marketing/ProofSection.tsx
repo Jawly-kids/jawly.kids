@@ -82,13 +82,13 @@ export default function ProofSection({
         </div>
       </div>
       <div className={styles.serving} id={`${theme}-serving`}>
-        <span>Currently serving families at</span>
+        <span>Currently serving centers like</span>
         <div className={styles.customerLogos} aria-label="Jawly customers">
           <img src="/homepage/clients/kindercare-balanced.jpg" alt="KinderCare" />
           <img src="/homepage/clients/kids-r-kids-balanced.jpg" alt="Kids 'R' Kids Learning Academies" />
           <img src="/homepage/clients/kiddie-academy-balanced.jpg" alt="Kiddie Academy" />
         </div>
-        <p>Now expanding to more early-learning centers across Chicago and the Northwest suburbs.</p>
+        <p>Now expanding to more early-learning centers across Chicagoland.</p>
       </div>
     </section>
   );

@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useId, useState } from "react";
 import { CalendarDays, Phone } from "lucide-react";
+import Link from "next/link";
 import { lookupZip } from "@/content/service-area";
 import { site } from "@/lib/site";
 import styles from "./marketing.module.css";
@@ -31,9 +32,9 @@ const copy = {
   },
   tides: {
     eyebrow: "Tides is coming soon",
-    title: "Bring the",
-    highlight: "Discovery Journey.",
-    body: "Check your ZIP and tell us about your center. We'll keep you close as Tides expands across Chicagoland.",
+    title: "Be the first to know when",
+    highlight: "Tides becomes available.",
+    body: "Want Tides at your center? Join the waitlist and we’ll let you know as the program becomes available across Chicagoland.",
   },
 } as const;
 
@@ -88,7 +89,7 @@ export default function LeadCaptureCta({ theme, page, id = "contact" }: { theme:
     event.preventDefault();
     if (!coverage) return;
     const phoneDigits = phone.replace(/\D/g, "").replace(/^1(?=\d{10}$)/, "");
-    if (phoneDigits.length !== 10) {
+    if (phone && phoneDigits.length !== 10) {
       setError("Enter a 10-digit phone number.");
       return;
     }
@@ -166,10 +167,11 @@ export default function LeadCaptureCta({ theme, page, id = "contact" }: { theme:
                         <input id={`${formId}-email`} type="email" autoComplete="email" required maxLength={200} value={email} onChange={(event) => setEmail(event.target.value)} />
                       </div>
                       <div className={styles.leadField}>
-                        <label htmlFor={`${formId}-phone`}>Phone</label>
-                        <input id={`${formId}-phone`} type="tel" inputMode="tel" autoComplete="tel" required placeholder="(312) 555-0123" value={phone} onChange={(event) => { setPhone(event.target.value); setError(""); }} />
+                        <label htmlFor={`${formId}-phone`}>Phone (optional)</label>
+                        <input id={`${formId}-phone`} type="tel" inputMode="tel" autoComplete="tel" placeholder="(312) 555-0123" value={phone} onChange={(event) => { setPhone(event.target.value); setError(""); }} />
                       </div>
-                      <button type="submit" disabled={submitting}>{submitting ? "Sending…" : coverage === "covered" ? "Request my free first visit" : "Keep me updated"}</button>
+                      <button type="submit" disabled={submitting}>{submitting ? "Sending…" : theme === "tides" ? "Join the Tides waitlist" : coverage === "covered" ? "Request my free first visit" : "Keep me updated"}</button>
+                      <p className={styles.leadConsent}>By submitting, you agree to Jawly contacting you about this request. See our <Link href="/privacy">Privacy Statement</Link>.</p>
                     </form>
                   </div>
                 )}

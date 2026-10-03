@@ -5,10 +5,10 @@ export const cosmosCopy: ProgramCopy = {
   title: "Stardusters — Glow and Go",
   description:
     "A live, six-visit knowledge adventure — planet names, counting, gravity, and music running through it all.",
-  heroEyebrow: "COSMOS — THE KNOWLEDGE JOURNEY",
+  heroEyebrow: "COSMOS: THE KNOWLEDGE JOURNEY",
   heroTitle: "Stardusters — Glow and Go",
   heroLead:
-    "A live, six-visit knowledge adventure — planet names, counting, gravity, and music running through it all.",
+    "A live, six-visit knowledge adventure with planet names, counting, gravity, and music running through it all.",
   heroBackground: "/cosmos/hero-background.jpg",
   heroLogo: "/cosmos/logo.png",
   heroFigures: "/cosmos/orla-stardusters.png",
@@ -53,6 +53,14 @@ export const cosmosCopy: ProgramCopy = {
   visitIntro: "Every Cosmos visit is built around the same character and the same purposeful learning journey.",
   skills: [
     {
+      title: "COGNITIVE",
+      body: "Counting five stars finger by finger, learning what gravity even is, and a graduation quiz that proves they remember all of it.",
+    },
+    {
+      title: "LANGUAGE",
+      body: "Every planet, Sun to Pluto, said out loud twice — until the whole crew can name the sky.",
+    },
+    {
       title: "SOCIAL-EMOTIONAL",
       body: "Before anyone touches the galaxy slime, the whole crew learns the rules together — patience first, reward after.",
     },
@@ -63,14 +71,6 @@ export const cosmosCopy: ProgramCopy = {
     {
       title: "BODY",
       body: "Clomp like a moonwalker, float with no gravity, tiptoe past a sleeping space cat — real movement, a whole space station to explore.",
-    },
-    {
-      title: "LANGUAGE",
-      body: "Every planet, Sun to Pluto, said out loud twice — until the whole crew can name the sky.",
-    },
-    {
-      title: "COGNITIVE",
-      body: "Counting five stars finger by finger, learning what gravity even is, and a graduation quiz that proves they remember all of it.",
     },
     {
       title: "CREATIVE",
@@ -153,7 +153,7 @@ export const cosmosCopy: ProgramCopy = {
     },
   ],
   journeyEyebrow: "THE KNOWLEDGE JOURNEY",
-  journeyTitle: "Every visit moves the story—and the child—forward.",
+  journeyTitle: "Every visit moves the story and the child forward.",
   journeyLead: "Six classroom adventures lead to a final chapter children carry home.",
   journey: [
     {
