@@ -7,11 +7,6 @@ import styles from "@/app/heroes/heroes.module.css";
 type TrackKey = "voice" | "song";
 type Track = { label: string; title: string; src: string };
 
-const formatTime = (seconds: number) => {
-  if (!Number.isFinite(seconds)) return "0:00";
-  return `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, "0")}`;
-};
-
 export default function StoryAudioSamples({ character, narrationSrc, songSrc, songTitle }: {
   character: string;
   narrationSrc: string;
@@ -34,8 +29,6 @@ export default function StoryAudioSamples({ character, narrationSrc, songSrc, so
   const activeTrackRef = useRef<TrackKey>("voice");
   const [activeTrack, setActiveTrack] = useState<TrackKey>("voice");
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
 
   const drawIdleWave = useCallback((key: TrackKey) => {
     const canvas = canvasRefs.current[key];
@@ -56,7 +49,7 @@ export default function StoryAudioSamples({ character, narrationSrc, songSrc, so
     }
     context.lineWidth = Math.max(2, ratio * 1.2);
     context.strokeStyle = getComputedStyle(canvas).color;
-    context.globalAlpha = key === activeTrackRef.current ? 0.38 : 0.2;
+    context.globalAlpha = 0.28;
     context.stroke();
     context.globalAlpha = 1;
   }, []);
@@ -128,8 +121,6 @@ export default function StoryAudioSamples({ character, narrationSrc, songSrc, so
       audio.pause();
       activeTrackRef.current = key;
       setActiveTrack(key);
-      setCurrentTime(0);
-      setDuration(0);
       audio.src = tracks[key].src;
       audio.load();
       drawBothIdleWaves();
@@ -180,15 +171,13 @@ export default function StoryAudioSamples({ character, narrationSrc, songSrc, so
         {(Object.keys(tracks) as TrackKey[]).map((key) => {
           const track = tracks[key];
           const playing = activeTrack === key && isPlaying;
-          const selected = activeTrack === key;
           return (
-            <div className={`${styles.audioRow} ${selected ? styles.audioRowActive : ""}`} key={key}>
+            <div className={styles.audioRow} key={key}>
               <button type="button" className={styles.audioPlayButton} onClick={() => void toggleTrack(key)} aria-label={`${playing ? "Pause" : "Play"} ${track.title}`}>
                 {playing ? <Pause size={15} fill="currentColor" /> : <Play size={15} fill="currentColor" />}
               </button>
               <span className={styles.audioRowLabel}><small>{track.label}</small><strong>{track.title}</strong></span>
               <canvas ref={(element) => { canvasRefs.current[key] = element; }} className={styles.audioWaveform} aria-hidden="true" />
-              <span className={styles.audioTime}>{selected ? `${formatTime(currentTime)} / ${formatTime(duration)}` : "0:00"}</span>
             </div>
           );
         })}
@@ -196,15 +185,13 @@ export default function StoryAudioSamples({ character, narrationSrc, songSrc, so
       <audio
         ref={audioRef}
         preload="none"
-        onLoadedMetadata={(event) => setDuration(event.currentTarget.duration)}
-        onTimeUpdate={(event) => setCurrentTime(event.currentTarget.currentTime)}
         onPlay={() => {
           setIsPlaying(true);
           if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) drawBothIdleWaves();
           else if (visibleRef.current) animationRef.current = requestAnimationFrame(drawLiveWave);
         }}
         onPause={() => { setIsPlaying(false); stopDrawing(); drawBothIdleWaves(); }}
-        onEnded={() => { setIsPlaying(false); setCurrentTime(0); stopDrawing(); drawBothIdleWaves(); }}
+        onEnded={() => { setIsPlaying(false); stopDrawing(); drawBothIdleWaves(); }}
       />
     </div>
   );

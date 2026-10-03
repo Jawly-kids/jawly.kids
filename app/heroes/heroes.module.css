@@ -69,16 +69,13 @@
 .sequenceLayer { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: contain; }
 .storyAudio { margin-top: 22px; border-top: 1px solid rgb(42 37 33 / .13); }
 .audioStack { display: grid; }
-.audioRow { min-width: 0; min-height: 58px; display: grid; grid-template-columns: 34px minmax(108px, .72fr) minmax(80px, 1fr) auto; align-items: center; gap: 10px; padding: 8px 0; color: #8a8580; border-bottom: 1px solid rgb(42 37 33 / .1); transition: color 160ms ease; }
-.audioRowActive { color: var(--red); }
-.audioPlayButton { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 50%; color: inherit; background: transparent; cursor: pointer; transition: transform 160ms ease, color 160ms ease, background 160ms ease; }
+.audioRow { min-width: 0; min-height: 58px; display: grid; grid-template-columns: 34px minmax(108px, .72fr) minmax(100px, 1.2fr); align-items: center; gap: 10px; padding: 8px 0; color: var(--red); border-bottom: 1px solid rgb(42 37 33 / .1); }
+.audioPlayButton { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--red); border-radius: 50%; color: white; background: var(--red); cursor: pointer; transition: transform 160ms ease; }
 .audioPlayButton:hover { transform: scale(1.045); }
 .audioPlayButton:focus-visible { outline: 3px solid rgb(212 62 47 / .24); outline-offset: 3px; }
-.audioRowActive .audioPlayButton { color: white; background: var(--red); border-color: var(--red); }
 .audioRowLabel { min-width: 0; display: grid; gap: 2px; }
 .audioRowLabel small { color: #8a8580; font: 600 .61rem/1 var(--font-display); letter-spacing: .05em; text-transform: uppercase; }
 .audioRowLabel strong { overflow: hidden; color: var(--ink); font: 750 .78rem/1.1 var(--font-display); text-overflow: ellipsis; white-space: nowrap; }
-.audioTime { flex: none; color: #8a8580; font: 600 .62rem/1 var(--font-display); font-variant-numeric: tabular-nums; }
 .audioWaveform { width: 100%; height: 34px; display: block; color: currentColor; }
 
 .visitSection { padding: 96px max(7vw, 30px); background: var(--surface-soft); }
@@ -351,9 +348,8 @@
   .storyIndex { gap: 5px; }
   .storyIndex span { font-size: .56rem; }
   .storyAudio { margin-top: 14px; }
-  .audioRow { grid-template-columns: 32px minmax(96px, .9fr) minmax(54px, 1fr); gap: 8px; min-height: 52px; }
+  .audioRow { grid-template-columns: 32px minmax(96px, .9fr) minmax(72px, 1.15fr); gap: 8px; min-height: 52px; }
   .audioPlayButton { width: 32px; height: 32px; }
-  .audioTime { display: none; }
   .audioWaveform { height: 30px; }
   .safetyList { margin-top: 14px; }
   .gallerySection, .proofSection, .journeySection, .calendarSection, .moreSection { padding: 74px 20px; }
