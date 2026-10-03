@@ -44,6 +44,9 @@ export default function WhyJawlyPage() {
           <p className={styles.dek}>Children are growing up surrounded by screens, fragmented attention, and increasingly automated experiences. Jawly uses technology differently—to create a live, physical world where children look up, move together, use their imaginations, and connect with the people around them.</p>
           <a href="#reasons" className={styles.start}>Explore why it matters <span aria-hidden="true">↓</span></a>
         </div>
+        <div className={styles.heroImage}>
+          <img src="/homepage/performer-trio.png" alt="Bravo, Orla, and Mira, Jawly’s live classroom characters" />
+        </div>
       </header>
 
       <section className={styles.reasons} id="reasons" aria-label="Four reasons Jawly matters">
