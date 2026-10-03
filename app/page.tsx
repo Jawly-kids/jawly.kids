@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { AudioWaveform, Heart, PersonStanding } from "lucide-react";
 import ClassroomTrust from "@/components/marketing/ClassroomTrust";
 import ExperienceStrip from "@/components/marketing/ExperienceStrip";
 import GalleryPlaceholder from "@/components/marketing/GalleryPlaceholder";
@@ -39,8 +38,8 @@ export default function Home() {
         <section className={styles.hero} aria-labelledby="home-title">
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>Early learning enrichment</p>
-            <h1 id="home-title"><span>Live.</span><span>Captivating.</span><span>Screen-free.</span></h1>
-            <p className={styles.heroSubhead}>Character-led adventures for daycare and preschool children to sing, dance, learn, and build social-emotional skills through play.</p>
+            <h1 id="home-title">The magic of a children’s show, live in the classroom.</h1>
+            <p className={styles.heroSubhead}>Jawly brings original characters, continuing stories, music, movement, and whole-child learning into a 30-minute experience children don’t just watch. They join.</p>
             <div className={styles.heroActions}>
               <a className={styles.primaryHero} href="#contact">Book a Free First Visit</a>
               <a className={styles.secondaryHero} href="#programs">See How Jawly Works</a>
@@ -114,19 +113,17 @@ export default function Home() {
       <section className={styles.meaning} aria-labelledby="meaning-title">
         <div className={styles.meaningIntro}>
           <p className={styles.eyebrowDark}>Why Jawly</p>
-          <h2 id="meaning-title">A live show, a movement class, and a calm-down ritual. All in one.</h2>
-          <p>Jawly combines beloved recurring characters, a real performer, and thoughtfully designed technology to draw children into singing, dancing, imagining, cooperating, learning, and finally slowing down together.</p>
-          <Link className={styles.textCta} href="/why-jawly">See Why Jawly Works <span aria-hidden="true">→</span></Link>
+          <h2 id="meaning-title">The most <em>anticipated</em> 30 minutes of the week.</h2>
+          <p>Across our classroom follow-up surveys, one finding stands apart: children remember the character, talk about the adventure between visits, and ask when Jawly is coming back. That anticipation becomes a doorway to movement, learning, imagination, and connection.</p>
         </div>
         <div className={styles.meaningReasons}>
-          <article><span className={styles.reasonMark} aria-hidden="true"><Heart /></span><div><h3>A character to care about</h3><span>Children remember Bravo and Orla, talk about them between visits, and anticipate their return.</span></div></article>
-          <article><span className={styles.reasonMark} aria-hidden="true"><PersonStanding /></span><div><h3>A room to participate in</h3><span>Children move, sing, answer, pretend, cooperate, and help shape what happens next.</span></div></article>
-          <article><span className={styles.reasonMark} aria-hidden="true"><AudioWaveform /></span><div><h3>A rhythm designed for learning</h3><span>The energy rises with purpose, then settles through reflection so the classroom is ready for what comes next.</span></div></article>
+          <article><img src="/why-jawly/live-show-home.png" alt="" aria-hidden="true" /><div><h3>Live show</h3><p>A memorable character and continuing story turn the classroom into a world children want to enter.</p></div></article>
+          <article><img src="/why-jawly/movement-class.png" alt="" aria-hidden="true" /><div><h3>Movement class</h3><p>Children dance, balance, stretch, act, and meet physical challenges inside the adventure.</p></div></article>
+          <article><img src="/why-jawly/learning-adventure.png" alt="" aria-hidden="true" /><div><h3>Learning adventure</h3><p>Knowledge and whole-child skills are woven into what children must do to complete the mission.</p></div></article>
+          <article><img src="/why-jawly/guided-reset.png" alt="" aria-hidden="true" /><div><h3>Guided reset</h3><p>Breathing, noticing, and reflection help bodies and minds settle before Jawly leaves.</p></div></article>
         </div>
-        <div className={styles.energyArc} aria-label="Every Jawly visit moves through anticipation, movement, challenge, laughter, listening, and calm">
-          <div><p>Every visit has a rhythm</p><span>A deliberate arc from arrival to reset.</span></div>
-          <ol><li>Anticipation</li><li>Movement</li><li>Challenge</li><li>Laughter</li><li>Listening</li><li>Calm</li></ol>
-          <p className={styles.arcPromise}>Then we hand your classroom back calm, grounded, and ready for what comes next.</p>
+        <div className={styles.meaningClose}>
+          <Link className={styles.textCta} href="/why-jawly">Discover Why Jawly Works <span aria-hidden="true">→</span></Link>
         </div>
       </section>
 

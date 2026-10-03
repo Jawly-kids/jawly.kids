@@ -28,9 +28,16 @@ export default function TrustSafetyPage() {
   return (
     <main className={styles.page}>
       <header className={styles.hero}>
-        <p className={styles.overline}>TRUST, SAFETY &amp; PRIVACY</p>
-        <h1>Jawly is not, and will never be, <span>in the business of children’s data.</span></h1>
-        <p className={styles.dek}>Jawly exists to create meaningful experiences with children, not valuable information about them. Our technology is designed around that distinction.</p>
+        <div className={styles.heroLead}>
+          <div className={styles.heroCopy}>
+            <p className={styles.overline}>TRUST, SAFETY &amp; PRIVACY</p>
+            <h1>Jawly will never be <span>in the business of children’s data.</span></h1>
+            <p className={styles.dek}>Jawly exists to create meaningful experiences with children, not valuable information about them. Our technology is designed around that distinction.</p>
+          </div>
+          <div className={styles.heroArt} aria-hidden="true">
+            <img src="/trust-safety/privacy-shield.png" alt="" />
+          </div>
+        </div>
         <div className={styles.heroPromise}>
           <strong>Attentive by design. Private by principle.</strong>
           <span>A trained performer responds to the children in front of them. The Jawly system does not automatically record the room or retain information about individual children.</span>
