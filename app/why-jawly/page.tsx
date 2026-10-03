@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const reasons = [
-  { number: "01", label: "LIVE SHOW", title: "Attention becomes connection.", body: "A recurring character, original music, and a continuing story give children someone to care about and a world they want to reenter. They remember what happened, anticipate what comes next, and arrive ready to participate—not simply watch.", takeaway: "Imagination opens the door to attention, memory, and belonging.", image: "/why-jawly/live-show.png" },
+  { number: "01", label: "LIVE SHOW", title: "The classroom becomes a stage. Attention follows.", body: "A recurring character, original music, and a continuing story give children someone to care about and a world they want to reenter. They remember what happened, anticipate what comes next, and arrive ready to participate—not simply watch.", takeaway: "Imagination opens the door to attention, memory, and belonging.", image: "/why-jawly/live-show.png" },
   { number: "02", label: "MOVEMENT CLASS", title: "Learning moves through the body.", body: "Children dance, balance, stretch, act, sing, and solve physical challenges together. Movement is not a break from the lesson. It gives new language, ideas, and feelings something children can see, do, and remember.", takeaway: "The whole body becomes part of how the child understands.", image: "/why-jawly/movement-class.png" },
   { number: "03", label: "LEARNING ADVENTURE", title: "The mission gives every skill a reason.", body: "Children recall, sequence, plan, persist, cooperate, name feelings, use new words, and imagine possibilities because the story needs them to. Knowledge and developmental skills become part of accomplishing something meaningful together.", takeaway: "Learning is woven into the adventure instead of interrupting it.", image: "/why-jawly/learning-adventure.png" },
   { number: "04", label: "GUIDED RESET", title: "Big energy learns how to settle.", body: "Every visit changes pace with purpose. Children breathe, notice how they feel, reflect on what happened, and bring their bodies back toward calm before Jawly leaves the room.", takeaway: "Self-regulation is practiced as part of the experience—not saved for after it.", image: "/why-jawly/guided-reset.png" },
@@ -45,7 +45,7 @@ export default function WhyJawlyPage() {
           <a href="#reasons" className={styles.start}>Explore why it matters <span aria-hidden="true">↓</span></a>
         </div>
         <div className={styles.heroImage}>
-          <img src="/homepage/performer-trio.png" alt="Bravo, Orla, and Mira, Jawly’s live classroom characters" />
+          <img src="/why-jawly/hero-connection.png" alt="Children gathering around the shared spark of a live Jawly experience" />
         </div>
       </header>
 
