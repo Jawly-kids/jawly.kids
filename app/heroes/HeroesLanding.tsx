@@ -42,7 +42,7 @@ const stages = [
     title: "A theatrical voice creates a world of music and wonder.",
     body:
       "Bravo’s distinctive voice, original music, stories, dialogue, activities, and learning journey are authored and highly produced in advance. Together, they create one cohesive character experience, not a role improvised through the mask.",
-    soundMark: true,
+    audioSamples: true,
   },
   {
     eyebrow: "THE HUMAN",
@@ -187,7 +187,7 @@ export default function HeroesLanding() {
                   <p className={styles.eyebrow}>{stage.eyebrow}</p>
                   <h2>{stage.title}</h2>
                   <p>{stage.body}</p>
-                  {stage.soundMark && (
+                  {stage.audioSamples && (
                     <StoryAudioSamples
                       character="Bravo"
                       narrationSrc="/audio/bravo-narration.m4a"
