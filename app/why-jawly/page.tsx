@@ -45,7 +45,7 @@ export default function WhyJawlyPage() {
           <a href="#reasons" className={styles.start}>Explore why it matters <span aria-hidden="true">↓</span></a>
         </div>
         <div className={styles.heroImage}>
-          <img src="/why-jawly/hero-connection.png" alt="Children gathering around the shared spark of a live Jawly experience" />
+          <img src="/why-jawly/hero-attention.png" alt="A child leaving a stream of digital distractions behind for a focused, imaginative experience" />
         </div>
       </header>
 
