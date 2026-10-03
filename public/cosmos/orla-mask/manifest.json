@@ -1,0 +1,494 @@
+{
+  "character": "Orla",
+  "frameCount": 118,
+  "firstFrame": 0,
+  "lastFrame": 117,
+  "zeroPadding": 3,
+  "sourceFrameRate": 24,
+  "desktop": {
+    "width": 1080,
+    "height": 1080,
+    "quality": 78,
+    "pattern": "1080/orla-mask-{frame:03d}.webp"
+  },
+  "mobile": {
+    "width": 720,
+    "height": 720,
+    "quality": 76,
+    "pattern": "720/orla-mask-{frame:03d}.webp"
+  },
+  "productionToOriginalFrame": [
+    {
+      "production": 0,
+      "original": 0
+    },
+    {
+      "production": 1,
+      "original": 1
+    },
+    {
+      "production": 2,
+      "original": 2
+    },
+    {
+      "production": 3,
+      "original": 3
+    },
+    {
+      "production": 4,
+      "original": 4
+    },
+    {
+      "production": 5,
+      "original": 5
+    },
+    {
+      "production": 6,
+      "original": 6
+    },
+    {
+      "production": 7,
+      "original": 7
+    },
+    {
+      "production": 8,
+      "original": 8
+    },
+    {
+      "production": 9,
+      "original": 9
+    },
+    {
+      "production": 10,
+      "original": 10
+    },
+    {
+      "production": 11,
+      "original": 11
+    },
+    {
+      "production": 12,
+      "original": 12
+    },
+    {
+      "production": 13,
+      "original": 13
+    },
+    {
+      "production": 14,
+      "original": 14
+    },
+    {
+      "production": 15,
+      "original": 15
+    },
+    {
+      "production": 16,
+      "original": 16
+    },
+    {
+      "production": 17,
+      "original": 17
+    },
+    {
+      "production": 18,
+      "original": 18
+    },
+    {
+      "production": 19,
+      "original": 19
+    },
+    {
+      "production": 20,
+      "original": 20
+    },
+    {
+      "production": 21,
+      "original": 21
+    },
+    {
+      "production": 22,
+      "original": 22
+    },
+    {
+      "production": 23,
+      "original": 23
+    },
+    {
+      "production": 24,
+      "original": 24
+    },
+    {
+      "production": 25,
+      "original": 25
+    },
+    {
+      "production": 26,
+      "original": 26
+    },
+    {
+      "production": 27,
+      "original": 27
+    },
+    {
+      "production": 28,
+      "original": 28
+    },
+    {
+      "production": 29,
+      "original": 29
+    },
+    {
+      "production": 30,
+      "original": 30
+    },
+    {
+      "production": 31,
+      "original": 31
+    },
+    {
+      "production": 32,
+      "original": 32
+    },
+    {
+      "production": 33,
+      "original": 33
+    },
+    {
+      "production": 34,
+      "original": 34
+    },
+    {
+      "production": 35,
+      "original": 35
+    },
+    {
+      "production": 36,
+      "original": 36
+    },
+    {
+      "production": 37,
+      "original": 37
+    },
+    {
+      "production": 38,
+      "original": 38
+    },
+    {
+      "production": 39,
+      "original": 39
+    },
+    {
+      "production": 40,
+      "original": 40
+    },
+    {
+      "production": 41,
+      "original": 41
+    },
+    {
+      "production": 42,
+      "original": 42
+    },
+    {
+      "production": 43,
+      "original": 43
+    },
+    {
+      "production": 44,
+      "original": 44
+    },
+    {
+      "production": 45,
+      "original": 45
+    },
+    {
+      "production": 46,
+      "original": 46
+    },
+    {
+      "production": 47,
+      "original": 47
+    },
+    {
+      "production": 48,
+      "original": 48
+    },
+    {
+      "production": 49,
+      "original": 49
+    },
+    {
+      "production": 50,
+      "original": 50
+    },
+    {
+      "production": 51,
+      "original": 51
+    },
+    {
+      "production": 52,
+      "original": 52
+    },
+    {
+      "production": 53,
+      "original": 53
+    },
+    {
+      "production": 54,
+      "original": 54
+    },
+    {
+      "production": 55,
+      "original": 55
+    },
+    {
+      "production": 56,
+      "original": 56
+    },
+    {
+      "production": 57,
+      "original": 57
+    },
+    {
+      "production": 58,
+      "original": 58
+    },
+    {
+      "production": 59,
+      "original": 59
+    },
+    {
+      "production": 60,
+      "original": 60
+    },
+    {
+      "production": 61,
+      "original": 61
+    },
+    {
+      "production": 62,
+      "original": 62
+    },
+    {
+      "production": 63,
+      "original": 63
+    },
+    {
+      "production": 64,
+      "original": 64
+    },
+    {
+      "production": 65,
+      "original": 65
+    },
+    {
+      "production": 66,
+      "original": 66
+    },
+    {
+      "production": 67,
+      "original": 67
+    },
+    {
+      "production": 68,
+      "original": 68
+    },
+    {
+      "production": 69,
+      "original": 69
+    },
+    {
+      "production": 70,
+      "original": 70
+    },
+    {
+      "production": 71,
+      "original": 71
+    },
+    {
+      "production": 72,
+      "original": 72
+    },
+    {
+      "production": 73,
+      "original": 73
+    },
+    {
+      "production": 74,
+      "original": 74
+    },
+    {
+      "production": 75,
+      "original": 75
+    },
+    {
+      "production": 76,
+      "original": 76
+    },
+    {
+      "production": 77,
+      "original": 77
+    },
+    {
+      "production": 78,
+      "original": 78
+    },
+    {
+      "production": 79,
+      "original": 79
+    },
+    {
+      "production": 80,
+      "original": 80
+    },
+    {
+      "production": 81,
+      "original": 81
+    },
+    {
+      "production": 82,
+      "original": 82
+    },
+    {
+      "production": 83,
+      "original": 83
+    },
+    {
+      "production": 84,
+      "original": 84
+    },
+    {
+      "production": 85,
+      "original": 85
+    },
+    {
+      "production": 86,
+      "original": 86
+    },
+    {
+      "production": 87,
+      "original": 87
+    },
+    {
+      "production": 88,
+      "original": 88
+    },
+    {
+      "production": 89,
+      "original": 89
+    },
+    {
+      "production": 90,
+      "original": 90
+    },
+    {
+      "production": 91,
+      "original": 91
+    },
+    {
+      "production": 92,
+      "original": 92
+    },
+    {
+      "production": 93,
+      "original": 93
+    },
+    {
+      "production": 94,
+      "original": 94
+    },
+    {
+      "production": 95,
+      "original": 95
+    },
+    {
+      "production": 96,
+      "original": 96
+    },
+    {
+      "production": 97,
+      "original": 97
+    },
+    {
+      "production": 98,
+      "original": 98
+    },
+    {
+      "production": 99,
+      "original": 99
+    },
+    {
+      "production": 100,
+      "original": 100
+    },
+    {
+      "production": 101,
+      "original": 101
+    },
+    {
+      "production": 102,
+      "original": 102
+    },
+    {
+      "production": 103,
+      "original": 103
+    },
+    {
+      "production": 104,
+      "original": 104
+    },
+    {
+      "production": 105,
+      "original": 105
+    },
+    {
+      "production": 106,
+      "original": 106
+    },
+    {
+      "production": 107,
+      "original": 107
+    },
+    {
+      "production": 108,
+      "original": 108
+    },
+    {
+      "production": 109,
+      "original": 109
+    },
+    {
+      "production": 110,
+      "original": 110
+    },
+    {
+      "production": 111,
+      "original": 111
+    },
+    {
+      "production": 112,
+      "original": 112
+    },
+    {
+      "production": 113,
+      "original": 113
+    },
+    {
+      "production": 114,
+      "original": 114
+    },
+    {
+      "production": 115,
+      "original": 115
+    },
+    {
+      "production": 116,
+      "original": 116
+    },
+    {
+      "production": 117,
+      "original": 117
+    }
+  ]
+}

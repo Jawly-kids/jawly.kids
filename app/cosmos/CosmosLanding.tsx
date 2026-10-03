@@ -11,7 +11,6 @@ import {
   Palette,
   Play,
   Shapes,
-  Volume2,
   Wind,
   Zap,
 } from "lucide-react";
@@ -21,7 +20,9 @@ import GalleryPlaceholder from "@/components/marketing/GalleryPlaceholder";
 import LeadCaptureCta from "@/components/marketing/LeadCaptureCta";
 import OtherPrograms from "@/components/marketing/OtherPrograms";
 import ProofSection from "@/components/marketing/ProofSection";
+import StoryAudioSamples from "@/components/marketing/StoryAudioSamples";
 import { cosmosCopy } from "@/content/programs/cosmos";
+import OrlaMaskSequence from "./OrlaMaskSequence";
 import styles from "../heroes/heroes.module.css";
 
 const skillIcons = [Heart, Brain, Activity, MessageCircle, Shapes, Palette];
@@ -36,14 +37,9 @@ function clamp(value: number, min = 0, max = 1) {
   return Math.min(max, Math.max(min, value));
 }
 
-function range(progress: number, start: number, end: number) {
-  return clamp((progress - start) / (end - start));
-}
-
 export default function CosmosLanding() {
   const storyRef = useRef<HTMLElement>(null);
   const [progress, setProgress] = useState(0);
-  const [voiceOpen, setVoiceOpen] = useState(false);
   const journey = [
     ...cosmosCopy.journey,
     cosmosCopy.keepsake,
@@ -72,15 +68,7 @@ export default function CosmosLanding() {
     };
   }, []);
 
-  const activeStage =
-    progress < 0.2 ? 0 :
-    progress < 0.3 ? -1 :
-    progress < 0.43 ? 1 :
-    progress < 0.55 ? -1 :
-    progress < 0.7 ? 2 :
-    progress < 0.84 ? -1 : 3;
-  const visualStage = progress < 0.25 ? 0 : progress < 0.49 ? 1 : progress < 0.78 ? 2 : 3;
-  const reveals = [1, range(progress, 0.19, 0.29), range(progress, 0.43, 0.54), range(progress, 0.71, 0.85)];
+  const activeStage = progress < 0.11 ? 0 : progress < 0.36 ? 1 : progress < 0.55 ? 2 : 3;
 
   return (
     <main className={`${styles.page} ${styles.cosmosPage}`}>
@@ -100,42 +88,34 @@ export default function CosmosLanding() {
         <div className={styles.storySticky}>
           <div className={styles.storyGrid}>
             <div className={styles.copyStage}>
+              <div className={styles.storyIndex} aria-label="How Orla works">
+                {cosmosCopy.stages.map((stage, index) => (
+                  <span key={stage.eyebrow} className={activeStage === index ? styles.storyIndexActive : ""}>
+                    {stage.eyebrow.replace("THE ", "")}
+                  </span>
+                ))}
+              </div>
               {cosmosCopy.stages.map((stage, index) => (
                 <article key={stage.title} className={`${styles.storyCopy} ${activeStage === index ? styles.storyCopyActive : ""}`} aria-hidden={activeStage !== index}>
                   <p className={styles.eyebrow}>{stage.eyebrow}</p>
                   <h2>{stage.title}</h2>
                   <p>{stage.body}</p>
                   {index === 2 && (
-                    <button className={styles.voiceButton} type="button" onClick={() => setVoiceOpen((value) => !value)} aria-expanded={voiceOpen}>
-                      <Volume2 size={18} /> {voiceOpen ? "Close Orla’s welcome" : "Hear Orla’s welcome"}
-                    </button>
+                    <StoryAudioSamples
+                      character="Orla"
+                      narrationSrc="/audio/orla-narration.m4a"
+                      songSrc="/audio/orla-theme-song.m4a"
+                      songTitle="Glow and Go"
+                    />
                   )}
                 </article>
               ))}
             </div>
 
-            <div className={styles.imageStage} aria-label={`Character reveal, stage ${visualStage + 1} of 4`}>
-              {cosmosCopy.characterStates.map((state, index) => (
-                <img
-                  key={state.src}
-                  src={state.src}
-                  alt={state.alt}
-                  className={`${styles.stateImage} ${styles[`state${index + 1}`]}`}
-                  style={{ clipPath: `inset(${(1 - reveals[index]) * 100}% 0 0 0)` }}
-                />
-              ))}
+            <div className={styles.imageStage} role="img" aria-label="Orla’s wearable mask is removed to reveal the performer behind the character">
+              <OrlaMaskSequence progress={progress} />
             </div>
           </div>
-          <div className={styles.storyProgress} role="img" aria-label={`Character reveal, stage ${visualStage + 1} of 4`}>
-            {[0, 1, 2, 3].map((index) => <span key={index} className={index === visualStage ? styles.storyProgressActive : ""} />)}
-          </div>
-          {voiceOpen && (
-            <div className={styles.voiceTranscript} role="status">
-              <Play size={18} fill="currentColor" />
-              <p><strong>Orla’s welcome</strong><br />{cosmosCopy.voiceWelcome}</p>
-              <span>Final produced audio will replace this transcript control.</span>
-            </div>
-          )}
         </div>
       </section>
 

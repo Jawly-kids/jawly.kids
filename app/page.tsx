@@ -63,7 +63,7 @@ export default function Home() {
           <p>Each journey is deliberately crafted around its character, story, movement, and purpose.</p>
         </div>
 
-        <article className={`${styles.adventureRow} ${styles.heroesRow} ${styles.rightCopyRow}`}>
+        <Link href="/heroes" className={`${styles.adventureRow} ${styles.heroesRow} ${styles.rightCopyRow}`}>
           <div className={styles.adventureImage}><img src="/homepage/heroes_for_Jawly_HomePage.png" alt="Bravo and the Little Legends looking toward a new adventure" /></div>
           <div className={styles.adventureCopy}>
             <p className={styles.worldLabel}>Heroes</p>
@@ -71,11 +71,11 @@ export default function Home() {
               <img src="/homepage/Find_Your_Bravo_By_Jawly.png" alt="Find Your Bravo: The Courage Within" />
             </h3>
             <p>A six-visit adventure where children join Bravo to face challenges, work together, move their bodies, and discover what courage can feel like in everyday life.</p>
-            <Link className={styles.textCta} href="/heroes">Explore Heroes <span aria-hidden="true">→</span></Link>
+            <span className={styles.textCta}>Explore Heroes <span aria-hidden="true">→</span></span>
           </div>
-        </article>
+        </Link>
 
-        <article className={`${styles.adventureRow} ${styles.cosmosRow}`}>
+        <Link href="/cosmos" className={`${styles.adventureRow} ${styles.cosmosRow}`}>
           <div className={styles.adventureImage}><img src="/homepage/Cosmos_for_Jawly_HomePage.png" alt="Orla and the Stardusters exploring deep space" /></div>
           <div className={styles.adventureCopy}>
             <p className={styles.worldLabel}>Cosmos</p>
@@ -83,9 +83,9 @@ export default function Home() {
               <img src="/homepage/Stardusters_by_Jawly.png" alt="Stardusters: Glow and Go" />
             </h3>
             <p>Children join Orla on a six-visit journey through space, moving, imagining, discovering, and bringing real science ideas back down to Earth.</p>
-            <Link className={styles.textCta} href="/cosmos">Explore Cosmos <span aria-hidden="true">→</span></Link>
+            <span className={styles.textCta}>Explore Cosmos <span aria-hidden="true">→</span></span>
           </div>
-        </article>
+        </Link>
 
         <Link href="/tides" className={`${styles.adventureRow} ${styles.tidesRow} ${styles.rightCopyRow}`}>
           <div className={styles.adventureImage}><img src="/homepage/Tides_for_Jawly_HomePage.png" alt="Mira and young explorers discovering a colorful ocean world" /></div>

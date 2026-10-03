@@ -14,14 +14,6 @@ export const cosmosCopy: ProgramCopy = {
   heroFigures: "/cosmos/orla-stardusters.png",
   heroFiguresAlt:
     "Orla and the Stardusters, standing before a rocket about to launch under a starry Milky Way sky",
-  characterStates: [
-    { src: "/cosmos/state-1.jpg", alt: "Orla" },
-    { src: "/cosmos/state-2.jpg", alt: "Orla's physical mask" },
-    { src: "/cosmos/state-3.jpg", alt: "A Jawly cast member wearing Orla's mask" },
-    { src: "/cosmos/state-4.jpg", alt: "The Jawly cast member behind Orla" },
-  ],
-  voiceWelcome:
-    "Well hello, my brand-new friends! I flew my rocket ship ALL the way across the galaxy just to meet you! My name is Orla — Orla Orbit! Can you say Orla Orbit?",
   basics: [
     {
       title: "A live performance — no videos or screens",
@@ -38,27 +30,27 @@ export const cosmosCopy: ProgramCopy = {
   ],
   stages: [
     {
-      eyebrow: "STARRING ORLA",
-      title: "The commander every Starduster is inspired by.",
-      body: "Orla doesn't just teach the names of the stars and planets. She calls herself the mission commander, gives every class a crew name — the Stardusters — and leads them through a real countdown, visit after visit. By graduation, they're not just reciting planets. They know they're Stardusters, now and always.",
+      eyebrow: "THE CHARACTER",
+      title: "Meet Orla, a cosmic commander who leads the mission.",
+      body: "Orla is powered by Jawly, an education technology platform, not a traditional costumed-character program. Character, technology, an authored story, and live performance work together to create a commander children can see, hear, and follow on an adventure through space.",
     },
     {
-      eyebrow: "PATENT PENDING TECH",
-      title: "Screenless. Yet Captivating Wearable Expression System.",
-      body: "Jawly is an education technology platform, not a costumed performer. Orla speaks through a patent-pending wearable expression system — a rich character voice, produced ahead of time with AI rather than improvised by an actor in the moment. Delivered through screenless wearable hardware, that same voice and personality show up the same way in every visit, while a real performer brings the movement, eye contact, and play.",
+      eyebrow: "THE TECHNOLOGY",
+      title: "A wearable expression system brings Orla to life.",
+      body: "Jawly’s patent-pending, screen-free technology gives Orla consistent expression while leaving the performer free to move through the room, meet children eye to eye, and lead the physical adventure.",
     },
     {
-      eyebrow: "HEAR IT FOR YOURSELF",
-      title: "Meet the commander your class will meet.",
-      body: "A real cast member brings the timing, movement, and eye contact. Orla brings the familiar voice and personality children recognize every time.",
+      eyebrow: "THE STORY",
+      title: "A theatrical voice creates a world of music and wonder.",
+      body: "Orla’s distinctive voice, original music, mission stories, dialogue, activities, and learning journey are authored and highly produced in advance. Together, they create one cohesive character experience, not a role improvised through the mask.",
     },
     {
-      eyebrow: "MEET THE CREW",
-      title: "The Jawly Crew behind the mask.",
-      body: "Every visit is led by a trained, background-checked Jawly cast member. Orla brings the familiar voice, story, and journey; the person behind the mask brings the movement, eye contact, timing, and spontaneous high-fives.",
+      eyebrow: "THE HUMAN",
+      title: "A performer embodies the magic with human warmth.",
+      body: "Our cast members bring physical presence, shared laughter, and the human warmth we desperately need in education, while the Jawly system carries Orla’s character and story.",
     },
   ],
-  visitIntro: "Every Cosmos visit is built around the same character and the same real curriculum.",
+  visitIntro: "Every Cosmos visit is built around the same character and the same purposeful learning journey.",
   skills: [
     {
       title: "SOCIAL-EMOTIONAL",
@@ -143,7 +135,7 @@ export const cosmosCopy: ProgramCopy = {
   proofTitle: "What teachers are already telling us.",
   metrics: [
     { value: "4.8/5", body: "Average over 50+ teacher reviews" },
-    { value: "97%", body: "Said kids remembered the character and curriculum week after week" },
+    { value: "97%", body: "Said kids remembered the character and lessons week after week" },
     { value: "96%", body: "Gave the end-of-session cool-down a perfect 5" },
   ],
   testimonials: [

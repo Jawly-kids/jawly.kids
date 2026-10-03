@@ -8,10 +8,9 @@ import {
   MessageCircle,
   Move,
   Music2,
-  Palette,
   Play,
+  Palette,
   Shapes,
-  Volume2,
   Wind,
   Zap,
 } from "lucide-react";
@@ -21,32 +20,35 @@ import GalleryPlaceholder from "@/components/marketing/GalleryPlaceholder";
 import LeadCaptureCta from "@/components/marketing/LeadCaptureCta";
 import OtherPrograms from "@/components/marketing/OtherPrograms";
 import ProofSection from "@/components/marketing/ProofSection";
+import StoryAudioSamples from "@/components/marketing/StoryAudioSamples";
+import BravoMaskSequence from "./BravoMaskSequence";
 import styles from "./heroes.module.css";
 
 const stages = [
   {
-    eyebrow: "STARRING BRAVO",
-    title: "The hero who makes courage visible.",
+    eyebrow: "THE CHARACTER",
+    title: "Meet Bravo, a hero who champions courage from within.",
     body:
-      "Bravo doesn’t tell children to stop feeling scared. He shows them how to feel scared, take a brave breath, ask for help, and try anyway. As children help Bravo through his challenges, they begin to recognize the courage already inside themselves.",
+      "Bravo is powered by Jawly, an education technology platform, not a traditional costumed-character program. Character, technology, an authored story, and live performance work together to create a hero children can see, hear, and join in the room.",
   },
   {
-    eyebrow: "PATENT PENDING TECH",
-    title: "Screenless. Yet Captivating Wearable Expression System.",
+    eyebrow: "THE TECHNOLOGY",
+    title: "A wearable expression system brings Bravo to life.",
     body:
-      "Jawly is an education technology platform, not a costumed performer. Bravo speaks through a patent-pending wearable expression system: a rich character voice, produced ahead of time with AI rather than improvised by an actor in the moment. Delivered through screenless wearable hardware, that same voice and personality show up the same way in every visit, while a real performer brings the movement, eye contact, and play.",
+      "Jawly’s patent-pending, screen-free technology gives Bravo consistent expression while leaving the performer free to move through the room, meet children eye to eye, and lead the physical play.",
   },
   {
-    eyebrow: "HEAR IT FOR YOURSELF",
-    title: "Meet the hero your class will meet.",
+    eyebrow: "THE STORY",
+    title: "A theatrical voice creates a world of music and wonder.",
     body:
-      "A real cast member brings the timing, movement, and eye contact. Bravo brings the familiar voice and personality children recognize every time.",
+      "Bravo’s distinctive voice, original music, stories, dialogue, activities, and learning journey are authored and highly produced in advance. Together, they create one cohesive character experience, not a role improvised through the mask.",
+    audioSamples: true,
   },
   {
-    eyebrow: "MEET THE CREW",
-    title: "The Jawly Crew behind the mask.",
+    eyebrow: "THE HUMAN",
+    title: "A performer embodies the magic with human warmth.",
     body:
-      "Every visit is led by a trained, background-checked Jawly cast member. Bravo brings the familiar voice, story, and journey; the person behind the mask brings the movement, eye contact, timing, and spontaneous high-fives.",
+      "Our cast members bring physical presence, shared laughter, and the human warmth we desperately need in education, while the Jawly system carries Bravo’s character and story.",
   },
 ];
 
@@ -123,14 +125,9 @@ function clamp(value: number, min = 0, max = 1) {
   return Math.min(max, Math.max(min, value));
 }
 
-function range(progress: number, start: number, end: number) {
-  return clamp((progress - start) / (end - start));
-}
-
 export default function HeroesLanding() {
   const storyRef = useRef<HTMLElement>(null);
   const [progress, setProgress] = useState(0);
-  const [voiceOpen, setVoiceOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(videos[0]);
 
   useEffect(() => {
@@ -157,15 +154,9 @@ export default function HeroesLanding() {
   }, []);
 
   const activeStage =
-    progress < 0.2 ? 0 :
-    progress < 0.3 ? -1 :
-    progress < 0.43 ? 1 :
-    progress < 0.55 ? -1 :
-    progress < 0.7 ? 2 :
-    progress < 0.84 ? -1 : 3;
-  const visualStage = progress < 0.25 ? 0 : progress < 0.49 ? 1 : progress < 0.78 ? 2 : 3;
-  const reveals = [1, range(progress, 0.19, 0.29), range(progress, 0.43, 0.54), range(progress, 0.71, 0.85)];
-
+    progress < 0.11 ? 0 :
+    progress < 0.36 ? 1 :
+    progress < 0.55 ? 2 : 3;
   return (
     <main className={styles.page}>
       <section id="top" className={styles.hero}>
@@ -184,42 +175,34 @@ export default function HeroesLanding() {
         <div className={styles.storySticky}>
           <div className={styles.storyGrid}>
             <div className={styles.copyStage}>
+              <div className={styles.storyIndex} aria-label="How Bravo works">
+                {stages.map((stage, index) => (
+                  <span key={stage.eyebrow} className={activeStage === index ? styles.storyIndexActive : ""}>
+                    {stage.eyebrow.replace("THE ", "")}
+                  </span>
+                ))}
+              </div>
               {stages.map((stage, index) => (
                 <article key={stage.title} className={`${styles.storyCopy} ${activeStage === index ? styles.storyCopyActive : ""}`} aria-hidden={activeStage !== index}>
                   <p className={styles.eyebrow}>{stage.eyebrow}</p>
                   <h2>{stage.title}</h2>
                   <p>{stage.body}</p>
-                  {index === 2 && (
-                    <button className={styles.voiceButton} type="button" onClick={() => setVoiceOpen((value) => !value)} aria-expanded={voiceOpen}>
-                      <Volume2 size={18} /> {voiceOpen ? "Close Bravo’s welcome" : "Hear Bravo’s welcome"}
-                    </button>
+                  {stage.audioSamples && (
+                    <StoryAudioSamples
+                      character="Bravo"
+                      narrationSrc="/audio/bravo-narration.m4a"
+                      songSrc="/audio/bravo-theme-song.m4a"
+                      songTitle="Find Your Bravo"
+                    />
                   )}
                 </article>
               ))}
             </div>
 
-            <div className={styles.imageStage} aria-label={`Character reveal, stage ${visualStage + 1} of 4`}>
-              {[1, 2, 3, 4].map((number, index) => (
-                <img
-                  key={number}
-                  src={`/heroes/bravo-state-${number}.jpg`}
-                  alt={index === 0 ? "Bravo" : index === 1 ? "Bravo’s physical mask" : index === 2 ? "A Jawly cast member wearing Bravo’s mask" : "The Jawly cast member behind Bravo"}
-                  className={`${styles.stateImage} ${styles[`state${number}`]}`}
-                  style={{ clipPath: `inset(${(1 - reveals[index]) * 100}% 0 0 0)` }}
-                />
-              ))}
+            <div className={styles.imageStage} role="img" aria-label="Bravo’s wearable mask is removed to reveal the performer behind the character">
+              <BravoMaskSequence progress={progress} />
             </div>
           </div>
-          <div className={styles.storyProgress} role="img" aria-label={`Character reveal, stage ${visualStage + 1} of 4`}>
-            {[0, 1, 2, 3].map((index) => <span key={index} className={index === visualStage ? styles.storyProgressActive : ""} />)}
-          </div>
-          {voiceOpen && (
-            <div className={styles.voiceTranscript} role="status">
-              <Play size={18} fill="currentColor" />
-              <p><strong>Bravo’s welcome</strong><br />Little Legends, courage isn’t about never feeling scared. It’s taking a brave breath, asking for help, and trying anyway.</p>
-              <span>Final produced audio will replace this transcript control.</span>
-            </div>
-          )}
         </div>
       </section>
 
@@ -228,7 +211,7 @@ export default function HeroesLanding() {
           <div className={styles.visitHeader}>
             <p className={styles.eyebrow}>WHAT&apos;S IN A JAWLY VISIT</p>
             <h2 id="visit-heading">One story. Real skills. Built like a show.</h2>
-            <p>Every Heroes visit is built around the same character and the same real curriculum.</p>
+            <p>Every Heroes visit is built around the same character and the same purposeful learning journey.</p>
           </div>
           <div className={styles.visitGroup}>
             <h3>THE SKILLS</h3>
