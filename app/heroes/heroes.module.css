@@ -58,8 +58,8 @@
 .storyIndex { position: absolute; z-index: 4; top: 0; left: 0; right: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
 .storyIndex span { padding-top: 9px; color: #8a8580; border-top: 2px solid #d8d4ce; font: 700 .65rem/1.2 var(--font-display); letter-spacing: .07em; transition: color 180ms ease, border-color 180ms ease; }
 .storyIndex .storyIndexActive { color: var(--red); border-color: var(--red); }
-.storyCopy { position: absolute; inset: 50% 0 auto; opacity: 0; visibility: hidden; transform: translateY(calc(-50% + 12px)); transition: opacity 190ms ease-out, transform 240ms cubic-bezier(.22, 1, .36, 1), visibility 0s linear 240ms; }
-.storyCopyActive { opacity: 1; visibility: visible; transform: translateY(-50%); transition-delay: 40ms, 40ms, 0s; }
+.storyCopy { position: absolute; inset: clamp(112px, 18svh, 150px) 0 auto; opacity: 0; visibility: hidden; transform: translateY(12px); transition: opacity 190ms ease-out, transform 240ms cubic-bezier(.22, 1, .36, 1), visibility 0s linear 240ms; }
+.storyCopyActive { opacity: 1; visibility: visible; transform: translateY(0); transition-delay: 40ms, 40ms, 0s; }
 .storyCopy h2 { margin-top: 18px; font-size: clamp(2rem, 2.8vw, 2.8rem); line-height: 1.04; letter-spacing: -.04em; }
 .storyCopy > p:not(.eyebrow):not(.castNote) { margin-top: 24px; color: #5e5e5e; font-size: 1.08rem; line-height: 1.52; }
 .imageStage { position: relative; z-index: 1; width: min(100%, 78svh, 690px); aspect-ratio: 1; justify-self: center; overflow: visible; background: transparent; }
@@ -67,10 +67,19 @@
 .maskSequence picture { position: absolute; inset: 0; }
 .maskSequence::after { content: ""; position: absolute; z-index: 3; inset: -1px; pointer-events: none; background: linear-gradient(90deg, #fff 0%, rgb(255 255 255 / .86) 2.5%, transparent 8%, transparent 92%, rgb(255 255 255 / .86) 97.5%, #fff 100%), linear-gradient(180deg, transparent 70%, rgb(255 255 255 / .16) 78%, rgb(255 255 255 / .76) 91%, #fff 100%); }
 .sequenceLayer { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: contain; }
-.soundMark { width: 68px; height: 68px; display: block; object-fit: contain; object-position: center; mix-blend-mode: multiply; }
-.narrativeActions { display: flex; align-items: center; gap: 18px; margin-top: 24px; }
-.bravoAudioButton { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 48px; padding: 0 22px; border: 1px solid var(--red); border-radius: 999px; color: var(--red); background: white; font: 750 .92rem/1 var(--font-display); letter-spacing: -.01em; white-space: nowrap; }
-.bravoAudioButton:disabled { cursor: default; opacity: 1; }
+.soundMark { width: 58px; height: 76px; flex: 0 0 58px; display: block; object-fit: contain; object-position: center; mix-blend-mode: multiply; }
+.storyAudio { display: flex; align-items: center; gap: 16px; margin-top: 22px; }
+.audioTrackList { flex: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.audioTrack { min-width: 0; }
+.audioTrackButton { position: relative; width: 100%; min-height: 58px; display: grid; grid-template-columns: 34px minmax(0, 1fr); align-items: center; gap: 8px; padding: 9px 10px 12px; overflow: hidden; border: 1px solid rgb(42 37 33 / .16); border-radius: 12px; color: var(--ink); background: white; text-align: left; cursor: pointer; }
+.audioTrackButton:hover { border-color: var(--red); }
+.audioTrackButton:focus-visible { outline: 3px solid rgb(212 62 47 / .24); outline-offset: 2px; }
+.audioPlayIcon { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; color: white; background: var(--red); }
+.audioTrackLabel { min-width: 0; display: grid; gap: 3px; }
+.audioTrackLabel strong { overflow: hidden; font: 750 .76rem/1.08 var(--font-display); text-overflow: ellipsis; white-space: nowrap; }
+.audioTrackLabel small { overflow: hidden; color: #77716c; font: 600 .64rem/1.1 var(--font-display); text-overflow: ellipsis; white-space: nowrap; }
+.audioProgress { position: absolute; right: 0; bottom: 0; left: 0; height: 3px; background: rgb(42 37 33 / .08); }
+.audioProgress i { display: block; height: 100%; background: var(--red); transition: width 120ms linear; }
 
 .visitSection { padding: 96px max(7vw, 30px); background: var(--surface-soft); }
 .visitInner { width: min(var(--content-width), 100%); margin: 0 auto; }
@@ -341,9 +350,10 @@
   .storyCopy > p:not(.eyebrow):not(.castNote) { margin-top: 12px; font-size: clamp(.9rem, 3.7vw, 1rem); line-height: 1.42; }
   .storyIndex { gap: 5px; }
   .storyIndex span { font-size: .56rem; }
-  .narrativeActions { gap: 12px; margin-top: 14px; }
-  .soundMark { width: 48px; height: 48px; }
-  .bravoAudioButton { min-height: 42px; padding: 0 17px; font-size: .82rem; }
+  .storyAudio { align-items: stretch; gap: 10px; margin-top: 14px; }
+  .soundMark { width: 40px; height: auto; flex-basis: 40px; }
+  .audioTrackList { grid-template-columns: 1fr; gap: 6px; }
+  .audioTrackButton { min-height: 48px; padding-block: 7px 10px; }
   .safetyList { margin-top: 14px; }
   .gallerySection, .proofSection, .journeySection, .calendarSection, .moreSection { padding: 74px 20px; }
   .page:not(.cosmosPage) .journeySection .sectionHeading h2 { max-width: 100%; font-size: 2.65rem; overflow-wrap: break-word; }
@@ -384,7 +394,7 @@
   .storyCopy { inset: 54px 0 auto; }
   .storyCopy h2 { font-size: clamp(1.55rem, 6.7vw, 1.85rem); }
   .storyCopy > p:not(.eyebrow):not(.castNote) { font-size: .86rem; line-height: 1.36; }
-  .narrativeActions { margin-top: 10px; }
+  .storyAudio { margin-top: 10px; }
 }
 
 @media (min-width: 701px) and (max-height: 760px) {

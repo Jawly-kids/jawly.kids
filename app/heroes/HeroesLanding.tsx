@@ -20,6 +20,7 @@ import GalleryPlaceholder from "@/components/marketing/GalleryPlaceholder";
 import LeadCaptureCta from "@/components/marketing/LeadCaptureCta";
 import OtherPrograms from "@/components/marketing/OtherPrograms";
 import ProofSection from "@/components/marketing/ProofSection";
+import StoryAudioSamples from "@/components/marketing/StoryAudioSamples";
 import BravoMaskSequence from "./BravoMaskSequence";
 import styles from "./heroes.module.css";
 
@@ -187,18 +188,12 @@ export default function HeroesLanding() {
                   <h2>{stage.title}</h2>
                   <p>{stage.body}</p>
                   {stage.soundMark && (
-                    <div className={styles.narrativeActions}>
-                      <img className={styles.soundMark} src="/heroes/sound-music-reference.png" alt="" />
-                      <button
-                        className={styles.bravoAudioButton}
-                        type="button"
-                        disabled
-                        title="Bravo audio sample will be connected when the final clip is supplied."
-                      >
-                        <Play aria-hidden="true" size={17} fill="currentColor" />
-                        Hear Bravo talk
-                      </button>
-                    </div>
+                    <StoryAudioSamples
+                      character="Bravo"
+                      narrationSrc="/audio/bravo-narration.m4a"
+                      songSrc="/audio/bravo-theme-song.m4a"
+                      songTitle="Find Your Bravo"
+                    />
                   )}
                 </article>
               ))}

@@ -20,6 +20,7 @@ import GalleryPlaceholder from "@/components/marketing/GalleryPlaceholder";
 import LeadCaptureCta from "@/components/marketing/LeadCaptureCta";
 import OtherPrograms from "@/components/marketing/OtherPrograms";
 import ProofSection from "@/components/marketing/ProofSection";
+import StoryAudioSamples from "@/components/marketing/StoryAudioSamples";
 import { cosmosCopy } from "@/content/programs/cosmos";
 import OrlaMaskSequence from "./OrlaMaskSequence";
 import styles from "../heroes/heroes.module.css";
@@ -100,13 +101,12 @@ export default function CosmosLanding() {
                   <h2>{stage.title}</h2>
                   <p>{stage.body}</p>
                   {index === 2 && (
-                    <div className={styles.narrativeActions}>
-                      <img className={styles.soundMark} src="/heroes/sound-music-reference.png" alt="" />
-                      <button className={styles.bravoAudioButton} type="button" disabled title="Orla audio sample will be connected when the final clip is supplied.">
-                        <Play aria-hidden="true" size={17} fill="currentColor" />
-                        Hear Orla talk
-                      </button>
-                    </div>
+                    <StoryAudioSamples
+                      character="Orla"
+                      narrationSrc="/audio/orla-narration.m4a"
+                      songSrc="/audio/orla-theme-song.m4a"
+                      songTitle="Glow and Go"
+                    />
                   )}
                 </article>
               ))}
