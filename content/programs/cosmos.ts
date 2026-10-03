@@ -2,13 +2,13 @@ import type { ProgramCopy } from "./types";
 
 /** Confirmed embeds only. */
 export const cosmosCopy: ProgramCopy = {
-  title: "Stardusters — Glow and Go",
+  title: "Stardusters: Glow and Go",
   description:
-    "A live, six-visit knowledge adventure — planet names, counting, gravity, and music running through it all.",
-  heroEyebrow: "COSMOS — THE KNOWLEDGE JOURNEY",
-  heroTitle: "Stardusters — Glow and Go",
+    "A live, six-visit knowledge adventure with planet names, counting, gravity, and music running through it all.",
+  heroEyebrow: "COSMOS: THE KNOWLEDGE JOURNEY",
+  heroTitle: "Stardusters: Glow and Go",
   heroLead:
-    "A live, six-visit knowledge adventure — planet names, counting, gravity, and music running through it all.",
+    "A live, six-visit knowledge adventure with planet names, counting, gravity, and music running through it all.",
   heroBackground: "/cosmos/hero-background.jpg",
   heroLogo: "/cosmos/logo.png",
   heroFigures: "/cosmos/orla-stardusters.png",
@@ -16,12 +16,12 @@ export const cosmosCopy: ProgramCopy = {
     "Orla and the Stardusters, standing before a rocket about to launch under a starry Milky Way sky",
   basics: [
     {
-      title: "A live performance — no videos or screens",
+      title: "A live performance. No videos or screens.",
       body: "A trained performer brings Orla directly into your classroom, in person. You bring the classroom and we bring everything else.",
     },
     {
       title: "Your first session is a FREE demo",
-      body: "One live, 30-minute session for a class, no commitment — then enroll in the full six-visit Cosmos series when you're ready.",
+      body: "One live, 30-minute session for a class with no commitment. Then enroll in the full six-visit Cosmos series when you're ready.",
     },
     {
       title: "Serving Chicagoland daycares + preschools",
@@ -53,28 +53,28 @@ export const cosmosCopy: ProgramCopy = {
   visitIntro: "Every Cosmos visit is built around the same character and the same purposeful learning journey.",
   skills: [
     {
-      title: "SOCIAL-EMOTIONAL",
-      body: "Before anyone touches the galaxy slime, the whole crew learns the rules together — patience first, reward after.",
-    },
-    {
-      title: "EXECUTIVE FUNCTION",
-      body: "Fly, freeze, dodge, freeze again — a crew that stops on command, every single time.",
-    },
-    {
-      title: "BODY",
-      body: "Clomp like a moonwalker, float with no gravity, tiptoe past a sleeping space cat — real movement, a whole space station to explore.",
-    },
-    {
-      title: "LANGUAGE",
-      body: "Every planet, Sun to Pluto, said out loud twice — until the whole crew can name the sky.",
-    },
-    {
       title: "COGNITIVE",
       body: "Counting five stars finger by finger, learning what gravity even is, and a graduation quiz that proves they remember all of it.",
     },
     {
+      title: "LANGUAGE",
+      body: "Every planet, from the Sun to Pluto, is said out loud twice until the whole crew can name the sky.",
+    },
+    {
+      title: "SOCIAL-EMOTIONAL",
+      body: "Before anyone touches the galaxy slime, the whole crew learns the rules together: patience first, reward after.",
+    },
+    {
+      title: "EXECUTIVE FUNCTION",
+      body: "Fly, freeze, dodge, freeze again. The crew stops on command every single time.",
+    },
+    {
+      title: "BODY",
+      body: "Clomp like a moonwalker, float with no gravity, and tiptoe past a sleeping space cat. Real movement opens a whole space station to explore.",
+    },
+    {
       title: "CREATIVE",
-      body: "Build a spaceship out of pure imagination, then pick your own star — jumping or spinning, every Starduster's choice.",
+      body: "Build a spaceship out of pure imagination, then pick your own star. Jumping or spinning, every Starduster gets a choice.",
     },
   ],
   show: [
@@ -102,7 +102,7 @@ export const cosmosCopy: ProgramCopy = {
     {
       title: "Meeting the Planets",
       shortTitle: "Meeting the Planets",
-      invitation: "The whole solar system, one planet at a time — Sun to Pluto, each with its own name to remember.",
+      invitation: "The whole solar system, one planet at a time. From the Sun to Pluto, each has its own name to remember.",
       vimeoId: "1209907581",
       vimeoHash: "a68c7a31ad",
       thumbnail: "/cosmos/video-planets.jpg",
@@ -118,7 +118,7 @@ export const cosmosCopy: ProgramCopy = {
     {
       title: "Stargazing and Wind-Down",
       shortTitle: "Stargazing and Wind-Down",
-      invitation: "A quiet moment of wonder — the whole room looking up at a sky full of stars.",
+      invitation: "A quiet moment of wonder as the whole room looks up at a sky full of stars.",
       vimeoId: "1209907580",
       vimeoHash: "453ebc5756",
       thumbnail: "/cosmos/video-stargazing.jpg",
@@ -140,11 +140,11 @@ export const cosmosCopy: ProgramCopy = {
   ],
   testimonials: [
     {
-      quote: "The kids memorized all nine planets faster than I expected — and they still remember them weeks later.",
+      quote: "The kids memorized all nine planets faster than I expected, and they still remember them weeks later.",
       attribution: "Lead Teacher - KinderCare",
     },
     {
-      quote: "They ask about Orla between visits now — genuinely can't wait for her to come back.",
+      quote: "They ask about Orla between visits now. They genuinely can't wait for her to come back.",
       attribution: "Teacher - Kids R Kids",
     },
     {
@@ -153,7 +153,7 @@ export const cosmosCopy: ProgramCopy = {
     },
   ],
   journeyEyebrow: "THE KNOWLEDGE JOURNEY",
-  journeyTitle: "Every visit moves the story—and the child—forward.",
+  journeyTitle: "Every visit moves the story and the child forward.",
   journeyLead: "Six classroom adventures lead to a final chapter children carry home.",
   journey: [
     {
@@ -165,38 +165,38 @@ export const cosmosCopy: ProgramCopy = {
     {
       eyebrow: "",
       title: "Flying in Zero Gravity",
-      body: "Inside the space station, the rules change — no gravity at all. Arms up, the whole crew floats and flies through the base together, one big weightless moment before the mission carries on.",
+      body: "Inside the space station, the rules change: no gravity at all. Arms up, the whole crew floats and flies through the base together, one big weightless moment before the mission carries on.",
       image: "/cosmos/journey-2.jpg",
     },
     {
       eyebrow: "",
       title: "Touring the Solar System",
-      body: "A tour of the whole solar system, one planet at a time: hot Sun, zooming Mercury, giant Jupiter, ringed Saturn, tiny Pluto — nine planets, each with its own name, its own move, and its own reason to remember it.",
+      body: "A tour of the whole solar system, one planet at a time: hot Sun, zooming Mercury, giant Jupiter, ringed Saturn, tiny Pluto. Nine planets, each with its own name, its own move, and its own reason to remember it.",
       image: "/cosmos/journey-3.jpg",
     },
     {
       eyebrow: "",
       title: "It's Time for a Space Walk",
-      body: "Suited up and clipped to the tether, the crew steps outside the station into open space. Below, Earth glows blue and impossibly whole; above and all around, more stars than the room can hold. A long, quiet look at the whole universe at once — then back inside, ready for what's next.",
+      body: "Suited up and clipped to the tether, the crew steps outside the station into open space. Below, Earth glows blue and impossibly whole; above and all around, more stars than the room can hold. After a long, quiet look at the whole universe, the crew heads back inside, ready for what's next.",
       image: "/cosmos/journey-spacewalk.jpg",
     },
     {
       eyebrow: "",
-      title: "Watch Out — Meteors Ahead",
-      body: "The sky fills with meteors — dodge, loop, and zig-zag through the storm, flying skills built up from every visit before this one, until the whole crew makes it through clear.",
+      title: "Watch Out: Meteors Ahead",
+      body: "The sky fills with meteors. The crew dodges, loops, and zig-zags through the storm, using flying skills built across every earlier visit until everyone makes it through clear.",
       image: "/cosmos/journey-5.jpg",
     },
     {
       eyebrow: "",
       title: "Once a Starduster, Always a Starduster",
-      body: "One more trip to the galaxy board to prove they remember it all, a real song and a real dance, and a blue ribbon in hand — once a Starduster, always a Starduster.",
+      body: "One more trip to the galaxy board proves they remember it all. Then comes a real song, a real dance, and a blue ribbon in hand. Once a Starduster, always a Starduster.",
       image: "/cosmos/journey-6.jpg",
     },
   ],
   keepsake: {
     eyebrow: "Crew & Keepsake",
     title: "What the Stardusters carry home",
-    body: "Every class becomes the Stardusters — a name they carry through all six visits and keep after. What they take home: a blue ribbon, handed over one at a time, while Orla retells the whole journey.",
+    body: "Every class becomes the Stardusters, a name they carry through all six visits and keep afterward. They take home a blue ribbon, handed over one at a time, while Orla retells the whole journey.",
     image: "",
   },
 };

@@ -25,7 +25,14 @@ import { cosmosCopy } from "@/content/programs/cosmos";
 import OrlaMaskSequence from "./OrlaMaskSequence";
 import styles from "../heroes/heroes.module.css";
 
-const skillIcons = [Heart, Brain, Activity, MessageCircle, Shapes, Palette];
+const skillIcons = {
+  COGNITIVE: Shapes,
+  LANGUAGE: MessageCircle,
+  "SOCIAL-EMOTIONAL": Heart,
+  "EXECUTIVE FUNCTION": Brain,
+  BODY: Activity,
+  CREATIVE: Palette,
+} as const;
 const showCards = [
   { Icon: Music2, color: "showDeep" },
   { Icon: Move, color: "showYellow" },
@@ -129,8 +136,8 @@ export default function CosmosLanding() {
           <div className={styles.visitGroup}>
             <h3>THE SKILLS</h3>
             <div className={styles.visitSkillGrid}>
-              {cosmosCopy.skills.map(({ title, body }, index) => {
-                const Icon = skillIcons[index];
+              {cosmosCopy.skills.map(({ title, body }) => {
+                const Icon = skillIcons[title as keyof typeof skillIcons];
                 return (
                   <article className={styles.visitSkillCard} key={title}>
                     <Icon size={22} strokeWidth={1.8} aria-hidden="true" />
@@ -199,7 +206,7 @@ export default function CosmosLanding() {
               </button>
             ))}
           </div>
-          <p className={styles.videoDisclosure}>{"Every clip above is genuine, unscripted footage from a real Jawly classroom — we’ve used AI to alter the children’s faces to protect their privacy."}</p>
+          <p className={styles.videoDisclosure}>{"Every clip above is genuine, unscripted footage from a real Jawly classroom. We’ve used AI to alter the children’s faces to protect their privacy."}</p>
         </div>
         */}
       </section>

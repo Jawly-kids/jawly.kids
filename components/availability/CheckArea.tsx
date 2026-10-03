@@ -143,7 +143,7 @@ export default function CheckArea({ className, demoHref, page, label = "Check yo
 
         {step === "covered" && (
           <div>
-            <h2 id={titleId}>Great news—Jawly is available in your area.</h2>
+            <h2 id={titleId}>Great news. Jawly is available in your area.</h2>
             <p>Your class can begin the real six-part adventure with a free Chapter One visit in {zip}.</p>
             <button type="button" className={styles.primary} onClick={continueToDemo}>Book My Free First Visit</button>
             <button type="button" className={styles.text} onClick={() => { setStep("zip"); setError(""); }}>Try another ZIP</button>

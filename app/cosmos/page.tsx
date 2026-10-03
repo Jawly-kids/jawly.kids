@@ -3,11 +3,11 @@ import { cosmosCopy } from "@/content/programs/cosmos";
 import CosmosLanding from "./CosmosLanding";
 
 export const metadata: Metadata = {
-  title: cosmosCopy.title,
+  title: "Cosmos",
   description: cosmosCopy.description,
   alternates: { canonical: "/cosmos" },
   openGraph: {
-    title: `${cosmosCopy.title} | Jawly`,
+    title: "Cosmos | Jawly",
     description: cosmosCopy.description,
     url: "/cosmos",
     images: [{

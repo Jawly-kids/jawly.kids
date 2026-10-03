@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const reasons = [
-  { number: "01", label: "LIVE SHOW", title: "Attention becomes connection.", body: "A recurring character, original music, and a continuing story give children someone to care about and a world they want to reenter. They remember what happened, anticipate what comes next, and arrive ready to participate—not simply watch.", takeaway: "Imagination opens the door to attention, memory, and belonging.", image: "/why-jawly/live-show.png" },
+  { number: "01", label: "LIVE SHOW", title: "The classroom becomes a stage. Attention follows.", body: "A recurring character, original music, and a continuing story give children someone to care about and a world they want to reenter. They remember what happened, anticipate what comes next, and arrive ready to participate, not simply watch.", takeaway: "Imagination opens the door to attention, memory, and belonging.", image: "/why-jawly/live-show.png" },
   { number: "02", label: "MOVEMENT CLASS", title: "Learning moves through the body.", body: "Children dance, balance, stretch, act, sing, and solve physical challenges together. Movement is not a break from the lesson. It gives new language, ideas, and feelings something children can see, do, and remember.", takeaway: "The whole body becomes part of how the child understands.", image: "/why-jawly/movement-class.png" },
   { number: "03", label: "LEARNING ADVENTURE", title: "The mission gives every skill a reason.", body: "Children recall, sequence, plan, persist, cooperate, name feelings, use new words, and imagine possibilities because the story needs them to. Knowledge and developmental skills become part of accomplishing something meaningful together.", takeaway: "Learning is woven into the adventure instead of interrupting it.", image: "/why-jawly/learning-adventure.png" },
-  { number: "04", label: "GUIDED RESET", title: "Big energy learns how to settle.", body: "Every visit changes pace with purpose. Children breathe, notice how they feel, reflect on what happened, and bring their bodies back toward calm before Jawly leaves the room.", takeaway: "Self-regulation is practiced as part of the experience—not saved for after it.", image: "/why-jawly/guided-reset.png" },
+  { number: "04", label: "GUIDED RESET", title: "Big energy learns how to settle.", body: "Every visit changes pace with purpose. Children breathe, notice how they feel, reflect on what happened, and bring their bodies back toward calm before Jawly leaves the room.", takeaway: "Self-regulation is practiced as part of the experience, not saved for after it.", image: "/why-jawly/guided-reset.png" },
 ] as const;
 
 const learningAreas = [
@@ -41,8 +41,11 @@ export default function WhyJawlyPage() {
         <div className={styles.heroCopy}>
           <p className={styles.overline}>WHY JAWLY</p>
           <h1>Built for what childhood needs now.</h1>
-          <p className={styles.dek}>Children are growing up surrounded by screens, fragmented attention, and increasingly automated experiences. Jawly uses technology differently—to create a live, physical world where children look up, move together, use their imaginations, and connect with the people around them.</p>
+          <p className={styles.dek}>Children are growing up surrounded by screens, fragmented attention, and increasingly automated experiences. Jawly uses technology differently. It creates a live, physical world where children look up, move together, use their imaginations, and connect with the people around them.</p>
           <a href="#reasons" className={styles.start}>Explore why it matters <span aria-hidden="true">↓</span></a>
+        </div>
+        <div className={styles.heroImage}>
+          <img src="/why-jawly/hero-connection.png" alt="Children gathering around the shared spark of a live Jawly experience" />
         </div>
       </header>
 
@@ -63,7 +66,7 @@ export default function WhyJawlyPage() {
       <section className={styles.technology} aria-labelledby="technology-title">
         <div className={styles.technologyCopy}>
           <p className={styles.overline}>TECHNOLOGY WITH A BOUNDARY</p>
-          <h2 id="technology-title">Technology should deepen human connection—not replace it.</h2>
+          <h2 id="technology-title">Technology should deepen human connection, not replace it.</h2>
           <p>Jawly uses AI in intentionally limited ways behind the scenes. The classroom experience is authored before arrival and led by a trained performer. It is not an open-ended AI conversation with children, and it does not identify children, remember individual participation, or build profiles from what happens in the room.</p>
           <Link href="/trust-safety">See our technology and privacy boundaries <span aria-hidden="true">→</span></Link>
         </div>

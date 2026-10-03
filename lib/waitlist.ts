@@ -53,7 +53,8 @@ export function parseWaitlistBody(body: unknown): ParsedWaitlist {
   const name = typeof record.name === "string" ? record.name.trim() : "";
   const schoolName = typeof record.schoolName === "string" ? record.schoolName.trim() : "";
   const email = typeof record.email === "string" ? record.email.trim() : "";
-  const phone = typeof record.phone === "string" ? normalizeUsPhone(record.phone.trim()) : null;
+  const rawPhone = typeof record.phone === "string" ? record.phone.trim() : "";
+  const phone = rawPhone ? normalizeUsPhone(rawPhone) : "";
   const zip = typeof record.zip === "string" ? record.zip.trim() : "";
 
   if (name.length < 2 || name.length > 100) {
@@ -65,7 +66,7 @@ export function parseWaitlistBody(body: unknown): ParsedWaitlist {
   if (!emailPattern.test(email) || email.length > 200) {
     return { ok: false, error: "Enter a valid email address." };
   }
-  if (!phone) {
+  if (rawPhone && !phone) {
     return { ok: false, error: "Enter a 10-digit phone number." };
   }
   if (!/^\d{5}$/.test(zip)) {
@@ -83,7 +84,7 @@ export function parseWaitlistBody(body: unknown): ParsedWaitlist {
     }
   }
 
-  return { ok: true, entry: { name, schoolName, email, phone, zip, page } };
+  return { ok: true, entry: { name, schoolName, email, phone: phone ?? "", zip, page } };
 }
 
 export async function postWaitlist(request: Request): Promise<Response> {
