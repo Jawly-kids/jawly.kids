@@ -1,110 +1,119 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Activity, Brain, Heart, MessageCircle, Palette, Shapes } from "lucide-react";
 import styles from "./why-jawly.module.css";
 
 export const metadata: Metadata = {
   title: "Why Jawly",
-  description: "Nine reasons live, character-led enrichment feels different in an early-learning classroom.",
+  description: "Why Jawly brings live performance, movement, whole-child learning, and self-regulation together in one classroom adventure.",
   alternates: { canonical: "/why-jawly" },
 };
 
 const reasons = [
-  {
-    id: "physical-world",
-    eyebrow: "LIVE, PHYSICAL-WORLD ATTENTION",
-    title: "Jawly earns attention in the room—not from a screen.",
-    body: "The character walks through the classroom door, talks, sings, and reacts with the children in real time. The story is suddenly here—at child height, in shared space. Screen-free matters because it makes room for something richer: eye contact, movement, imagination, and a room responding together.",
-  },
-  {
-    id: "characters",
-    eyebrow: "CHARACTERS CHILDREN REMEMBER",
-    title: "Children remember the character—and arrive ready for the next chapter.",
-    body: "Bravo, Orla, and Mira do not start from zero every week. The children know who is coming back, remember what happened together, and anticipate where the story will go next. That relationship turns a series of activities into one continuing adventure.",
-    quote: "97% of teachers said children remembered the character and the curriculum week after week.",
-    quoteSource: "Jawly teacher reviews · 50 responses",
-  },
-  {
-    id: "human",
-    eyebrow: "LIVE MEANS HUMAN",
-    title: "A live performer makes every child part of the moment.",
-    body: "A trained Jawly performer brings the character’s mouth and voice to life by hand, then reads the room as it unfolds. They can notice a hesitant child, celebrate an unexpected answer, wait for the laugh, and help the group find its way back. The story is authored; the connection is live.",
-  },
-  {
-    id: "consistency",
-    eyebrow: "ONE STORY ENGINE, BROUGHT TO LIFE",
-    title: "Every visit is carefully authored—then brought to life in real time.",
-    body: "The story beats, songs, prompts, learning goals, and emotional pacing are designed before the character enters the room. The performer supplies timing, warmth, and responsiveness. Children get a consistent, purposeful experience that still feels personal to their class.",
-    equation: ["Crafted experience", "+", "Human performance"],
-  },
-  {
-    id: "participation",
-    eyebrow: "THE STORY MOVES THROUGH THE BODY",
-    title: "Children do not watch the adventure. They move it forward.",
-    body: "They move, sing, answer, pretend, help, and cooperate. A planet becomes a stomp, courage becomes a breath and a pose, and an ocean current becomes a push and pull the whole group can feel. Participation is not a break from the story. It is how the story works.",
-    verbs: ["Move", "Sing", "Answer", "Pretend", "Help", "Cooperate"],
-  },
-  {
-    id: "story-arc",
-    eyebrow: "SIX VISITS, ONE JOURNEY",
-    title: "Each chapter recalls the last—so memory becomes momentum.",
-    body: "The world opens, children take a first deep dive, the mission expands, and then something goes wrong. They meet the big challenge, apply everything they have learned, and complete the journey together. Every opening calls back what came before; every ending gives them a reason to return.",
-    steps: ["Meet", "Explore", "Expand", "Face the challenge", "Use every skill", "Celebrate"],
-  },
-  {
-    id: "rhythm",
-    eyebrow: "ONE SESSION, A DELIBERATE ENERGY ARC",
-    title: "Every visit builds to a high—then winds children down calm.",
-    body: "The room moves from anticipation into action, listening, challenge, and laughter. Then the pace changes on purpose. Breath slows, bodies settle, and children reflect before returning to class. Jawly does not hand teachers a room that is still at full volume.",
-    quote: "96% of teachers gave the end-of-session cool-down a perfect 5.",
-    quoteSource: "Jawly teacher reviews · 50 responses",
-    steps: ["Anticipate", "Move", "Listen", "Take on the challenge", "Laugh", "Wind down", "Reflect"],
-  },
-  {
-    id: "learning",
-    eyebrow: "ONE LEARNING SPINE, THREE JOURNEYS",
-    title: "Children learn because the lesson is inside the adventure.",
-    body: "Body, language, executive function, social-emotional learning, cognition, and creativity develop through what children must do to complete the mission. They recall, sequence, plan, persist, take turns, name feelings, and move as one group—without the experience stopping to announce a lesson.",
-  },
-  {
-    id: "belonging",
-    eyebrow: "AN IDENTITY THAT STICKS",
-    title: "The adventure ends with a name children carry home.",
-    body: "They are not merely the class that watched Bravo, Orla, or Mira. They become Little Legends, Stardusters, or Mighty Minnows. The final visit retells what they accomplished, celebrates the crew, and leaves children with an identity rooted in courage, curiosity, or discovery.",
-  },
+  { number: "01", label: "LIVE SHOW", title: "Attention becomes connection.", body: "A recurring character, original music, and a continuing story give children someone to care about and a world they want to reenter. They remember what happened, anticipate what comes next, and arrive ready to participate—not simply watch.", takeaway: "Imagination opens the door to attention, memory, and belonging.", image: "/why-jawly/live-show.png" },
+  { number: "02", label: "MOVEMENT CLASS", title: "Learning moves through the body.", body: "Children dance, balance, stretch, act, sing, and solve physical challenges together. Movement is not a break from the lesson. It gives new language, ideas, and feelings something children can see, do, and remember.", takeaway: "The whole body becomes part of how the child understands.", image: "/why-jawly/movement-class.png" },
+  { number: "03", label: "LEARNING ADVENTURE", title: "The mission gives every skill a reason.", body: "Children recall, sequence, plan, persist, cooperate, name feelings, use new words, and imagine possibilities because the story needs them to. Knowledge and developmental skills become part of accomplishing something meaningful together.", takeaway: "Learning is woven into the adventure instead of interrupting it.", image: "/why-jawly/learning-adventure.png" },
+  { number: "04", label: "GUIDED RESET", title: "Big energy learns how to settle.", body: "Every visit changes pace with purpose. Children breathe, notice how they feel, reflect on what happened, and bring their bodies back toward calm before Jawly leaves the room.", takeaway: "Self-regulation is practiced as part of the experience—not saved for after it.", image: "/why-jawly/guided-reset.png" },
+] as const;
+
+const learningAreas = [
+  ["Body", "Balance, coordination, strength, and controlled movement", Activity],
+  ["Language", "New words, call-and-response, recall, and retelling", MessageCircle],
+  ["Executive function", "Planning, persistence, flexible thinking, and follow-through", Brain],
+  ["Social-emotional", "Feeling words, empathy, cooperation, and regulation", Heart],
+  ["Cognitive", "Sequencing, cause and effect, counting, sorting, and knowledge", Shapes],
+  ["Creative", "Pretend play, music, storytelling, and imagination", Palette],
+] as const;
+
+const journey = [
+  ["Meet", "The character arrives, the crew forms, and the mission begins."],
+  ["Explore", "One big idea is discovered through story, language, and movement."],
+  ["Expand", "A new challenge brings earlier ideas back in a different way."],
+  ["Face the challenge", "Something goes wrong, and the group plans, persists, and adapts."],
+  ["Use every skill", "Children recall and apply what the journey has taught them."],
+  ["Celebrate", "The class retells what it accomplished and carries the identity forward."],
 ] as const;
 
 export default function WhyJawlyPage() {
   return (
     <main className={styles.page}>
       <header className={styles.hero}>
-        <p className={styles.overline}>WHY JAWLY</p>
-        <h1>What makes a Jawly room feel different?</h1>
-        <p className={styles.dek}>Nine reasons a live character, a continuing story, and a thoughtfully paced room create an experience children remember.</p>
-        <a href="#physical-world" className={styles.start}>Start with the first reason <span aria-hidden="true">↓</span></a>
+        <div className={styles.heroCopy}>
+          <p className={styles.overline}>WHY JAWLY</p>
+          <h1>Built for what childhood needs now.</h1>
+          <p className={styles.dek}>Children are growing up surrounded by screens, fragmented attention, and increasingly automated experiences. Jawly uses technology differently—to create a live, physical world where children look up, move together, use their imaginations, and connect with the people around them.</p>
+          <a href="#reasons" className={styles.start}>Explore why it matters <span aria-hidden="true">↓</span></a>
+        </div>
       </header>
 
-      <div className={styles.article}>
-        {reasons.map((reason, index) => (
-          <article className={styles.reason} id={reason.id} key={reason.id}>
-            <div className={styles.number}>{String(index + 1).padStart(2, "0")}</div>
+      <section className={styles.reasons} id="reasons" aria-label="Four reasons Jawly matters">
+        {reasons.map((reason) => (
+          <article className={styles.reason} key={reason.number}>
+            <div className={styles.reasonLead}><span>{reason.number}</span><p>{reason.label}</p></div>
             <div className={styles.reasonBody}>
-              <p className={styles.eyebrow}>{reason.eyebrow}</p>
               <h2>{reason.title}</h2>
-              <p className={styles.body}>{reason.body}</p>
-
-              {"quote" in reason ? <blockquote>{reason.quote}<cite>{"quoteSource" in reason ? reason.quoteSource : "Jawly classroom observation"}</cite></blockquote> : null}
-              {"verbs" in reason ? <ul className={styles.verbs}>{reason.verbs.map((verb) => <li key={verb}>{verb}</li>)}</ul> : null}
-              {"equation" in reason ? <div className={styles.equation} aria-label="Crafted experience plus human performance">{reason.equation.map((item) => <span key={item}>{item}</span>)}</div> : null}
-              {"steps" in reason ? <ol className={styles.steps}>{reason.steps.map((step, stepIndex) => <li key={step}><span>{stepIndex + 1}</span>{step}</li>)}</ol> : null}
+              <p>{reason.body}</p>
+              <strong>{reason.takeaway}</strong>
             </div>
+            <img className={styles.reasonImage} src={reason.image} alt="" aria-hidden="true" />
           </article>
         ))}
-      </div>
+      </section>
+
+      <section className={styles.technology} aria-labelledby="technology-title">
+        <div className={styles.technologyCopy}>
+          <p className={styles.overline}>TECHNOLOGY WITH A BOUNDARY</p>
+          <h2 id="technology-title">Technology should deepen human connection—not replace it.</h2>
+          <p>Jawly uses AI in intentionally limited ways behind the scenes. The classroom experience is authored before arrival and led by a trained performer. It is not an open-ended AI conversation with children, and it does not identify children, remember individual participation, or build profiles from what happens in the room.</p>
+          <Link href="/trust-safety">See our technology and privacy boundaries <span aria-hidden="true">→</span></Link>
+        </div>
+        <div className={styles.boundaryGraphic} aria-label="Authored experience delivered by a trained human in a live classroom">
+          <div><span>01</span><strong>Authored experience</strong><small>Designed before arrival</small></div>
+          <i aria-hidden="true" />
+          <div><span>02</span><strong>Trained human</strong><small>Present in the room</small></div>
+          <i aria-hidden="true" />
+          <div><span>03</span><strong>Live classroom</strong><small>No child profiles or stored memory</small></div>
+        </div>
+      </section>
+
+      <section className={styles.learning} aria-labelledby="learning-title">
+        <div className={styles.sectionHeading}>
+          <p className={styles.overline}>THE WHOLE CHILD JOINS IN</p>
+          <h2 id="learning-title">Learning has more than one dimension.</h2>
+          <p>Each adventure has its own purpose and personality. Across them, children practice a broad mix of skills through the actions, choices, language, and relationships inside the story.</p>
+        </div>
+        <div className={styles.learningGrid}>
+          {learningAreas.map(([title, body, Icon]) => <article key={title}><Icon aria-hidden="true" /><h3>{title}</h3><p>{body}</p></article>)}
+        </div>
+      </section>
+
+      <section className={styles.continuity} aria-labelledby="continuity-title">
+        <div className={styles.sectionHeading}>
+          <p className={styles.overline}>WHY THE RETURN MATTERS</p>
+          <h2 id="continuity-title">One visit can delight. A continuing journey can build momentum.</h2>
+          <p>The character returns, the class remembers, and each new chapter asks children to carry something forward. The story grows with them until the whole journey belongs to the group.</p>
+        </div>
+        <ol className={styles.journey} aria-label="The six-visit story journey">
+          {journey.map(([step, detail], index) => (
+            <li key={step}>
+              <span>{index + 1}</span>
+              {index < journey.length - 1 ? (
+                <svg className={styles.journeyConnector} viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M0 16 C26 2 72 30 100 16" vectorEffect="non-scaling-stroke" />
+                </svg>
+              ) : null}
+              <strong>{step}</strong>
+              <p>{detail}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
 
       <aside className={styles.evidence} id="evidence">
         <div><p className={styles.overline}>THE THINKING BENEATH THE MAGIC</p><h2>Grounded, not overclaimed.</h2></div>
         <div>
           <p>Jawly draws on established child-development principles: playful social interaction, active participation, and relationships that make learning meaningful. Published research informs the design; our statements about what children say and anticipate come from Jawly classroom observations.</p>
+          <blockquote>“Several children now bring him up on their own between visits. He has become someone they think about.”<cite>Teacher · Kids R Kids</cite></blockquote>
           <ul>
             <li><a href="https://developingchild.harvard.edu/resources/handouts-tools/brainbuildingthroughplay/">Harvard Center on the Developing Child: brain-building through play ↗</a></li>
             <li><a href="https://publications.aap.org/pediatrics/article/138/5/e20162591/60503/Media-and-Young-Minds">American Academy of Pediatrics: media and young minds ↗</a></li>
@@ -115,8 +124,8 @@ export default function WhyJawlyPage() {
 
       <footer className={styles.cta}>
         <p className={styles.overline}>SEE IT IN THE ROOM</p>
-        <h2>Start with Chapter One.</h2>
-        <p>Your first Jawly visit is free.</p>
+        <h2>The best way to understand Jawly is to feel the room change.</h2>
+        <p>Start with Chapter One. Your first Jawly visit is free.</p>
         <Link href="/contact">Bring Jawly to your classroom <span aria-hidden="true">→</span></Link>
       </footer>
     </main>
