@@ -46,7 +46,7 @@ const stages = [
   },
   {
     eyebrow: "THE HUMAN",
-    title: "A passionate performer completes the experience with human warmth.",
+    title: "A performer embodies the magic with human warmth.",
     body:
       "Our cast members bring physical presence, shared laughter, and the human warmth we desperately need in education, while the Jawly system carries Bravo’s character and story.",
   },
