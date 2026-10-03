@@ -206,7 +206,7 @@ export default function CosmosLanding() {
               </button>
             ))}
           </div>
-          <p className={styles.videoDisclosure}>{"Every clip above is genuine, unscripted footage from a real Jawly classroom — we’ve used AI to alter the children’s faces to protect their privacy."}</p>
+          <p className={styles.videoDisclosure}>{"Every clip above is genuine, unscripted footage from a real Jawly classroom. We’ve used AI to alter the children’s faces to protect their privacy."}</p>
         </div>
         */}
       </section>

@@ -8,7 +8,7 @@ export type ServiceCell = {
 
 /**
  * Hand-maintained coverage. Add a ZIP here when a facilitator cell picks it up.
- * Both programs share this list — coverage is by cell, not by program.
+ * Both programs share this list. Coverage is by cell, not by program.
  *
  * Source of the locked lists: jawly-website-service-area-definition.md
  * Cell 1 is Chicago's north, northwest, and central side, west to California Ave.

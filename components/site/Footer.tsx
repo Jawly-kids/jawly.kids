@@ -42,7 +42,7 @@ export default function Footer() {
             <span>Proud member of</span>
             <img
               src="/brand/naeyc-member.png"
-              alt="NAEYC — National Association for the Education of Young Children"
+              alt="NAEYC, National Association for the Education of Young Children"
             />
           </div>
           <div className={styles.footerSocials} aria-label="Jawly social media">
